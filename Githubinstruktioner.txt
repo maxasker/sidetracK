@@ -1,0 +1,11 @@
+git pull
+
+git status
+
+git add *	(lägg till allt du har i mappen(mao uppdatera))
+
+git rm -r filnamn		(remove, OBS STOR BOKSTAV MATTERS)
+
+git commit -m "jag gjorde en ändring"
+
+git push
