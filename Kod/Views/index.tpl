@@ -31,7 +31,7 @@
             </div>
         
             <footer>
-                <p id="sidfot">sidetracK inc</p>
+                <p id="sidfot">sidetracKz0r inc</p>
                 <p>By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
