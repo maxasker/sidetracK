@@ -7,7 +7,9 @@ from bottle import url
 def index():
         return template("index")
 
-
+@route('/threadshow')
+def threadshow():
+    return template("thread")
 
 
 @route('<filename:re:.*\.css>',name='static')
