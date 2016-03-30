@@ -35,7 +35,7 @@
             %tstitlefile = open('{0}/tstitle.txt'.format(tspath), "r")
 		    %tstitle = tstitlefile.read()
 		    %tstitlefile.close()
-            <h1>{{tstitle}}</h1>
+            <h1>{{tstitle.replace("_____", " ")}}</h1>
 		    <p>{{tstext}}</p>
             
             </div>
