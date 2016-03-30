@@ -26,7 +26,9 @@
                 </nav>
             </div>
                 <div id="testruta">
-
+            <div id="tsbox">
+            %<p>threadlist</p>
+            </div>
             
                 </div>
             <div class="btn-toolbar">
