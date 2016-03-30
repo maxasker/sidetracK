@@ -9,11 +9,12 @@ def index():
 
 @route('/threadshow')
 def threadshow():
+    threadlist = os.listdir(path)
     return template("thread")
 
 @route('/threadoverview')
 def threadoverview():
-
+    return template("threadoverview")
 
 @route('/savenewthread', method="POST")
 def savethread():

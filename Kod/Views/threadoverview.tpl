@@ -25,22 +25,10 @@
                     </ul>
                 </nav>
             </div>
-                    <div id="testruta">
-            <h1>
-                Här är testrutan
-            </h1>
-            <form action="/savenewthread" method="post">
-	        <h1>Rubrik</h1>
-	        <textarea name="title" placeholder="Title" maxlength="100" rows="5" cols="50">Title</textarea>
-	        <hr>
-	        <h1>Brödtext</h1>
-	        <textarea name="text" placeholder="Text" maxlength="2000" rows="5" cols="50">Text</textarea>
-	        <hr>
-	        <input type="submit" value="Spara innehåll">
-            </form>
+                <div id="testruta">
+
             
-            
-        </div>
+                </div>
             <div class="btn-toolbar">
                 <button type="button" class="btn btn-default">Left</button>
                 <button type="button" class="btn btn-default">Middle</button>
