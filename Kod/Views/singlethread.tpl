@@ -25,22 +25,19 @@
                     </ul>
                 </nav>
             </div>
-                    <div id="testruta">
-            <h1>
-                Här är testrutan
-            </h1>
-            <form action="/savenewthread" method="post">
-	        <h1>Rubrik</h1>
-	        <textarea name="title" placeholder="Title" maxlength="100" rows="5" cols="50">Title</textarea>
-	        <hr>
-	        <h1>Brödtext</h1>
-	        <textarea name="text" placeholder="Text" maxlength="2000" rows="5" cols="50">Text</textarea>
-	        <hr>
-	        <input type="submit" value="Spara innehåll">
-            </form>
+            <div id="tsbox">
+
+		    %tstextfile = open('{0}/tstext.txt'.format(tspath), "r")
+		    %tstext = tstextfile.read()
+		    %tstextfile.close()
+
+            %tstitlefile = open('{0}/tstitle.txt'.format(tspath), "r")
+		    %tstitle = tstitlefile.read()
+		    %tstitlefile.close()
+            <h1>{{tstitle}}</h1>
+		    <p>{{tstext}}</p>
             
-            
-        </div>
+            </div>
             <div class="btn-toolbar">
                 <button type="button" class="btn btn-default">Left</button>
                 <button type="button" class="btn btn-default">Middle</button>
