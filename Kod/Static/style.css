@@ -13,14 +13,32 @@
 }
 
 .top-bar{
-        float: left;
+        float: right;
         width: 60%;
         height: 50px;
         background-color: aqua;
+        
 }
 
 .btn-toolbar{
+        float: left;
         background-color: bisque;
         margin-top: 100px;
 }
+
+#tsbox{
+    width: 75%;
+    background-color: palevioletred;
+    float: left;
+    margin-top: 100px;
+    margin-right: 200px;
         
+}
+footer{
+    text-align: center;
+    padding: 10px;
+    float: left;
+    margin-top: 85%;
+    background-color: chartreuse;
+    clear: both;
+}
