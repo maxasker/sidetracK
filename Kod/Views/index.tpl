@@ -28,10 +28,12 @@
                     </ul>
                 </nav>
             </div>
-            <div class="btn-toolbar">
-                <button type="button" class="btn btn-default">Left</button>
-                <button type="button" class="btn btn-default">Middle</button>
-                <button type="button" class="btn btn-default">Right</button>
+            <div id="categories">
+                <ul>
+                    <li><img src="../Static/Pictures/Love.PNG" alt="Picture of Love"> </li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
