@@ -11,6 +11,10 @@ def index():
 def threadshow():
     return template("thread")
 
+@route('/threadoverview')
+def threadoverview():
+
+
 @route('/savenewthread', method="POST")
 def savethread():
     title = request.forms.get("title")
