@@ -30,7 +30,7 @@
             </div>
             <div id="categories">
                 <ul>
-                    <li><img src="../Static/Pictures/Love.PNG" alt="Picture of Love"> </li>
+                    <li><img src="/Static/Love.jpg" alt="Picture of Lovez"> </li>
                     <li></li>
                     <li></li>
                 </ul>
