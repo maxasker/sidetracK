@@ -1,20 +1,21 @@
 #container{
         background-color: lightgray;
-        height: 600px;
+        height: 800px;
         width: 80%;
         margin-left: auto;
         margin-right: auto;
 }
 .main-logotype{
         float: left;
-        width: 20%;
+        text-align: center;
+        width: 60%;
         height: 50px;
         background-color: brown;
 }
 
 .top-bar{
         float: right;
-        width: 60%;
+        width: 40%;
         height: 50px;
         background-color: aqua;
         
@@ -24,7 +25,7 @@
 #categories{
         float: left;
         background-color: bisque;
-        margin-top: 100px;
+        margin-top: 80px;
         width: 100%;
 }
 
@@ -33,14 +34,23 @@
         height: 250px;
         padding: 5px;
 }
-    
-#tsbox{
-    width: 75%;
-    background-color: palevioletred;
+
+li{
+    display: inline;
+}
+
+.about_us{
+    height: 200px;
+    width: 60%;
+    background-color: skyblue;
     float: left;
-    margin-top: 100px;
-    margin-right: 200px;
-        
+}
+
+.rules{
+    height: 200px;
+    width: 40%;
+    background-color: darkseagreen;
+    float: left;
 }
 footer{
     text-align: center;
@@ -48,8 +58,13 @@ footer{
     float: left;
     background-color: chartreuse;
     clear: both;
+    width: 100%;
 }
 
-li{
-    display: inline;
+#tsbox{
+    width: 75%;
+    background-color: palevioletred;
+    float: left;
+    margin-top: 100px;
+    margin-right: 200px;
 }
