@@ -30,9 +30,9 @@
             </div>
             <div id="categories">
                 <ul>
-                    <li><img id="love" src="../static/love.jpg" alt="Picture of love"> </li>
-                    <li>Kommer finnas bild</li>
-                    <li>kommer finnas bild</li>
+                    <li><img class="catpic" src="../static/love.jpg" alt="Picture of love"></li>
+                    <li><img class="catpic" src="../static/hate.jpg" alt="Picture of hate"></li>
+                    <li><img class="catpic" src="../static/secret.jpg" alt="Picture of secret"</li>
                 </ul>
             </div>
             <footer>
