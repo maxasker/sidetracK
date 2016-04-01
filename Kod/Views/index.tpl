@@ -28,7 +28,6 @@
                     </ul>
                 </nav>
             </div>
-            <div id="bild"><img id="love" src="../static/love.jpg" alt="Picture of love"></div>
             <div id="categories">
                 <ul>
                     <li><img id="love" src="../static/love.jpg" alt="Picture of love"> </li>
