@@ -26,12 +26,16 @@
                 </nav>
             </div>
                 <div id="testruta">
-            <div id="tsbox">
-		% for i in lista:
-		<p>{{i}}</p>
-		<hr>
-		% end
-            </div>
+            <div id="likebox">
+                % for i in threads:
+                %threadtextfile = open("static/threads/{0}/tstext.txt".format(i), "r")
+                %threadtext = threadtextfile.read()
+                %threadtextfile.close()
+		        <h2>{{i}}</h2>
+                <p>{{threadtext}}</p>
+		        <hr>
+		        % end
+                </div>
             
                 </div>
             <div class="btn-toolbar">

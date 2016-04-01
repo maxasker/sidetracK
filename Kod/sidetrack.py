@@ -10,27 +10,26 @@ def index():
 
 @route('/threadshow')
 def threadshow():
-    #threadlist = os.walk(static/threads).next()[1]
     return template("thread")
 
 @route('/threadoverview')
 def threadoverview():
-    fillista = listdir('static/threads/')
-    return template("threadoverview", lista=fillista)
+    threadlist = os.walk('static/threads/like').next()[1]
+    return template("threadoverview", threads=threadlist)
 
-@route('/savenewthread', method="POST")
+@route('/savenewthreadlike', method="POST")
 def savethread():
     title = request.forms.get("title").replace(" ", "_____")
     text = request.forms.get("text")
-    newpath = r'static/threads/{0}'.format(title) 
+    newpath = r'static/threads/like/{0}'.format(title) 
     if not os.path.exists(newpath):
         os.makedirs(newpath)
 
-    newthreadtitlefile = open("{0}/tstitle.txt".format(newpath), "w")
+    newthreadtitlefile = open("like/{0}/tstitle.txt".format(newpath), "w")
     newthreadtitlefile.write(title)
     newthreadtitlefile.close()
 
-    newthreadtextfile = open("{0}/tstext.txt".format(newpath), "w")
+    newthreadtextfile = open("like/{0}/tstext.txt".format(newpath), "w")
     newthreadtextfile.write(text)
     newthreadtextfile.close()
     return template("singlethread", tspath=newpath)
@@ -44,5 +43,5 @@ def css(filename):
 def server_static(filename):
     return static_file(filename, root='static')
 
-run(host='localhost', port=9062, debug=True, reloader=True)
+run(host='localhost', port=9075, debug=True, reloader=True)
 
