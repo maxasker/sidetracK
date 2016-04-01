@@ -35,6 +35,10 @@
                     <li><img class="catpic" src="../static/secret.jpg" alt="Picture of secret"</li>
                 </ul>
             </div>
+            <div class="about_us">
+            </div>
+            <div class="rules">
+            </div>
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
                 <p>By Johannes, Simon, Max, Jacob and Per</p>
