@@ -28,10 +28,11 @@
                 <div id="testruta">
             <div id="likebox">
                 % for i in threads:
-                %threadtextfile = open("static/threads/{0}/tstext.txt".format(i), "r")
+                %threadtextfile = open("static/threads/like/{0}/tstext.txt".format(i), "r")
                 %threadtext = threadtextfile.read()
                 %threadtextfile.close()
-		        <h2>{{i}}</h2>
+                <a href="/lookatsinglethread">Kolla in tråden fitthue</a> 
+		        <h2>{{i.replace("_____", " ")}}</h2>
                 <p>{{threadtext}}</p>
 		        <hr>
 		        % end
