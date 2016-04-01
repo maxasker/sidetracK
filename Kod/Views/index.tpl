@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+        </..><link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
         
         
     </head>
@@ -28,12 +28,12 @@
                     </ul>
                 </nav>
             </div>
+            <div id="bild"><img id="love" src="../static/love.jpg" alt="Picture of love"></div>
             <div id="categories">
-                <img src="static/oh_you.jpg" alt="Picture of Lovez">
                 <ul>
-                    <li><img src="../static/oh_you.jpg" alt="Picture of hateZ"> </li>
-                    <li></li>
-                    <li></li>
+                    <li><img id="love" src="../static/love.jpg" alt="Picture of love"> </li>
+                    <li>Kommer finnas bild</li>
+                    <li>kommer finnas bild</li>
                 </ul>
             </div>
             <footer>
@@ -41,7 +41,5 @@
                 <p>By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
-        <img src="static/oh_you.jpg" alt="Picture of Lovez">
-        <img src="../static/oh_you.jpg" alt="Picture of hateZ">
     </body>
 </html>

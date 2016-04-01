@@ -1,9 +1,6 @@
 #container{
         background-color: lightgray;
-        width: 80%;
         height: 1000px;
-        margin-left: auto;
-        margin-right: auto;
 }
 .main-logotype{
         float: left;
@@ -19,11 +16,15 @@
         background-color: aqua;
         
 }
+#bild{
+    heght:2000px;
+    width: 100%;
+    position: absolute;
+}
 
 #categories{
         float: left;
         background-color: bisque;
-        margin-top: 100px;
 }
 
 #tsbox{
@@ -41,4 +42,8 @@ footer{
     margin-top: 85%;
     background-color: chartreuse;
     clear: both;
+}
+
+li{
+    display: inline;
 }
