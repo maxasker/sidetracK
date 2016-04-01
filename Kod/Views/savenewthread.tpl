@@ -29,7 +29,7 @@
             <h1>
                 Här är testrutan
             </h1>
-            <form action="/savenewthread" method="post">
+            <form action="/savenewthreadlike" method="post">
 	        <h1>Rubrik</h1>
 	        <textarea name="title" placeholder="Title" maxlength="100" rows="5" cols="50">Title</textarea>
 	        <hr>
