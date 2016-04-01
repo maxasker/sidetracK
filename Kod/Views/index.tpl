@@ -29,8 +29,9 @@
                 </nav>
             </div>
             <div id="categories">
+                <img src="static/oh_you.jpg" alt="Picture of Lovez">
                 <ul>
-                    <li><img src="/Static/Love.jpg" alt="Picture of Lovez"> </li>
+                    <li><img src="../static/oh_you.jpg" alt="Picture of hateZ"> </li>
                     <li></li>
                     <li></li>
                 </ul>
@@ -40,5 +41,7 @@
                 <p>By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
+        <img src="static/oh_you.jpg" alt="Picture of Lovez">
+        <img src="../static/oh_you.jpg" alt="Picture of hateZ">
     </body>
 </html>

@@ -34,9 +34,9 @@ def savethread():
     newthreadtextfile.close()
     return template("singlethread", tspath=newpath)
 
-@route('/Static/<filename>')
+@route('/static/<filename>')
 def server_static(filename):
-    return static_file(filename, root='Static')
+    return static_file(filename, root='static')
 
 run(host='localhost', port=9057, debug=True, reloader=True)
 
