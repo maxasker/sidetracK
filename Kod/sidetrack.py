@@ -15,7 +15,8 @@ def threadshow():
 
 @route('/threadoverview')
 def threadoverview():
-    return template("threadoverview")
+    fillista = listdir('static/threads/')
+    return template("threadoverview", lista=fillista)
 
 @route('/savenewthread', method="POST")
 def savethread():

@@ -27,7 +27,10 @@
             </div>
                 <div id="testruta">
             <div id="tsbox">
-            %<p>threadlist</p>
+		% for i in lista:
+		<p>{{i}}</p>
+		<hr>
+		% end
             </div>
             
                 </div>
@@ -36,7 +39,6 @@
                 <button type="button" class="btn btn-default">Middle</button>
                 <button type="button" class="btn btn-default">Right</button>
             </div>
-        
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
                 <p>By Johannes, Simon, Max, Jacob and Per</p>
