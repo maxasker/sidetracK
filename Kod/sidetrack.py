@@ -35,9 +35,14 @@ def savethread():
     newthreadtextfile.close()
     return template("singlethread", tspath=newpath)
 
+@route('<filename:re:.*\.css>',name='static')
+def css(filename):
+    print "css:",filename
+    return static_file(filename,root='./static',mimetype='text/css')
+
 @route('/static/<filename>')
 def server_static(filename):
     return static_file(filename, root='static')
 
-run(host='localhost', port=9057, debug=True, reloader=True)
+run(host='localhost', port=9062, debug=True, reloader=True)
 
