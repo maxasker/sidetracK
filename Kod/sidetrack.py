@@ -1,8 +1,10 @@
-# -*- coding: cp1252 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from bottle import run, route, template, request, static_file, get, post, error
 from bottle import static_file
 from bottle import url
 import os
+import sys
 
 @route('/')
 def index():
@@ -89,5 +91,5 @@ def css(filename):
 def server_static(filename):
     return static_file(filename, root='static')
 
-run(host='localhost', port=9108, debug=True, reloader=True)
+run(host='localhost', port=9123, debug=True, reloader=True)
 

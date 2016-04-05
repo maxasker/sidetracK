@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 % from bottle import url
-% from os import listdir
+% import os
 <html>
 
     <head>
@@ -32,14 +32,17 @@
             <h1>{{threadname.replace("_____", " ")}}</h1>
 		    <p>{{threadtext}}</p>
             %for mapp in commentlist:
-				%filelist = listdir("static/threads/like/{0}/comments/{1}".format(mapp,threadname))
-                %for comment in filelist:
-                %commentfile = open("static/threads/like/{0}/comments/{1}/{2}".format(mapp,threadname,comment), "r")
-                %commenttext = "tystper"
+                %filelist = os.listdir("static/threads/like/{0}/comments/comment1/".format(threadname))
+                %for textfile in filelist:
+                %commentfile = open("static/threads/like/{0}/comments/{1}/{2}".format(threadname,mapp,textfile), "r")
+                %commenttext = commentfile.read()
                 %commentfile.close()
-                <p>{{commenttext}}</p>
+                %if textfile == "comment1.txt":
+                    <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
+                %else:
+                    <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
                 %end
-            
+                %end
             %end
             </div>
         
