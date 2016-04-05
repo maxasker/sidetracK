@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 % from bottle import url
+% from os import listdir
 <html>
 
     <head>
@@ -7,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="container">
@@ -25,25 +27,22 @@
                     </ul>
                 </nav>
             </div>
-                <div id="testruta">
-            <div id="likebox">
-                % for i in threads:
-                %threadtextfile = open("static/threads/like/{0}/tstext.txt".format(i), "r")
-                %threadtext = threadtextfile.read()
-                %threadtextfile.close()
-                <a href="/lookatsinglethread/{{i}}">Klicka här fitthue</a> 
-		        <h2>{{i.replace("_____", " ")}}</h2>
-                <p>{{threadtext}}</p>
-		        <hr>
-		        % end
-                </div>
+            <div id="tsbox">
+            <a href="/createnewcomment/{{threadname}}/{{threadtext}}">Klicka här fitthue för att svara</a>
+            <h1>{{threadname.replace("_____", " ")}}</h1>
+		    <p>{{threadtext}}</p>
+            %for mapp in commentlist:
+				%filelist = listdir("static/threads/like/{0}/comments/{1}".format(mapp,threadname))
+                %for comment in filelist:
+                %commentfile = open("static/threads/like/{0}/comments/{1}/{2}".format(mapp,threadname,comment), "r")
+                %commenttext = "tystper"
+                %commentfile.close()
+                <p>{{commenttext}}</p>
+                %end
             
-                </div>
-            <div class="btn-toolbar">
-                <button type="button" class="btn btn-default">Left</button>
-                <button type="button" class="btn btn-default">Middle</button>
-                <button type="button" class="btn btn-default">Right</button>
+            %end
             </div>
+        
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
                 <p>By Johannes, Simon, Max, Jacob and Per</p>

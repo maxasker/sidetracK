@@ -11,9 +11,9 @@
     <body>
         <div id="container">
     
-            <form action="/commenttest" method="post">
+            <form action="/savenewcomment/{{threadname}}/{{threadtext}}" method="post">
 	        <h1>Brödtext</h1>
-	        <textarea name="text" placeholder="Text" maxlength="2000" rows="5" cols="50">Text</textarea>
+	        <textarea name="text" placeholder="text" maxlength="2000" rows="5" cols="50">Text</textarea>
 	        <hr>
 	        <input type="submit" value="Spara innehåll">
             </form>
