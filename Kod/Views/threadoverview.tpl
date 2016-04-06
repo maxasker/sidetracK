@@ -12,7 +12,7 @@
         <div id="container">
                 <div class="main-logotype">
                 <header>
-                    <button id="rubrik"><h1>sidetracK</h1></button>
+                    <a id="rubrik" href="/homepage">sidetracK</a>
                 </header>
                 </div>
              <div class="top-bar">
@@ -21,18 +21,19 @@
                         <li role="presentation" class="active"><a href="#">Home</a></li>
                         <li role="presentation"><a href="#">Profile</a></li>
                         <li role="presentation"><a href="/threadoverview">Messages</a></li>
-                        <li role="presentation"><a href="/threadshow">Kom till tråden</a></li>
+                        <li role="presentation"><a href="/createthread">Kom till tråden</a></li>
                     </ul>
                 </nav>
+                 <div><a href="/{{threadcategori}}/createthread">Skapa tråd</a></div>
             </div>
                 <div id="testruta">
             <div id="likebox">
-                % for i in threads:
-                %threadtextfile = open("static/threads/like/{0}/tstext.txt".format(i), "r")
+                % for threadname in threads:
+                %threadtextfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
                 %threadtext = threadtextfile.read()
                 %threadtextfile.close()
-                <a href="/lookatsinglethread/{{i}}">Klicka här fitthue</a> 
-		        <h2>{{i.replace("_____", " ")}}</h2>
+                <a href="/redirthread/{{threadcategori}}/{{threadname}}">Klicka här fitthue</a>
+		        <h2>{{threadname.replace("_____", " ")}}</h2>
                 <p>{{threadtext}}</p>
 		        <hr>
 		        % end

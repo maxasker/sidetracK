@@ -3,6 +3,7 @@
 from bottle import run, route, template, request, static_file, get, post, error
 from bottle import static_file
 from bottle import url
+from bottle import redirect
 import os
 import sys
 
@@ -10,22 +11,33 @@ import sys
 def index():
     return template("index")
 
-@route('/threadshow')
-def threadshow():
-    return template("savenewthread")
+@route('/homepage')
+def homepage():
+    redirect('/')
+    
 
-@route('/lookatsinglethread/<threadname>')
-def lookatsinglethread(threadname):
-    singlethreadfile = open("static/threads/like/{0}/tstext.txt".format(threadname), "r")
+@route('/<threadcategori>/createthread')
+def threadshow(threadcategori):
+    threadcategori = threadcategori
+    return template("savenewthread", threadcategori=threadcategori)
+
+@route('/redirthread/<threadcategori>/<threadname>')
+def redirectthreads(threadcategori,threadname):
+    #NÅGOT FEL HÄR
+    redirect('/<threadcategori>/thread/<threadname>',threadcategori=threadcategori,threadname=threadname)
+
+@route('/<threadcategori>/thread/<threadname>')
+def lookatsinglethread(threadcategori,threadname):
+    singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
     threadtext = singlethreadfile.read()
     singlethreadfile.close()
-    commentlist = os.walk('static/threads/like/{0}/comments'.format(threadname)).next()[1]
+    commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
     return template("singlethread2", threadname=threadname, threadtext=threadtext, commentlist=commentlist)
 
-@route('/threadoverview')
-def threadoverview():
-    threadlist = os.walk('static/threads/like').next()[1]
-    return template("threadoverview", threads=threadlist)
+@route('/threadoverview/<threadcategori>')
+def threadoverview(threadcategori):
+    threadlist = os.walk('static/threads/{0}'.format(threadcategori)).next()[1]
+    return template("threadoverview", threads=threadlist, threadcategori=threadcategori)
 
 @route('/createnewcomment/<threadname>/<threadtext>')
 def createnewcomment(threadname,threadtext):
@@ -63,12 +75,12 @@ def createcommentfile(commenttext,threadname,newpath):
     newcommentfile.write(commenttext)
     newcommentfile.close()
 
-@route('/savenewthreadlike', method="POST")
-def savethread():
+@route('/savenewthread/<threadcategori>', method="POST")
+def savethread(threadcategori):
     title = request.forms.get("title").replace(" ", "_____")
     text = request.forms.get("text")
-    newpath2 = r'static/threads/like/{0}'.format(title)
-    newpath = r'static/threads/like/{0}/comments'.format(title) 
+    newpath2 = r'static/threads/{1}/{0}'.format(title, threadcategori)
+    newpath = r'static/threads/{1}/{0}/comments'.format(title, threadcategori) 
     if not os.path.exists(newpath):
         os.makedirs(newpath)
 
@@ -79,7 +91,7 @@ def savethread():
     newthreadtextfile = open("{0}/tstext.txt".format(newpath2), "w")
     newthreadtextfile.write(text)
     newthreadtextfile.close()
-    title = []
+    #redirect('/lootatsinglethread/<threadname>',threadname )
     return template("singlethread", tspath=newpath2)
 
 @route('<filename:re:.*\.css>',name='static')
@@ -91,5 +103,5 @@ def css(filename):
 def server_static(filename):
     return static_file(filename, root='static')
 
-run(host='localhost', port=9123, debug=True, reloader=True)
+run(host='localhost', port=9142, debug=True, reloader=True)
 

@@ -9,6 +9,7 @@
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+        <script src="JavaScript.js"></script>
     </head>
     <body>
         <div id="container">
@@ -32,15 +33,20 @@
             <h1>{{threadname.replace("_____", " ")}}</h1>
 		    <p>{{threadtext}}</p>
             %for mapp in commentlist:
-                %filelist = os.listdir("static/threads/like/{0}/comments/comment1/".format(threadname))
+                %filelist = os.listdir("static/threads/{1}/{0}/comments/comment1/".format(threadname))
                 %for textfile in filelist:
-                %commentfile = open("static/threads/like/{0}/comments/{1}/{2}".format(threadname,mapp,textfile), "r")
+                %commentfile = open("static/threads/{1}/{0}/comments/{1}/{2}".format(threadname,mapp,textfile), "r")
                 %commenttext = commentfile.read()
                 %commentfile.close()
                 %if textfile == "comment1.txt":
-                    <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
+                <div>
+                    <a href="/comment">Kommentera</a>
+                    <h1>{{commenttext.decode('iso-8859-1').encode('utf8')}}</h1>
+                </div>
                 %else:
+                <div>
                     <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
+                </div>
                 %end
                 %end
             %end

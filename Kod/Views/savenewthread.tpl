@@ -29,13 +29,14 @@
             <h1>
                 Här är testrutan
             </h1>
-            <form action="/savenewthreadlike" method="post">
+            <form action="/savenewthread/{{threadcategori}}" method="post">
 	        <h1>Rubrik</h1>
 	        <textarea name="title" placeholder="Title" maxlength="100" rows="5" cols="50">Title</textarea>
 	        <hr>
 	        <h1>Brödtext</h1>
 	        <textarea name="text" placeholder="Text" maxlength="2000" rows="5" cols="50">Text</textarea>
 	        <hr>
+            <input type="file" name="pic" accept="image/*">
 	        <input type="submit" value="Spara innehåll">
             </form>
             

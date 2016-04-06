@@ -15,7 +15,7 @@
         <div id="container">
                 <div class="main-logotype">
                 <header>
-                    <button id="rubrik"><h1>sidetracK</h1></button>
+                    <button id="rubrik"><a href="/'/'">sidetracK</a></button>
                 </header>
                 </div>
              <div class="top-bar">
@@ -30,9 +30,18 @@
             </div>
             <div id="categories">
                 <ul>
-                    <li><img class="catpic" src="../static/love.jpg" alt="Picture of love"></li>
-                    <li><img class="catpic" src="../static/hate.jpg" alt="Picture of hate"></li>
-                    <li><img class="catpic" src="../static/secret.jpg" alt="Picture of secret"</li>
+                    %like = "like"
+                    <a href="/threadoverview/{{like}}">
+                        <li><img class="catpic" src="../static/love.jpg" alt="Picture of love"></li>
+                    </a>
+                    %classified = "classified"
+                    <a href="/threadoverview/{{classified}}">
+                        <li><img class="catpic" src="../static/classified.jpg" alt="Picture of classified"></li>
+                    </a>
+                    %dislike = "dislike"
+                    <a href="/threadoverview/{{dislike}}">
+                        <li><img class="catpic" src="../static/hate.jpg" alt="Picture of dislike"</li>
+                    </a>
                 </ul>
             </div>
             <div class="about_us">
