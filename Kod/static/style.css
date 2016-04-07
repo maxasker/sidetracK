@@ -1,5 +1,5 @@
 #container{
-        background-color: lightgray;
+        background-color:;
         height: 800px;
         width: 80%;
         margin-left: auto;
@@ -10,28 +10,33 @@
         text-align: center;
         width: 60%;
         height: 50px;
-        background-color: brown;
+        background-color:;
+}
+#logotype{
+        font-size: 50px;
 }
 
 .top-bar{
         float: right;
         width: 40%;
         height: 50px;
-        background-color: aqua;
+        background-color:;
         
 }
 
 
 #categories{
         float: left;
-        background-color: bisque;
-        margin-top: 80px;
+        background-color:;
+        margin-top: 24px;
+        margin-bottom:;
         width: 100%;
+        text-align: center;
 }
 
 .catpic{
-        width: 300px;
-        height: 250px;
+        width: 250px;
+        height: 300px;
         padding: 5px;
 }
 
@@ -40,23 +45,23 @@ li{
 }
 
 .about_us{
-    height: 200px;
+    height: 250px;
     width: 60%;
-    background-color: skyblue;
+    background-color:;
     float: left;
 }
 
 .rules{
-    height: 200px;
+    height: 250px;
     width: 40%;
-    background-color: darkseagreen;
+    background-color:;
     float: left;
 }
 footer{
     text-align: center;
     padding: 10px;
     float: left;
-    background-color: chartreuse;
+    background-color: lightgray;
     clear: both;
     width: 100%;
 }
