@@ -9,7 +9,6 @@
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
-        <script src="JavaScript.js"></script>
     </head>
     <body>
         <div id="container">
@@ -29,13 +28,19 @@
                 </nav>
             </div>
             <div id="tsbox">
-            <a href="/createnewcomment/{{threadname}}/{{threadtext}}">Klicka här fitthue för att svara</a>
+            %commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
+            %singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
+            %threadtext = singlethreadfile.read()
+            <script src="/static/javascript.js"></script>
+            <div id='elem' onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();'  > </div>
+            <a href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php');">javascriptsvar</a>
+            <a href="/{{threadcategori}}/{{threadname}}/createnewcomment">Klicka här fitthue för att svara</a>
             <h1>{{threadname.replace("_____", " ")}}</h1>
 		    <p>{{threadtext}}</p>
             %for mapp in commentlist:
-                %filelist = os.listdir("static/threads/{1}/{0}/comments/comment1/".format(threadname))
+                %filelist = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
                 %for textfile in filelist:
-                %commentfile = open("static/threads/{1}/{0}/comments/{1}/{2}".format(threadname,mapp,textfile), "r")
+                %commentfile = open("static/threads/{0}/{1}/comments/{2}/{3}".format(threadcategori,threadname,mapp,textfile), "r")
                 %commenttext = commentfile.read()
                 %commentfile.close()
                 %if textfile == "comment1.txt":

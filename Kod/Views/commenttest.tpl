@@ -11,7 +11,7 @@
     <body>
         <div id="container">
     
-            <form action="/savenewcomment/{{threadname}}/{{threadtext}}" method="post">
+            <form action="/{{threadcategori}}/{{threadname}}/savenewcomment" method="post">
 	        <h1>Brödtext</h1>
 	        <textarea name="text" placeholder="text" maxlength="2000" rows="5" cols="50">Text</textarea>
 	        <hr>

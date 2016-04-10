@@ -32,7 +32,7 @@
                 %threadtextfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
                 %threadtext = threadtextfile.read()
                 %threadtextfile.close()
-                <a href="/redirthread/{{threadcategori}}/{{threadname}}">Klicka här fitthue</a>
+                <a href="/{{threadcategori}}/thread/{{threadname}}">Klicka här fitthue</a>
 		        <h2>{{threadname.replace("_____", " ")}}</h2>
                 <p>{{threadtext}}</p>
 		        <hr>

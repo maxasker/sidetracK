@@ -24,7 +24,8 @@ def threadshow(threadcategori):
 @route('/redirthread/<threadcategori>/<threadname>')
 def redirectthreads(threadcategori,threadname):
     #NÅGOT FEL HÄR
-    redirect('/<threadcategori>/thread/<threadname>',threadcategori=threadcategori,threadname=threadname)
+    lookatsinglethread(threadcategori,threadname)
+    #redirect('/<threadcategori>/thread/<threadname>')
 
 @route('/<threadcategori>/thread/<threadname>')
 def lookatsinglethread(threadcategori,threadname):
@@ -32,41 +33,48 @@ def lookatsinglethread(threadcategori,threadname):
     threadtext = singlethreadfile.read()
     singlethreadfile.close()
     commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
-    return template("singlethread2", threadname=threadname, threadtext=threadtext, commentlist=commentlist)
+    return template("singlethread2", threadname=threadname, threadtext=threadtext, commentlist=commentlist,threadcategori=threadcategori)
 
+def singlethread(threadcategori,threadname):
+    singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
+    threadtext = singlethreadfile.read()
+    singlethreadfile.close()
+    commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
+    
 @route('/threadoverview/<threadcategori>')
 def threadoverview(threadcategori):
     threadlist = os.walk('static/threads/{0}'.format(threadcategori)).next()[1]
     return template("threadoverview", threads=threadlist, threadcategori=threadcategori)
 
-@route('/createnewcomment/<threadname>/<threadtext>')
-def createnewcomment(threadname,threadtext):
-    return template("commenttest", threadname=threadname, threadtext=threadtext)
+@route('/<threadcategori>/<threadname>/createnewcomment')
+def createnewcomment(threadname,threadcategori):
+    return template("commenttest", threadname=threadname, threadcategori=threadcategori)
 
-@route('/savenewcomment/<threadname>/<threadtext>', method="POST")
-def savenewcomment(threadname,threadtext):
+@route('/<threadcategori>/<threadname>/savenewcomment', method="POST")
+def savenewcomment(threadcategori,threadname):
     counter = 1
-    newpath2 = r'static/threads/like/{1}/comments/comment{0}'.format(counter, threadname)
-    checkifdirexists(newpath2,counter,threadname)
+    newpath2 = r'static/threads/{0}/{1}/comments/comment{2}'.format(threadcategori,threadname,counter)
+    checkifdirexists(newpath2,counter,threadname,threadcategori)
     commenttext = request.forms.get("text")
-    newpath = r'static/threads/like/{1}/comments/comment{0}/comment1.txt'.format(counter, threadname)
-    checkifcommentexists(newpath,counter,commenttext,threadname)
-    return template("singlethread2", threadname=threadname, threadtext=threadtext)
+    newpath = r'static/threads/{0}/{1}/comments/comment{2}/comment1.txt'.format(threadcategori,threadname,counter)
+    checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori)
+    redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
+    return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
-def checkifdirexists(newpath2,counter,threadname):
+def checkifdirexists(newpath2,counter,threadname,threadcategori):
     if not os.path.exists(newpath2):
         os.makedirs(newpath2)
     else:
         counter = counter+1
-        newpath2 = r'static/threads/like/{1}/comments/comment{0}'.format(counter, threadname)
-        checkifdirexists(newpath2,counter,threadname)
+        newpath2 = r'static/threads/{0}/{1}/comments/comment{2}'.format(threadcategori,threadname,counter)
+        checkifdirexists(newpath2,counter,threadname,threadcategori)
     return counter
 
-def checkifcommentexists(newpath,counter,commenttext,threadname):
+def checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori):
     if os.path.isfile(newpath):
         counter = counter + 1
-        newpath = r'static/threads/like/{1}/comments/comment{0}/comment1.txt'.format(counter, threadname)
-        checkifcommentexists(newpath,counter,commenttext,threadname)
+        newpath = r'static/threads/{0}/{1}/comments/comment{2}/comment1.txt'.format(threadcategori,threadname,counter)
+        checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori)
     else:
         createcommentfile(commenttext,threadname,newpath)
 
@@ -77,22 +85,22 @@ def createcommentfile(commenttext,threadname,newpath):
 
 @route('/savenewthread/<threadcategori>', method="POST")
 def savethread(threadcategori):
-    title = request.forms.get("title").replace(" ", "_____")
+    threadname = request.forms.get("title").replace(" ", "_____")
     text = request.forms.get("text")
-    newpath2 = r'static/threads/{1}/{0}'.format(title, threadcategori)
-    newpath = r'static/threads/{1}/{0}/comments'.format(title, threadcategori) 
+    newpath2 = r'static/threads/{1}/{0}'.format(threadname, threadcategori)
+    newpath = r'static/threads/{1}/{0}/comments'.format(threadname, threadcategori) 
     if not os.path.exists(newpath):
         os.makedirs(newpath)
 
     newthreadtitlefile = open("{0}/tstitle.txt".format(newpath2), "w")
-    newthreadtitlefile.write(title)
+    newthreadtitlefile.write(threadname)
     newthreadtitlefile.close()
 
     newthreadtextfile = open("{0}/tstext.txt".format(newpath2), "w")
     newthreadtextfile.write(text)
     newthreadtextfile.close()
-    #redirect('/lootatsinglethread/<threadname>',threadname )
-    return template("singlethread", tspath=newpath2)
+    redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
+    return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
 @route('<filename:re:.*\.css>',name='static')
 def css(filename):
@@ -103,5 +111,5 @@ def css(filename):
 def server_static(filename):
     return static_file(filename, root='static')
 
-run(host='localhost', port=9142, debug=True, reloader=True)
+run(host='localhost', port=9181, debug=True, reloader=True)
 
