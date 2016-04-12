@@ -1,6 +1,6 @@
 function showReplyBox(id,topicid,thispage){
     
-var elem = '<form id ="form1" action = "/{{threadcategori}}/{{threadname}}/savenewcomment" method="post"><input type="hidden" name="comid" value="';
+var elem = '<form id ="form1" action = "'+formLink+'" method="post"><input type="hidden" name="comid" value="';
 elem = elem+ id + '">';
 elem = elem + '<input type="hidden" name="topicid" value="';
 elem = elem + topicid + '">';

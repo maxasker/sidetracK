@@ -31,6 +31,9 @@
             %commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
             %singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
             %threadtext = singlethreadfile.read()
+            <script>
+                var formLink = "/{{threadcategori}}/{{threadname}}/savenewcomment";
+            </script>
             <script src="/static/javascript.js"></script>
             <div id='elem' onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();'  > </div>
             <a href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php');">javascriptsvar</a>
