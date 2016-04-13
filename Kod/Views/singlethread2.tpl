@@ -36,7 +36,7 @@
             </script>
             <script src="/static/javascript.js"></script>
             <div id='elem' onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();'  > </div>
-            <a href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php');">javascriptsvar</a>
+            <a href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">javascriptsvar</a>
             <a href="/{{threadcategori}}/{{threadname}}/createnewcomment">Klicka här fitthue för att svara</a>
             <h1>{{threadname.replace("_____", " ")}}</h1>
 		    <p>{{threadtext}}</p>
