@@ -27,7 +27,7 @@
                     </ul>
                 </nav>
             </div>
-            <div id="tsbox">
+            <div class="tsbox">
             %commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
             %singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
             %threadtext = singlethreadfile.read()
@@ -47,12 +47,12 @@
                 %commenttext = commentfile.read()
                 %commentfile.close()
                 %if textfile == "comment1.txt":
-                <div>
+                <div class="threadcomment">
                     <a href="/comment">Kommentera</a>
-                    <h1>{{commenttext.decode('iso-8859-1').encode('utf8')}}</h1>
+                    <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
                 </div>
                 %else:
-                <div>
+                <div class="commentcomment">
                     <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
                 </div>
                 %end
