@@ -108,11 +108,10 @@ label.myLabel input[type="file"]{
         text-align: center;
         width: 60%;
         height: 50px;
-        background-color:;
-}
-#logotype{
         font-size: 50px;
+        
 }
+
 
 .top-bar{
         float: right;
@@ -126,11 +125,17 @@ label.myLabel input[type="file"]{
         float: left;
         margin-top: 80px;
         margin-bottom: -116px;
+        width:99%;
 }
 
+
+
+
 .nav-butt{
-        width: 300px;
+        width:33%;
+        
         text-align: center;
+        
 }
         
 

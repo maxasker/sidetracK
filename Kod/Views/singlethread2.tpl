@@ -14,7 +14,7 @@
         <div id="container">
                 <div class="main-logotype">
                 <header>
-                    <button id="rubrik"><h1>sidetracK</h1></button>
+                    <a id="rubrik" href="/homepage">sidetracK</a>
                 </header>
                 </div>
              <div class="top-bar">
@@ -27,6 +27,16 @@
                     </ul>
                 </nav>
             </div>
+             <div class="middle-bar">
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="nav-butt"><a href="#">Like</a>
+                            </li>
+                            <li role="presentation" class="nav-butt"><a href="#">Classified</a>
+                            </li>
+                            <li role="presentation" class="nav-butt"><a href="#">Dislike</a>       
+                            </li>
+                        </ul>
+                    </div>
             <div class="tsbox">
             %commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
             %singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")

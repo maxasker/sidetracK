@@ -14,7 +14,7 @@
         <div id="container">
                 <div class="main-logotype">
                 <header>
-                    <p id=logotype>Sidetrack</p>
+                    <a id="rubrik" href="/homepage">sidetracK</a>
                 </header>
                 </div>
              <div class="top-bar">

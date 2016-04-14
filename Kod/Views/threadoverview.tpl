@@ -27,8 +27,7 @@
                     </ul>
                 </nav>
             </div>
-                <div id="testruta">
-                    <div class="middle-bar">
+               <div class="middle-bar">
                         <ul class="nav nav-tabs">
                             <li role="presentation" class="nav-butt"><a href="#">Like</a>
                             </li>
@@ -38,6 +37,8 @@
                             </li>
                         </ul>
                     </div>
+                <div id="testruta">
+                 
             <div><a href="/{{threadcategori}}/createthread">Skapa tråd</a>    
                 </div>
             <div class="likebox">
