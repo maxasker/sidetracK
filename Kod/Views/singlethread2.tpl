@@ -64,11 +64,11 @@
                 %if textfile == "comment1.txt":
                 <div class="threadcomment">
                     <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">javascriptsvarDOS</a>
-                    <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
+                    <p>{{commenttext}}</p>
                 </div>
                 %else:
                 <div class="commentcomment">
-                    <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
+                    <p>{{commenttext}}</p>
                     
                 </div>
                 %end

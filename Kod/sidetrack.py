@@ -21,12 +21,6 @@ def threadshow(threadcategori):
     threadcategori = threadcategori
     return template("savenewthread", threadcategori=threadcategori)
 
-@route('/redirthread/<threadcategori>/<threadname>')
-def redirectthreads(threadcategori,threadname):
-    #NÅGOT FEL HÄR
-    lookatsinglethread(threadcategori,threadname)
-    #redirect('/<threadcategori>/thread/<threadname>')
-
 @route('/<threadcategori>/thread/<threadname>')
 def lookatsinglethread(threadcategori,threadname):
     singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
@@ -139,5 +133,5 @@ def css(filename):
 def server_static(filename):
     return static_file(filename, root='static')
 
-run(host='localhost', port=9205, debug=True, reloader=True)
+run(host='localhost', port=9207, debug=True, reloader=True)
 
