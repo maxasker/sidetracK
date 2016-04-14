@@ -13,17 +13,17 @@
     <body>
         <div id="container">
                 <div class="main-logotype">
-                <header>
-                    <p id=logotype>Sidetrack</p>
-                </header>
+                    <header>
+                        <a class="main-logotype" href="/homepage">sidetracK</a>
+                    </header>
                 </div>
-             <div class="top-bar">
+              <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation" class="active"><a href="#">Home</a>
+                        <li role="presentation"><a class="nav-text" href="/threadoverview">threadoverview</a>
                         </li>
-                        <li role="presentation"><a href="/threadoverview">Trådöverblick</a>                         </li>
-                        <li role="presentation"><a href="/threadshow">Kom till tråden</a>                           </li>
+                        <li role="presentation"><a class="nav-text" href="/createthread">treatethread</a>
+                        </li>
                     </ul>
                 </nav>
             </div>

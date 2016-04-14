@@ -98,30 +98,48 @@ label.myLabel input[type="file"]{
 
 #container{
         background-color:;
-        height: 800px;
         width: 80%;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
 }
 .main-logotype{
         float: left;
-        text-align: center;
+        text-align: right;
         width: 60%;
         height: 50px;
-        background-color:;
-}
-#logotype{
         font-size: 50px;
+        color: black;
+        
 }
+
 
 .top-bar{
         float: right;
         width: 40%;
         height: 50px;
         background-color:;
+        color: black;
         
 }
 
+.middle-bar{
+        float: left;
+        margin-top: 80px;
+        margin-bottom: -116px;
+        width:99%;
+}
+
+.nav-text{
+        color:black;
+}
+
+.nav-butt{
+        width:33%;        
+        text-align: center;
+        
+}
+        
 
 #categories{
         float: left;
@@ -164,10 +182,26 @@ footer{
     width: 100%;
 }
 
-#tsbox{
-    width: 75%;
+.tsbox, .likebox{
+    width: 100%;
     background-color: palevioletred;
     float: left;
-    margin-top: 100px;
+    margin-top: 120px;
     margin-right: 200px;
+    padding: 5px;
+    
 }
+
+.threadcomment{
+    background-color: gray;
+    height: 60px;
+    margin-top:10px;
+}
+
+.commentcomment{
+    background-color: bisque;
+    margin-left: 40px;
+    height: 60px;
+}
+
+

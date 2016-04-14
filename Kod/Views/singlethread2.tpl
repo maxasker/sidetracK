@@ -14,20 +14,30 @@
         <div id="container">
                 <div class="main-logotype">
                 <header>
-                    <button id="rubrik"><h1>sidetracK</h1></button>
+                    <a class="main-logotype" href="/homepage">sidetracK</a>
                 </header>
                 </div>
-             <div class="top-bar">
+              <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation" class="active"><a href="#">Home</a></li>
-                        <li role="presentation"><a href="#">Profile</a></li>
-                        <li role="presentation"><a href="/threadoverview">Messages</a></li>
-                        <li role="presentation"><a href="/threadshow">Kom till tråden</a></li>
+                        <li role="presentation"><a class="nav-text" href="/threadoverview">threadoverview</a>
+                        </li>
+                        <li role="presentation"><a class="nav-text" href="/createthread">treatethread</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
-            <div id="tsbox">
+             <div class="middle-bar">
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="nav-butt"><a href="#">Like</a>
+                            </li>
+                            <li role="presentation" class="nav-butt"><a href="#">Classified</a>
+                            </li>
+                            <li role="presentation" class="nav-butt"><a href="#">Dislike</a>       
+                            </li>
+                        </ul>
+                    </div>
+            <div class="tsbox">
             %commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
             %singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
             %threadtext = singlethreadfile.read()
@@ -47,12 +57,12 @@
                 %commenttext = commentfile.read()
                 %commentfile.close()
                 %if textfile == "comment1.txt":
-                <div>
+                <div class="threadcomment">
                     <a href="/comment">Kommentera</a>
-                    <h1>{{commenttext.decode('iso-8859-1').encode('utf8')}}</h1>
+                    <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
                 </div>
                 %else:
-                <div>
+                <div class="commentcomment">
                     <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
                 </div>
                 %end
