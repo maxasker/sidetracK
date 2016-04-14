@@ -13,16 +13,16 @@
     <body>
         <div id="container">
                 <div class="main-logotype">
-                <header>
-                    <a class="main-logotype" href="/homepage">sidetracK</a>
-                </header>
+                    <header>
+                        <a class="main-logotype" href="/homepage">sidetracK</a>
+                    </header>
                 </div>
-             <div class="top-bar">
+              <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" href="/threadoverview">threadoverview</a>
+                        <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">Feedback</a>
                         </li>
-                        <li role="presentation"><a class="nav-text" href="/createthread">treatethread</a>
+                        <li role="presentation"><a class="nav-text" href="/createthread">Om oss</a>
                         </li>
                     </ul>
                 </nav>
@@ -31,25 +31,21 @@
                 <ul>
                     %like = "like"
                     <a href="/threadoverview/{{like}}">
-                        <li><img class="catpic" src="../static/like.png" alt="Picture of love"></li>
+                        <li><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
                     </a>
                     %classified = "classified"
                     <a href="/threadoverview/{{classified}}">
-                        <li><img class="catpic" src="../static/classified.png" alt="Picture of classified"></li>
+                        <li><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified"></li>
                     </a>
                     %dislike = "dislike"
                     <a href="/threadoverview/{{dislike}}">
-                        <li><img class="catpic" src="../static/unlike.png" alt="Picture of dislike"</li>
+                        <li><img class="catpic" src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></li>
                     </a>
                 </ul>
+                <h1 id = "threadcategori">{{threadcategori}}</h1>
             </div>
-
-</div>
-                <div id="testruta">
-                 
-            <div><a href="/{{threadcategori}}/createthread">Skapa tråd</a>    
-                </div>
-            <div class="likebox">
+            <div id="createthread"><a href="/{{threadcategori}}/createthread" id="createthreadtext">Skapa tråd</a></div>
+            <div class="likebox">    
                 % for threadname in threads:
                 %threadtextfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
                 %threadtext = threadtextfile.read()
@@ -59,8 +55,6 @@
                 <p>{{threadtext}}</p>
 		        <hr>
 		        % end
-                </div>
-            
                 </div>
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>

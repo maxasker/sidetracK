@@ -13,16 +13,16 @@
     <body>
         <div id="container">
                 <div class="main-logotype">
-                <header>
-                    <a class="main-logotype" href="/homepage">sidetracK</a>
-                </header>
+                    <header>
+                        <a class="main-logotype" href="/homepage">sidetracK</a>
+                    </header>
                 </div>
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" href="/threadoverview">threadoverview</a>
+                        <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">Feedback</a>
                         </li>
-                        <li role="presentation"><a class="nav-text" href="/createthread">treatethread</a>
+                        <li role="presentation"><a class="nav-text" href="/createthread">Om oss</a>
                         </li>
                     </ul>
                 </nav>
@@ -31,39 +31,39 @@
                 <ul>
                     %like = "like"
                     <a href="/threadoverview/{{like}}">
-                        <li><img class="catpic" src="../static/like.png" alt="Picture of love"></li>
+                        <li><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
                     </a>
                     %classified = "classified"
                     <a href="/threadoverview/{{classified}}">
-                        <li><img class="catpic" src="../static/classified.png" alt="Picture of classified"></li>
+                        <li><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified"></li>
                     </a>
                     %dislike = "dislike"
                     <a href="/threadoverview/{{dislike}}">
-                        <li><img class="catpic" src="../static/unlike.png" alt="Picture of dislike"</li>
+                        <li><img class="catpic" src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></li>
                     </a>
                 </ul>
-            <div class="tsbox">
-            %commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
-            %singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
-            %threadtext = singlethreadfile.read()
+                <h1 id = "threadcategori">{{threadcategori}}</h1>
+            </div>
+            <div class="likebox">
             <script>
                 var formLink = "/{{threadcategori}}/{{threadname}}/savenewcomment";
             </script>
             <script src="/static/javascript.js"></script>
             <div id='elem' onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();'  > </div>
-            <a href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">javascriptsvar</a>
-            <a href="/{{threadcategori}}/{{threadname}}/createnewcomment">Klicka här för att svara</a>
+            <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
             <h1>{{threadname.replace("_____", " ")}}</h1>
 		    <p>{{threadtext}}</p>
+            <hr>
             %for mapp in commentlist:
                 %filelist = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
+                %filelist.sort()
                 %for textfile in filelist:
                 %commentfile = open("static/threads/{0}/{1}/comments/{2}/{3}".format(threadcategori,threadname,mapp,textfile), "r")
                 %commenttext = commentfile.read()
                 %commentfile.close()
                 %if textfile == "comment1.txt":
                 <div class="threadcomment">
-                    <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">javascriptsvarDOS</a>
+                    <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
                     <p>{{commenttext}}</p>
                 </div>
                 %else:
@@ -73,6 +73,7 @@
                 </div>
                 %end
                 %end
+                <hr>
             %end
             </div>
         

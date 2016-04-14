@@ -15,7 +15,6 @@ def index():
 def homepage():
     redirect('/')
     
-
 @route('/<threadcategori>/createthread')
 def threadshow(threadcategori):
     threadcategori = threadcategori
@@ -27,6 +26,7 @@ def lookatsinglethread(threadcategori,threadname):
     threadtext = singlethreadfile.read()
     singlethreadfile.close()
     commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
+    sorted(commentlist)
     return template("singlethread2", threadname=threadname, threadtext=threadtext, commentlist=commentlist,threadcategori=threadcategori)
 
 def singlethread(threadcategori,threadname):
@@ -112,17 +112,6 @@ def savethread(threadcategori):
     newthreadtextfile.close()
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
-    '''
-    comments = #läs in alla mappar
-    result = {}
-    for comment in comments:
-        andraKommentarer = []
-        fileAndraKommentar = #Läs in alla textfiler
-        for andraK in fileAndraKommentar:
-            result['FörstaKommentar'] = #Lista på andrakommentarer
-        
-        
-    '''
 
 @route('<filename:re:.*\.css>',name='static')
 def css(filename):
@@ -133,10 +122,4 @@ def css(filename):
 def server_static(filename):
     return static_file(filename, root='static')
 
-<<<<<<< HEAD
-run(host='localhost', port=9207, debug=True, reloader=True)
-=======
-run(host='localhost', port=9300, debug=True, reloader=True)
-
->>>>>>> 65f1e418f57bf18a22beacfe1cf212380d8a8e0b
-
+run(host='localhost', port=9314, debug=True, reloader=True)

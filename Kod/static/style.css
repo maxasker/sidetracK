@@ -98,10 +98,10 @@ label.myLabel input[type="file"]{
 
 #container{
         background-color:;
-        width: 80%;
+        width: 90%;
         height: auto;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 5%;
+        margin-right: 5 %;
 }
 .main-logotype{
         float: left;
@@ -164,9 +164,22 @@ label.myLabel input[type="file"]{
 }
 
 .catpic{
-        width: 250px;
-        height: 300px;
+        width: 33%;
+        height: 125px;
         padding: 5px;
+}
+#createthread{
+        height:10px;
+        position:absolute;
+        margin-top:260px;
+        font-size:30px;
+}
+#createthreadtext{
+        color:darkgoldenrod;
+}
+
+#threadcategori{
+        text-align: center;
 }
 
 li{
@@ -210,24 +223,54 @@ footer{
 
 .tsbox, .likebox{
         width: 100%;
-        background-color: palevioletred;
+        background-color:#F2F6FF;
         float: left;
-        margin-top: 120px;
-        margin-right: 200px;
+        margin-top: 20px;
         padding: 5px;
+        border-style: groove;
+        border-color: #154175;
+        border-width: thin;
+        border-radius: 15px;
     
 }
 
 .threadcomment{
-        background-color: gray;
+        background-color: #B5BCCB;
         height: 60px;
         margin-top:10px;
+        border-style: groove;
+        border-color: #154175;
+        border-width: thin;
+        border-radius: 5px;
 }
 
+.threadcomment>p{
+    margin-left:10px;
+}
+
+.threadcomment>a{
+        margin-left:95%;   
+}
+
+#replythread{
+        margin-left:88%;   
+}
+
+.likebox>hr{
+        border-style: groove;
+        border-width: thin;
+}
 .commentcomment{
-        background-color: bisque;
+        background-color: #E7EAF0;
         margin-left: 40px;
         height: 60px;
+        border-style: groove;
+        border-color: #154175;
+        border-width: thin;
+        border-radius: 5px;
 }
 
-
+.commentcomment>p{
+    margin-left:10px;
+    padding-top: 10px;
+}

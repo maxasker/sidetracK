@@ -20,9 +20,9 @@
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">threadoverview</a>
+                        <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">Feedback</a>
                         </li>
-                        <li role="presentation"><a class="nav-text" href="/createthread">treatethread</a>
+                        <li role="presentation"><a class="nav-text" href="/createthread">Om oss</a>
                         </li>
                     </ul>
                 </nav>
@@ -31,11 +31,11 @@
                 <ul>
                     %like = "like"
                     <a href="/threadoverview/{{like}}">
-                        <li><img class="catpic" src="../static/like.png" alt="Picture of love"></li>
+                        <li><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
                     </a>
                     %classified = "classified"
                     <a href="/threadoverview/{{classified}}">
-                        <li><img class="catpic" src="../static/classified.png" alt="Picture of classified"></li>
+                        <li><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified"></li>
                     </a>
                     %dislike = "dislike"
                     <a href="/threadoverview/{{dislike}}">
@@ -45,9 +45,12 @@
             </div>
             <div class="about_us">
                 <h2>About us</h2>
+                <p>Detta är ett projekt som är gjort av</p>
+                <p>Max,Johannes,Per,Jacob och simon</p>
             </div>
             <div class="rules">
                 <h2>Rules</h2>
+                <p>Va trevlig</p>
             </div>
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
