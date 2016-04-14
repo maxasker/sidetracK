@@ -27,16 +27,24 @@
                     </ul>
                 </nav>
             </div>
-               <div class="middle-bar">
-                        <ul class="nav nav-tabs">
-                            <li role="presentation" class="nav-butt"><a href="#">Like</a>
-                            </li>
-                            <li role="presentation" class="nav-butt"><a href="#">Classified</a>
-                            </li>
-                            <li role="presentation" class="nav-butt"><a href="#">Dislike</a>       
-                            </li>
-                        </ul>
-                    </div>
+               <div id="categories">
+                <ul>
+                    %like = "like"
+                    <a href="/threadoverview/{{like}}">
+                        <li><img class="catpic" src="../static/like.png" alt="Picture of love"></li>
+                    </a>
+                    %classified = "classified"
+                    <a href="/threadoverview/{{classified}}">
+                        <li><img class="catpic" src="../static/classified.png" alt="Picture of classified"></li>
+                    </a>
+                    %dislike = "dislike"
+                    <a href="/threadoverview/{{dislike}}">
+                        <li><img class="catpic" src="../static/unlike.png" alt="Picture of dislike"</li>
+                    </a>
+                </ul>
+            </div>
+
+</div>
                 <div id="testruta">
                  
             <div><a href="/{{threadcategori}}/createthread">Skapa tråd</a>    
