@@ -133,5 +133,10 @@ def css(filename):
 def server_static(filename):
     return static_file(filename, root='static')
 
+<<<<<<< HEAD
 run(host='localhost', port=9207, debug=True, reloader=True)
+=======
+run(host='localhost', port=9300, debug=True, reloader=True)
+
+>>>>>>> 65f1e418f57bf18a22beacfe1cf212380d8a8e0b
 

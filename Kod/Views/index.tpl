@@ -20,7 +20,7 @@
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" href="/threadoverview">threadoverview</a>
+                        <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">threadoverview</a>
                         </li>
                         <li role="presentation"><a class="nav-text" href="/createthread">treatethread</a>
                         </li>
