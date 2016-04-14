@@ -27,16 +27,21 @@
                     </ul>
                 </nav>
             </div>
-             <div class="middle-bar">
-                        <ul class="nav nav-tabs">
-                            <li role="presentation" class="nav-butt"><a href="#">Like</a>
-                            </li>
-                            <li role="presentation" class="nav-butt"><a href="#">Classified</a>
-                            </li>
-                            <li role="presentation" class="nav-butt"><a href="#">Dislike</a>       
-                            </li>
-                        </ul>
-                    </div>
+            <div id="categories">
+                <ul>
+                    %like = "like"
+                    <a href="/threadoverview/{{like}}">
+                        <li><img class="catpic" src="../static/like.png" alt="Picture of love"></li>
+                    </a>
+                    %classified = "classified"
+                    <a href="/threadoverview/{{classified}}">
+                        <li><img class="catpic" src="../static/classified.png" alt="Picture of classified"></li>
+                    </a>
+                    %dislike = "dislike"
+                    <a href="/threadoverview/{{dislike}}">
+                        <li><img class="catpic" src="../static/unlike.png" alt="Picture of dislike"</li>
+                    </a>
+                </ul>
             <div class="tsbox">
             %commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
             %singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
@@ -57,11 +62,8 @@
                 %commenttext = commentfile.read()
                 %commentfile.close()
                 %if textfile == "comment1.txt":
-                <script>
-                var formLinkDos = "/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment";
-                </script>
                 <div class="threadcomment">
-                    <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0);">javascriptsvarDOS</a>
+                    <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">javascriptsvarDOS</a>
                     <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
                 </div>
                 %else:

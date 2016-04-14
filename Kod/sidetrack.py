@@ -74,7 +74,7 @@ def checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcat
     if os.path.isfile(newpath):
         counter = counter + 1
         newpath = r'static/threads/{0}/{1}/comments/{2}/comment{3}.txt'.format(threadcategori,threadname,mapp,counter)
-        checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori)
+        checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcategori,mapp)
     else:
         createcommentfile(commenttext,threadname,newpath)
 
@@ -118,6 +118,17 @@ def savethread(threadcategori):
     newthreadtextfile.close()
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
+    '''
+    comments = #läs in alla mappar
+    result = {}
+    for comment in comments:
+        andraKommentarer = []
+        fileAndraKommentar = #Läs in alla textfiler
+        for andraK in fileAndraKommentar:
+            result['FörstaKommentar'] = #Lista på andrakommentarer
+        
+        
+    '''
 
 @route('<filename:re:.*\.css>',name='static')
 def css(filename):
@@ -128,5 +139,5 @@ def css(filename):
 def server_static(filename):
     return static_file(filename, root='static')
 
-run(host='localhost', port=9200, debug=True, reloader=True)
+run(host='localhost', port=9205, debug=True, reloader=True)
 

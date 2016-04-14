@@ -22,10 +22,13 @@ return false;
 
 }
 
-function showReplyBox2(id,topicid,thispage,asd){
+function showReplyBox2(id,topicid,thispage,asd, currentElement){
     if (asd==0) {
+        
+    var mapp = currentElement.getAttribute("data-form-link");
+        console.log(mapp);
     
-var elem = '<form id ="form1" action = "'+formLinkDos+'" method="post"><input type="hidden" name="comid" value="';
+var elem = '<form id ="form1" action = "'+mapp+'" method="post"><input type="hidden" name="comid" value="';
 elem = elem+ id + '">';
 elem = elem + '<input type="hidden" name="topicid" value="';
 elem = elem + topicid + '">';
