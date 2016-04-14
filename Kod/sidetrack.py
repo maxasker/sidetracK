@@ -61,6 +61,23 @@ def savenewcomment(threadcategori,threadname):
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
+@route('/<threadcategori>/<threadname>/<mapp>/savenewcommentcomment', method="POST")
+def savenewcommentcomment(threadcategori,threadname,mapp):
+    counter = 2
+    newpath = r'static/threads/{0}/{1}/comments/{2}/comment{3}.txt'.format(threadcategori,threadname,mapp,counter)
+    commenttext = request.forms.get("text")
+    checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcategori,mapp)
+    redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
+    return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
+
+def checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcategori,mapp):
+    if os.path.isfile(newpath):
+        counter = counter + 1
+        newpath = r'static/threads/{0}/{1}/comments/{2}/comment{3}.txt'.format(threadcategori,threadname,mapp,counter)
+        checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori)
+    else:
+        createcommentfile(commenttext,threadname,newpath)
+
 def checkifdirexists(newpath2,counter,threadname,threadcategori):
     if not os.path.exists(newpath2):
         os.makedirs(newpath2)
@@ -111,5 +128,5 @@ def css(filename):
 def server_static(filename):
     return static_file(filename, root='static')
 
-run(host='localhost', port=9185, debug=True, reloader=True)
+run(host='localhost', port=9200, debug=True, reloader=True)
 

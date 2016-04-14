@@ -47,7 +47,7 @@
             <script src="/static/javascript.js"></script>
             <div id='elem' onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();'  > </div>
             <a href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">javascriptsvar</a>
-            <a href="/{{threadcategori}}/{{threadname}}/createnewcomment">Klicka här fitthue för att svara</a>
+            <a href="/{{threadcategori}}/{{threadname}}/createnewcomment">Klicka här för att svara</a>
             <h1>{{threadname.replace("_____", " ")}}</h1>
 		    <p>{{threadtext}}</p>
             %for mapp in commentlist:
@@ -57,13 +57,17 @@
                 %commenttext = commentfile.read()
                 %commentfile.close()
                 %if textfile == "comment1.txt":
+                <script>
+                var formLinkDos = "/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment";
+                </script>
                 <div class="threadcomment">
-                    <a href="/comment">Kommentera</a>
+                    <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0);">javascriptsvarDOS</a>
                     <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
                 </div>
                 %else:
                 <div class="commentcomment">
                     <p>{{commenttext.decode('iso-8859-1').encode('utf8')}}</p>
+                    
                 </div>
                 %end
                 %end

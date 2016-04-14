@@ -22,6 +22,31 @@ return false;
 
 }
 
+function showReplyBox2(id,topicid,thispage,asd){
+    if (asd==0) {
+    
+var elem = '<form id ="form1" action = "'+formLinkDos+'" method="post"><input type="hidden" name="comid" value="';
+elem = elem+ id + '">';
+elem = elem + '<input type="hidden" name="topicid" value="';
+elem = elem + topicid + '">';
+elem = elem + '<input type="hidden" name="thispage" value="';
+elem = elem + thispage + '">';
+elem = elem + '<span>Comment</span>'
+elem = elem + '<a id ="close" href="javascript:void(0)" onclick="showReplyBox(44,142,1);">Close</a><textarea name = "text" autofocus placeholder="Reply to comment" id="replyarea" rows=4 cols=52></textarea><br><label class="myLabel"><label class="myLabel"><input type="file"><span id ="uploadbutt">Choose file</span></label><input type="submit" id = "replybutt" value="save content"></form>';
+    var empty = ""; 
+
+document.getElementById('elem').innerHTML = elem;
+return false;
+
+}
+        else { 
+    document.getElementById('elem').innerHTML = null;
+return false;
+}
+
+}
+
+
 function $(el){
                 return document.getElementById(el);
             }
