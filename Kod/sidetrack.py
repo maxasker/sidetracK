@@ -75,7 +75,7 @@ def savenewcomment(threadcategori,threadname):
         if ext not in ('.png','.jpg','.jpeg','.gif'):
             return "File extension not allowed."
         extt = str(ext)
-        file_path = r'static/threads/{0}/{1}/comments/comment{2}/comment1{3}'.format(threadcategori,threadname,counter,extt)
+        file_path = 'static/threads/{0}/{1}/comments/comment{2}/comment1{3}'.format(threadcategori,threadname,counter,extt)
         with open(file_path, 'wb') as open_file:
             open_file.write(upload.file.read())
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
@@ -87,6 +87,15 @@ def savenewcommentcomment(threadcategori,threadname,mapp):
     newpath = r'static/threads/{0}/{1}/comments/{2}/comment{3}.txt'.format(threadcategori,threadname,mapp,counter)
     commenttext = request.forms.get("text")
     checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcategori,mapp)
+    upload = request.files.get("commentcommentimg")
+    if upload is not None:
+        name, ext = os.path.splitext(upload.filename)
+        if ext not in ('.png','.jpg','.jpeg','.gif'):
+            return "File extension not allowed."
+        extt = str(ext)
+        file_path = 'static/threads/{0}/{1}/comments/{2}/comment{3}{4}'.format(threadcategori,threadname,mapp,counter,extt)
+        with open(file_path, 'wb') as open_file:
+            open_file.write(upload.file.read())
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
@@ -170,4 +179,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9383, debug=True, reloader=True)
+run(host='localhost', port=9389, debug=True, reloader=True)

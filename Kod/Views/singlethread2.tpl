@@ -62,32 +62,46 @@
             <hr>
                 <script src="/static/javascript.js"></script>
             %for mapp in commentlist:
-                %filelist = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
-                %filelist.sort()
+                %files = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
+                %filelist = [i for i in files if i.endswith('.txt')]
                 %for textfile in filelist:
                 %if textfile == "comment1.txt":
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="threadcomment">
                     <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
-                    <p>{{line_0}}</p>
+                    <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                     %f.close()
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %for line in lines_1_through_end:
-                    <p>{{line}}</p>
+                    <p>{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                    %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
+                        <img src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)
+                        <img src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)
+                        <img src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
+                    %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
+                    <script src="/static/gifffer.min.js"></script>
+                    <img data-gifffer="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %end
                     %end
                     </div>
                 %else:
                 %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="commentcomment">
-                    <p>{{line_0}}</p>
+                    <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                     %f.close()
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %for line in lines_1_through_end:
-                    <p>{{line}}</p>
+                    <p>{{line.decode('iso-8859-1').encode('utf8')}}</p>
                     %end
                     </div>
                 %end
