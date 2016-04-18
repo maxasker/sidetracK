@@ -1,4 +1,5 @@
 .crazy {
+/*Var tillämpas detta? */
         font-family: fantasy;
         background-color: aqua;
         color:pink;
@@ -7,6 +8,7 @@
 }
 
 #elem{
+/*Var tillämpas detta? */
         position: absolute;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -18,16 +20,19 @@
 }
 
 .commentbox{
+/*Kommentarbox */
         width:300px;
         height:150px;
 }
 
 label.myLabel input[type="file"]{
+/*Var tillämpas detta? */
         position: fixed;
         top: -1000px;
 }
 
 #uploadbutt{
+/*Var tillämpas detta? Knapp till att lägga till kommentar? */
         margin-right:150px;
         background: #3498db;
         background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -46,6 +51,7 @@ label.myLabel input[type="file"]{
 }
 
 #uploadbutt:hover{
+/*Hover till knappen? */
         background: #3cb0fd;
         background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
         background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
@@ -56,6 +62,7 @@ label.myLabel input[type="file"]{
 }
 
 #form1{
+/*Var tillämpas detta? */
         width: 400px;
         height: 250px;
         background-color:whitesmoke;
@@ -69,6 +76,7 @@ label.myLabel input[type="file"]{
 }
 
 #replybutt{
+/*Var tillämpas detta? */
         margin-right:20px;
         background: #3498db;
         background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -87,6 +95,7 @@ label.myLabel input[type="file"]{
 }
 
 .btn:hover{
+/*Var tillämpas detta? */
         background: #3cb0fd;
         background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
         background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
@@ -97,6 +106,7 @@ label.myLabel input[type="file"]{
 }
 
 #container{
+/*Behållare för helheten av sidan*/
         background-color:;
         width: 90%;
         height: auto;
@@ -104,6 +114,7 @@ label.myLabel input[type="file"]{
         margin-right: 5 %;
 }
 .main-logotype{
+/*Styling till överskriften på sidan*/
         float: left;
         text-align: right;
         width: 60%;
@@ -119,6 +130,7 @@ label.myLabel input[type="file"]{
 
 
 .top-bar{
+/*Styling till Feedback och Om oss knapp*/
         float: right;
         width: 40%;
         height: 70px;
@@ -129,6 +141,7 @@ label.myLabel input[type="file"]{
 }
 
 .middle-bar{
+/*Var tillämpas detta? */
         float: left;
         margin-top: 80px;
         margin-bottom: -116px;
@@ -136,6 +149,7 @@ label.myLabel input[type="file"]{
 }
 
 .nav-text{
+/*Klass. Styling till Feedback och Om oss knapp*/
         margin-top: 15px;
         margin-left: 10px;
         color:whitesmoke;
@@ -144,10 +158,12 @@ label.myLabel input[type="file"]{
 
 
 #feedback{
+/*Fäster Feedback och Om oss knapp upp till höger*/
         margin-left: 160px;
 }
 
 .nav-butt{
+/*Storlek på knapparna Feedback och Om oss*/
         width:33%;        
         text-align: center;
         
@@ -155,6 +171,7 @@ label.myLabel input[type="file"]{
         
 
 #categories{
+/*Div box till kategoriknapparna*/
         float: left;
         background-color:;
         margin-top: 24px;
@@ -164,29 +181,35 @@ label.myLabel input[type="file"]{
 }
 
 .catpic{
+/*Klass. Lägger kategoribilderna i ordning*/
         width: 33%;
         height: 125px;
         padding: 5px;
 }
 #createthread{
+/*Stylar och lägger länken Starta tråd till vänster*/
         height:10px;
         position:absolute;
         margin-top:260px;
         font-size:30px;
 }
 #createthreadtext{
+/*Färglägger knappen Starta tråd*/
         color:darkgoldenrod;
 }
 
 #threadcategori{
+/*Centrerar texten för vilken kategori vi är i*/
         text-align: center;
 }
 
 li{
+/*Stylar så att kategoribilderna justeras efter webbläsarens bredd*/
         display: inline;
 }
 
 .about_us{
+/*Klass. Stylar div-rutan About Us*/
         height: 250px;
         width: 60%;
         background-color:;
@@ -198,6 +221,7 @@ li{
 }
 
 .rules{
+/*Klass. Stylar div-rutan Rules*/
         height: 250px;
         width: 40%;
         background-color:;
@@ -209,10 +233,12 @@ li{
 }
 
 h2{
+/*Stylar h2-överskrift. Tex. i About Us och Rules*/
         margin-left: 10px;
 }
 
 footer{
+/*Stylar fothuvudet*/
         text-align: center;
         padding: 10px;
         float: left;
@@ -222,6 +248,7 @@ footer{
 }
 
 .tsbox, .likebox{
+/*Tsbox Stylar tråden ute bland flödet. Likebox stylar allt inne i forumtråden*/
         width: 100%;
         background-color:#F2F6FF;
         float: left;
@@ -235,6 +262,7 @@ footer{
 }
 
 .threadcomment{
+/*Orginal kommentar i forumtråden*/
         background-color: #B5BCCB;
         height: auto;
         margin-top:10px;
@@ -245,22 +273,27 @@ footer{
 }
 
 .threadcomment>p{
+/*Ger marginal till orginalkommentaren till vänster.*/
     margin-left:10px;
 }
 
 .threadcomment>a{
+/*Indenterar orginalkommentaren*/
         margin-left:95%;   
 }
 
 #replythread{
+/*Indenterar knappen att svara på orginalkommentaren*/
         margin-left:88%;   
 }
 
 .likebox>hr{
+/*Ger en understruken linje att avskilja kommentarer i en forumtråd*/
         border-style: groove;
         border-width: thin;
 }
 .commentcomment{
+/*Stylar kommentarers kommentar i en tråd*/
         background-color: #E7EAF0;
         margin-left: 40px;
         height: auto;
@@ -271,6 +304,7 @@ footer{
 }
 
 .commentcomment>p{
+/*Indenterar kommentarers kommentar*/
     margin-left:10px;
     padding-top: 10px;
 }
