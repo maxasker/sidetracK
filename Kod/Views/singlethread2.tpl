@@ -48,30 +48,50 @@
             <script>
                 var formLink = "/{{threadcategori}}/{{threadname}}/savenewcomment";
             </script>
-            <script src="/static/javascript.js"></script>
             <div id='elem' onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();'  > </div>
             <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
+            <p>{{threadinfo}}</p>
             <h1>{{threadname.replace("_____", " ")}}</h1>
 		    <p>{{threadtext}}</p>
+            %if tsimg == "tsimg.gif":
+            <script src="/static/gifffer.min.js"></script>
+            <img data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+            %else:
+            <img src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+            %end
             <hr>
+                <script src="/static/javascript.js"></script>
             %for mapp in commentlist:
                 %filelist = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
                 %filelist.sort()
                 %for textfile in filelist:
-                %commentfile = open("static/threads/{0}/{1}/comments/{2}/{3}".format(threadcategori,threadname,mapp,textfile), "r")
-                %commenttext = commentfile.read()
-                %commentfile.close()
                 %if textfile == "comment1.txt":
-                <div class="threadcomment">
+                    %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
+                    %line_0 = f.readlines()[0]
+                    <div class="threadcomment">
                     <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
-                    <p>{{commenttext}}</p>
-                </div>
+                    <p>{{line_0}}</p>
+                    %f.close()
+                    %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
+                    %lines_1_through_end = f.readlines()[1:]
+                    %for line in lines_1_through_end:
+                    <p>{{line}}</p>
+                    %end
+                    </div>
                 %else:
-                <div class="commentcomment">
-                    <p>{{commenttext}}</p>
-                    
-                </div>
+                %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
+                    %line_0 = f.readlines()[0]
+                    <div class="commentcomment">
+                    <p>{{line_0}}</p>
+                    %f.close()
+                    %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
+                    %lines_1_through_end = f.readlines()[1:]
+                    %for line in lines_1_through_end:
+                    <p>{{line}}</p>
+                    %end
+                    </div>
                 %end
+                %f.close()
                 %end
                 <hr>
             %end

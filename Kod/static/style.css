@@ -236,7 +236,7 @@ footer{
 
 .threadcomment{
         background-color: #B5BCCB;
-        height: 60px;
+        height: auto;
         margin-top:10px;
         border-style: groove;
         border-color: #154175;
@@ -263,7 +263,7 @@ footer{
 .commentcomment{
         background-color: #E7EAF0;
         margin-left: 40px;
-        height: 60px;
+        height: auto;
         border-style: groove;
         border-color: #154175;
         border-width: thin;

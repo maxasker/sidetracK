@@ -56,6 +56,10 @@
 		        <hr>
 		        % end
                 </div>
+                
+                % for thread in threadlist:
+                <p>{{thread}}</p>
+                % end
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
                 <p>By Johannes, Simon, Max, Jacob and Per</p>

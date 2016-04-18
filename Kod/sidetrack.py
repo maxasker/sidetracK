@@ -6,6 +6,9 @@ from bottle import url
 from bottle import redirect
 import os
 import sys
+import datetime
+import re
+threadlist = []
 
 @route('/')
 def index():
@@ -25,9 +28,23 @@ def lookatsinglethread(threadcategori,threadname):
     singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
     threadtext = singlethreadfile.read()
     singlethreadfile.close()
+    singlethreadinfo = open("static/threads/{1}/{0}/tsinfo.txt".format(threadname,threadcategori), "r")
+    threadinfo = singlethreadinfo.read()
+    singlethreadinfo.close()
     commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
     sorted(commentlist)
-    return template("singlethread2", threadname=threadname, threadtext=threadtext, commentlist=commentlist,threadcategori=threadcategori)
+    myList = os.listdir('static/threads/{1}/{0}/'.format(threadname,threadcategori))
+    for myFile in myList:
+        if re.match("tsimg.png", myFile):
+            tsimg = myFile
+        elif re.match("tsimg.jpeg", myFile):
+            tsimg = myFile
+        elif re.match("tsimg.jpg", myFile):
+            tsimg = myFile
+        elif re.match("tsimg.gif", myFile):
+            tsimg = myFile
+    tsimgpath = ('static/threads/{0}/{1}/{2}'.format(threadcategori,threadname,tsimg))
+    return template("singlethread2",tsimg=tsimg,tsimgpath=tsimgpath, threadname=threadname, threadtext=threadtext, commentlist=commentlist,threadcategori=threadcategori,threadinfo=threadinfo)
 
 def singlethread(threadcategori,threadname):
     singlethreadfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
@@ -37,8 +54,8 @@ def singlethread(threadcategori,threadname):
     
 @route('/threadoverview/<threadcategori>')
 def threadoverview(threadcategori):
-    threadlist = os.walk('static/threads/{0}'.format(threadcategori)).next()[1]
-    return template("threadoverview", threads=threadlist, threadcategori=threadcategori)
+    threadlist2 = os.walk('static/threads/{0}'.format(threadcategori)).next()[1]
+    return template("threadoverview", threads=threadlist2, threadcategori=threadcategori, threadlist=threadlist)
 
 @route('/<threadcategori>/<threadname>/createnewcomment')
 def createnewcomment(threadname,threadcategori):
@@ -52,6 +69,15 @@ def savenewcomment(threadcategori,threadname):
     commenttext = request.forms.get("text")
     newpath = r'static/threads/{0}/{1}/comments/comment{2}/comment1.txt'.format(threadcategori,threadname,counter)
     checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori)
+    upload = request.files.get("commentimg")
+    if upload is not None:
+        name, ext = os.path.splitext(upload.filename)
+        if ext not in ('.png','.jpg','.jpeg','.gif'):
+            return "File extension not allowed."
+        extt = str(ext)
+        file_path = r'static/threads/{0}/{1}/comments/comment{2}/comment1{3}'.format(threadcategori,threadname,counter,extt)
+        with open(file_path, 'wb') as open_file:
+            open_file.write(upload.file.read())
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
@@ -70,7 +96,7 @@ def checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcat
         newpath = r'static/threads/{0}/{1}/comments/{2}/comment{3}.txt'.format(threadcategori,threadname,mapp,counter)
         checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcategori,mapp)
     else:
-        createcommentfile(commenttext,threadname,newpath)
+        createcommentfile(commenttext,threadname,newpath,counter)
 
 def checkifdirexists(newpath2,counter,threadname,threadcategori):
     if not os.path.exists(newpath2):
@@ -87,22 +113,41 @@ def checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori):
         newpath = r'static/threads/{0}/{1}/comments/comment{2}/comment1.txt'.format(threadcategori,threadname,counter)
         checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori)
     else:
-        createcommentfile(commenttext,threadname,newpath)
+        createcommentfile(commenttext,threadname,newpath,counter)
 
-def createcommentfile(commenttext,threadname,newpath):
+def createcommentfile(commenttext,threadname,newpath,counter):
     newcommentfile = open("{0}".format(newpath), "w")
-    newcommentfile.write(commenttext)
+    date_time = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
+    newcommentfile.write(date_time)
+    newcommentfile.write("\n"+commenttext)
     newcommentfile.close()
+    return counter
 
 @route('/savenewthread/<threadcategori>', method="POST")
 def savethread(threadcategori):
     threadname = request.forms.get("title").replace(" ", "_____")
     text = request.forms.get("text")
+    newpath = r'static/threads/{1}/{0}/comments'.format(threadname, threadcategori)
     newpath2 = r'static/threads/{1}/{0}'.format(threadname, threadcategori)
-    newpath = r'static/threads/{1}/{0}/comments'.format(threadname, threadcategori) 
+    date_time = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
     if not os.path.exists(newpath):
         os.makedirs(newpath)
+    upload = request.files.get("tspic")
+    if upload is not None:
+        name, ext = os.path.splitext(upload.filename)
+        if ext not in ('.png','.jpg','.jpeg','.gif'):
+            return "File extension not allowed."
+        extt = str(ext)
+        file_path = "{path}/{file}".format(path=newpath2, file="tsimg" + extt)
+        with open(file_path, 'wb') as open_file:
+            open_file.write(upload.file.read())
+    
+    savethreadfile(newpath2,threadname,text,date_time)
+    threadlist.insert(0,threadname)
+    redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
+    return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
+def savethreadfile(newpath2,threadname,text,date_time):
     newthreadtitlefile = open("{0}/tstitle.txt".format(newpath2), "w")
     newthreadtitlefile.write(threadname)
     newthreadtitlefile.close()
@@ -110,16 +155,19 @@ def savethread(threadcategori):
     newthreadtextfile = open("{0}/tstext.txt".format(newpath2), "w")
     newthreadtextfile.write(text)
     newthreadtextfile.close()
-    redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
-    return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
+
+    newthreadtextfile = open("{0}/tsinfo.txt".format(newpath2), "w")
+    newthreadtextfile.write(date_time)
+    newthreadtextfile.close()
+
 
 @route('<filename:re:.*\.css>',name='static')
 def css(filename):
     print "css:",filename
     return static_file(filename,root='./static',mimetype='text/css')
 
-@route('/static/<filename>')
-def server_static(filename):
-    return static_file(filename, root='static')
+@route('/static/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='static')
 
-run(host='localhost', port=9314, debug=True, reloader=True)
+run(host='localhost', port=9383, debug=True, reloader=True)
