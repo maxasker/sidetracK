@@ -69,15 +69,6 @@ def savenewcomment(threadcategori,threadname):
     commenttext = request.forms.get("text")
     newpath = r'static/threads/{0}/{1}/comments/comment{2}/comment1.txt'.format(threadcategori,threadname,counter)
     checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori)
-    upload = request.files.get("commentimg")
-    if upload is not None:
-        name, ext = os.path.splitext(upload.filename)
-        if ext not in ('.png','.jpg','.jpeg','.gif'):
-            return "File extension not allowed."
-        extt = str(ext)
-        file_path = 'static/threads/{0}/{1}/comments/comment{2}/comment{3}{4}'.format(threadcategori,threadname,counter,extt)
-        with open(file_path, 'wb') as open_file:
-            open_file.write(upload.file.read())
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
@@ -99,6 +90,17 @@ def savenewcommentcomment(threadcategori,threadname,mapp):
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
+def createcommentimg(threadcategori,threadname,counter):
+    upload = request.files.get("commentimg")
+    if upload is not None:
+        name, ext = os.path.splitext(upload.filename)
+        if ext not in ('.png','.jpg','.jpeg','.gif'):
+            return "File extension not allowed."
+        extt = str(ext)
+        file_path = 'static/threads/{0}/{1}/comments/comment{2}/comment1{3}'.format(threadcategori,threadname,counter,extt)
+        with open(file_path, 'wb') as open_file:
+            open_file.write(upload.file.read())
+
 def checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcategori,mapp):
     if os.path.isfile(newpath):
         counter = counter + 1
@@ -114,7 +116,6 @@ def checkifdirexists(newpath2,counter,threadname,threadcategori):
         counter = counter+1
         newpath2 = r'static/threads/{0}/{1}/comments/comment{2}'.format(threadcategori,threadname,counter)
         checkifdirexists(newpath2,counter,threadname,threadcategori)
-    return counter
 
 def checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori):
     if os.path.isfile(newpath):
@@ -122,15 +123,15 @@ def checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori):
         newpath = r'static/threads/{0}/{1}/comments/comment{2}/comment1.txt'.format(threadcategori,threadname,counter)
         checkifcommentexists(newpath,counter,commenttext,threadname,threadcategori)
     else:
-        createcommentfile(commenttext,threadname,newpath,counter)
+        createcommentfile(commenttext,threadname,newpath,counter,threadcategori)
 
-def createcommentfile(commenttext,threadname,newpath,counter):
+def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
     newcommentfile = open("{0}".format(newpath), "w")
     date_time = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
     newcommentfile.write(date_time)
     newcommentfile.write("\n"+commenttext)
     newcommentfile.close()
-    return counter
+    createcommentimg(threadcategori,threadname,counter)
 
 @route('/savenewthread/<threadcategori>', method="POST")
 def savethread(threadcategori):
@@ -179,4 +180,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9390, debug=True, reloader=True)
+run(host='localhost', port=9404, debug=True, reloader=True)
