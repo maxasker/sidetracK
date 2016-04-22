@@ -46,12 +46,15 @@
                 </ul>
                 <h1 id = "threadcategori">{{threadcategori}}</h1>
             </div>
+            <script src="{{url('static',filename='static/jq/jquery-1.12.3.min.js')}}"></script>
+            <script src="{{url('static', filename='static/jq/jquery-ui.js')}}"></script>
+            <script src="{{url('static',filename='static/jq/script.js')}}"></script>
             <div class="likebox">
             <script>
                 var formLink = "/{{threadcategori}}/{{threadname}}/savenewcomment";
             </script>
-            <div id "tsboxen">
-            <div id='elem' onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();'  > </div>
+            <div id = "tsboxen">
+            <div id="elem" class="ui-widget-content"></div>
             <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
             <p>{{threadinfo}}</p>
             <h1>{{threadname.replace("_____", " ")}}</h1>
@@ -64,7 +67,6 @@
             %end
             </div>
             <hr>
-                <script src="/static/javascript.js"></script>
             %for mapp in commentlist:
                 %files = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
                 %filelist = [i for i in files if i.endswith('.txt')]
@@ -106,7 +108,7 @@
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %for line in lines_1_through_end:
-                    <p>{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                    <p>{{line}}</p>
                     %end
                     %if os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))):
                         %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))

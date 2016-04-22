@@ -52,12 +52,79 @@
             <div id="createthread"><a href="/{{threadcategori}}/createthread" id="createthreadtext">Skapa tråd</a></div>
             <div class="likebox">    
                 % for threadname in threads:
+                %tsthreadinfo = open("static/threads/{1}/{0}/tsinfo.txt".format(threadname,threadcategori), "r")
+                %threadinfo = tsthreadinfo.read()
+                %tsthreadinfo.close()
                 %threadtextfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
                 %threadtext = threadtextfile.read()
                 %threadtextfile.close()
-                <a href="/{{threadcategori}}/thread/{{threadname}}">Klicka här för att titta på tråden</a>
-		        <h2>{{threadname.replace("_____", " ")}}</h2>
-                <p>{{threadtext}}</p>
+                <div class = "tsboxoverview">
+                <p class = "tsdatetimeoverview">{{threadinfo}}</p>
+                <a href="/{{threadcategori}}/thread/{{threadname}}" class = "tsreplybuttoverview">Klicka här för att titta på tråden</a>
+                %if os.path.isfile("static/threads/{1}/{0}/tsimg.jpg".format(threadname,threadcategori)):
+                %tsimgpath = "static/threads/{1}/{0}/tsimg.jpg".format(threadname,threadcategori)
+                <img class = "tsimgoverview" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+                %elif os.path.isfile("static/threads/{1}/{0}/tsimg.png".format(threadname,threadcategori)):
+                %tsimgpath = "static/threads/{1}/{0}/tsimg.png".format(threadname,threadcategori)
+                <img class = "tsimgoverview" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+                %elif os.path.isfile("static/threads/{1}/{0}/tsimg.jpeg".format(threadname,threadcategori)):
+                %tsimgpath = "static/threads/{1}/{0}/tsimg.jpeg".format(threadname,threadcategori)
+                <img class = "tsimgoverview" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+                %elif os.path.isfile("static/threads/{1}/{0}/tsimg.gif".format(threadname,threadcategori)):
+                %tsimgpath = "static/threads/{1}/{0}/tsimg.gif".format(threadname,threadcategori)
+                <script src="/static/gifffer.min.js"></script>
+                <img class = "tsimgoverview" data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+                %end
+		        <h2 class = "tsheadlineoverview">{{threadname.replace("_____", " ")}}</h2>
+                <p class = "tstextoverview">{{threadtext}}</p>
+                </div>
+                %commentcounter = 0
+                %commentlist = os.walk('static/threads/{0}/{1}/comments'.format(threadcategori,threadname)).next()[1]
+                %if len(commentlist) == 1:
+                    %commentlimit = 1
+                    %elif len(commentlist) == 2:
+                    %commentlimit = 2
+                    %elif len(commentlist) == 3 or len(commentlist) > 3:
+                    %commentlimit = 3
+                %end
+                %if len(commentlist) == 0:
+                
+                %else:
+                    <hr>
+                    %for mapp in commentlist:
+                    %if not (commentcounter == commentlimit):
+                    %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
+                    %line_0 = f.readlines()[0]
+                    <div class="threadcommentoverview">
+                    <p class = "commentdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                    %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
+                        <img class = "commentimgoverview" src="{{url('static',filename=commentimgpath)}}" alt="commentimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)
+                        <img class = "commentimgoverview" src="{{url('static',filename=commentimgpath)}}" alt="commentimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)
+                        <img class = "commentimgoverview" src="{{url('static',filename=commentimgpath)}}" alt="commentimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
+                        <script class = "commentimgoverview" src="/static/gifffer.min.js"></script>
+                        <img data-gifffer="{{url('static',filename=commentimgpath)}}" alt="commentimg">
+                    %end
+                    %f.close()
+                    %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
+                    %lines_1_through_end = f.readlines()[1:]
+                        %for line in lines_1_through_end:
+                        <p class = "commenttextoverview">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        %end
+                    </div>
+                        %if not (commentcounter == (commentlimit-1)):
+                        <hr>
+                        %end
+                    %commentcounter = commentcounter+1
+                    %end
+                    %end
+                %end
 		        <hr>
 		        % end
                 </div>
