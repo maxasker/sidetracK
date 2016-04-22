@@ -10,6 +10,7 @@
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
     </head>
+    <div id="elem"></div>
     <body>
         <div id="container">
                 <!-- Sidetrack logga -->
@@ -54,7 +55,6 @@
                 var formLink = "/{{threadcategori}}/{{threadname}}/savenewcomment";
             </script>
             <div id = "tsboxen">
-            <div id="elem" class="ui-widget-content"></div>
             <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
             <p>{{threadinfo}}</p>
             <h1>{{threadname.replace("_____", " ")}}</h1>
