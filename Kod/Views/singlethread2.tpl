@@ -12,11 +12,13 @@
     </head>
     <body>
         <div id="container">
+                <!-- Sidetrack logga -->
                 <div class="main-logotype">
                     <header>
                         <a class="main-logotype" href="/homepage">sidetracK</a>
                     </header>
                 </div>
+            <!-- Navigationsruta med lite bootstrap design -->
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">

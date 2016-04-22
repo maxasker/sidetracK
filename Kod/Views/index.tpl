@@ -7,16 +7,16 @@
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
         </..><link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
-        
-        
     </head>
     <body>
         <div id="container">
+                <!--Sidetrack logga--> 
                 <div class="main-logotype">
                     <header>
                         <a class="main-logotype" href="/homepage">sidetracK</a>
                     </header>
                 </div>
+            <!-- Navigationsbar om oss och feedback. Lite bootstrap använt i designen -->
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
@@ -27,6 +27,7 @@
                     </ul>
                 </nav>
             </div>
+            <!-- Våra tre huvudkategorier -->
             <div id="categories">
                 <ul>
                     %like = "like"
@@ -43,6 +44,7 @@
                     </a>
                 </ul>
             </div>
+            <!-- Rutor med Information om oss och regler för forumet -->
             <div class="about_us">
                 <h2>About us</h2>
                 <p>Detta är ett projekt som är gjort av</p>
