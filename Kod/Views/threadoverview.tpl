@@ -12,11 +12,13 @@
     </head>
     <body>
         <div id="container">
+                <!-- Sidetrack logga--> 
                 <div class="main-logotype">
                     <header>
                         <a class="main-logotype" href="/homepage">sidetracK</a>
                     </header>
                 </div>
+              <!-- Navigations bar. Med lite bootstrap styling -->
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
@@ -27,6 +29,7 @@
                     </ul>
                 </nav>
             </div>
+            <!-- Navigationen för hemsidans tre huvudkategorier som följer med oavsett vilken kategori man besöker -->
                <div id="categories">
                 <ul>
                     %like = "like"
@@ -44,6 +47,8 @@
                 </ul>
                 <h1 id = "threadcategori">{{threadcategori}}</h1>
             </div>
+            
+            <!-- Max och Simon skall kommentera nedan -->
             <div id="createthread"><a href="/{{threadcategori}}/createthread" id="createthreadtext">Skapa tråd</a></div>
             <div class="likebox">    
                 % for threadname in threads:
