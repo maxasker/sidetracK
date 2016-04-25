@@ -205,13 +205,18 @@ footer{
         
 }
 
-.tsbox, .likebox{
-/*Tsbox Stylar tråden ute bland flödet. Likebox stylar allt inne i forumtråden*/
+.likebox{
+/*Likebox stylar allt inne i forumtråden*/
         width: 100%;
-        background-color:#F2F6FF;
+        background-color:white;
         float: left;
         margin-top: 20px;
         padding: 5px;
+
+    
+}
+
+#tsboxen, .tsboxoverview{
         border-style: groove;
         border-color: #154175;
         border-width: thin;
@@ -219,7 +224,12 @@ footer{
     
 }
 
-.threadcomment{
+#tsboxen>img, .tsboxoverview>p{
+        padding: 1%;
+}
+
+
+.threadcomment, .threadcommentoverview{
 /*Orginal kommentar i forumtråden*/
         background-color: #B5BCCB;
         height: auto;
@@ -230,9 +240,13 @@ footer{
         border-radius: 5px;
 }
 
+.threadcommentoverview>p{
+        margin-left:10px;
+}
+
 .threadcomment>p{
 /*Ger marginal till orginalkommentaren till vänster.*/
-    margin-left:10px;
+        margin-left:10px;
 }
 
 .threadcomment>a{
