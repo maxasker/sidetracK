@@ -51,7 +51,7 @@
             <!-- Max och Simon skall kommentera nedan -->
             <div id="createthread"><a href="/{{threadcategori}}/createthread" id="createthreadtext">Skapa tråd</a></div>
             <div class="likebox">    
-                % for threadname in threadlist:
+                % for threadname in threads:
                 %tsthreadinfo = open("static/threads/{1}/{0}/tsinfo.txt".format(threadname,threadcategori), "r")
                 %threadinfo = tsthreadinfo.read()
                 %tsthreadinfo.close()
@@ -132,6 +132,18 @@
                 % for thread in threadlist:
                 <p>{{thread}}</p>
                 % end
+            <div id="pages">
+                <a href="/threadoverview/{{like}}/1">1</a>
+                <a href="/threadoverview/{{like}}/2">2</a>
+                <a href="/threadoverview/{{like}}/3">3</a>
+                <a href="/threadoverview/{{like}}/4">4</a>
+                <a href="/threadoverview/{{like}}/5">5</a>
+                <a href="/threadoverview/{{like}}/6">6</a>
+                <a href="/threadoverview/{{like}}/7">7</a>
+                <a href="/threadoverview/{{like}}/8">8</a>
+                <a href="/threadoverview/{{like}}/9">9</a>
+                <a href="/threadoverview/{{like}}/10">10</a>
+            </div>
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
                 <p>By Johannes, Simon, Max, Jacob and Per</p>

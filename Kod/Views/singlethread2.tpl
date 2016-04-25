@@ -33,7 +33,7 @@
             <div id="categories">
                 <ul>
                     %like = "like"
-                    <a href="/threadoverview/{{like}}">
+                    <a href="/threadoverview/{{like}}/1">
                         <li><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
                     </a>
                     %classified = "classified"

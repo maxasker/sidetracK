@@ -8,6 +8,7 @@ import os
 import sys
 import datetime
 import re
+global threadlist
 threadlist = []
 
 @route('/')
@@ -52,9 +53,31 @@ def singlethread(threadcategori,threadname):
     singlethreadfile.close()
     commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
     
-@route('/threadoverview/<threadcategori>')
-def threadoverview(threadcategori):
-    threadlist2 = os.walk('static/threads/{0}'.format(threadcategori)).next()[1]
+@route('/threadoverview/<threadcategori>/<page>')
+def threadoverview(threadcategori,page):
+    if len(threadlist) == 0:
+        threadlist2 = os.walk('static/threads/{0}'.format(threadcategori)).next()[1]
+    else:
+        if page == "1":
+            threadlist2 = threadlist[0:10]
+        elif page == "2":
+            threadlist2 = threadlist[10:20]
+        elif page == "3":
+            threadlist2 = threadlist[20:30]
+        elif page == "4":
+            threadlist2 = threadlist[30:40]
+        elif page == "5":
+            threadlist2 = threadlist[40:50]
+        elif page == "6":
+            threadlist2 = threadlist[50:60]
+        elif page == "7":
+            threadlist2 = threadlist[60:70]
+        elif page == "8":
+            threadlist2 = threadlist[70:80]
+        elif page == "9":
+            threadlist2 = threadlist[80:90]
+        elif page == "10":
+            threadlist2 = threadlist[90:100]
     return template("threadoverview", threads=threadlist2, threadcategori=threadcategori, threadlist=threadlist)
 
 @route('/<threadcategori>/<threadname>/createnewcomment')
@@ -154,10 +177,14 @@ def savethread(threadcategori):
     text = request.forms.get("text")
     newpath = r'static/threads/{1}/{0}/comments'.format(threadname, threadcategori)
     newpath2 = r'static/threads/{1}/{0}'.format(threadname, threadcategori)
+    if os.path.exists(newpath2):
+        return "There already exists a thread with this title"
     date_time = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
+    if request.files.get("tspic") is None:
+        return "You need to upload a picture."
+    upload = request.files.get("tspic")
     if not os.path.exists(newpath):
         os.makedirs(newpath)
-    upload = request.files.get("tspic")
     if upload is not None:
         name, ext = os.path.splitext(upload.filename)
         if ext not in ('.png','.jpg','.jpeg','.gif'):
@@ -195,4 +222,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9414, debug=True, reloader=True)
+run(host='localhost', port=9435, debug=True, reloader=True)
