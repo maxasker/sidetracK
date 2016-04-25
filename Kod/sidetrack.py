@@ -134,6 +134,8 @@ def createcommentcommentfile(commenttext,threadname,newpath,counter,threadcatego
     newcommentfile.write(date_time)
     newcommentfile.write("\n"+commenttext)
     newcommentfile.close()
+    threadlist.remove(threadname)
+    threadlist.insert(0, threadname)
     createcommentcommentimg(threadcategori,threadname,mapp,counter)
 
 def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
@@ -142,6 +144,8 @@ def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
     newcommentfile.write(date_time)
     newcommentfile.write("\n"+commenttext)
     newcommentfile.close()
+    threadlist.remove(threadname)
+    threadlist.insert(0, threadname)
     createcommentimg(threadcategori,threadname,counter)
 
 @route('/savenewthread/<threadcategori>', method="POST")
@@ -191,4 +195,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9411, debug=True, reloader=True)
+run(host='localhost', port=9414, debug=True, reloader=True)

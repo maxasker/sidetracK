@@ -51,7 +51,7 @@
             <!-- Max och Simon skall kommentera nedan -->
             <div id="createthread"><a href="/{{threadcategori}}/createthread" id="createthreadtext">Skapa tråd</a></div>
             <div class="likebox">    
-                % for threadname in threads:
+                % for threadname in threadlist:
                 %tsthreadinfo = open("static/threads/{1}/{0}/tsinfo.txt".format(threadname,threadcategori), "r")
                 %threadinfo = tsthreadinfo.read()
                 %tsthreadinfo.close()
@@ -61,6 +61,7 @@
                 <div class = "tsboxoverview">
                 <p class = "tsdatetimeoverview">{{threadinfo}}</p>
                 <a href="/{{threadcategori}}/thread/{{threadname}}" class = "tsreplybuttoverview">Klicka här för att titta på tråden</a>
+                <h2 class = "tsheadlineoverview">{{threadname.replace("_____", " ")}}</h2>
                 %if os.path.isfile("static/threads/{1}/{0}/tsimg.jpg".format(threadname,threadcategori)):
                 %tsimgpath = "static/threads/{1}/{0}/tsimg.jpg".format(threadname,threadcategori)
                 <img class = "tsimgoverview" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
@@ -75,7 +76,6 @@
                 <script src="/static/gifffer.min.js"></script>
                 <img class = "tsimgoverview" data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
                 %end
-		        <h2 class = "tsheadlineoverview">{{threadname.replace("_____", " ")}}</h2>
                 <p class = "tstextoverview">{{threadtext}}</p>
                 </div>
                 %commentcounter = 0
