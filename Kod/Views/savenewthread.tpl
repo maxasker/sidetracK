@@ -7,25 +7,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
+        </..><link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="container">
+                <!--Sidetrack logga--> 
                 <div class="main-logotype">
-                <header>
-                    <button id="rubrik"><h1>sidetracK</h1></button>
-                </header>
+                    <header>
+                        <a class="main-logotype" href="/homepage">sidetracK</a>
+                    </header>
                 </div>
-             <div class="top-bar">
+            <!-- Navigationsbar om oss och feedback. Lite bootstrap använt i designen -->
+            <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation" class="active"><a href="#">Home</a></li>
-                        <li role="presentation"><a href="#">Profile</a></li>
-                        <li role="presentation"><a href="/threadoverview">Messages</a></li>
-                        <li role="presentation"><a href="/threadshow">Kom till tråden</a></li>
+                        <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">Feedback</a>
+                        </li>
+                        <li role="presentation"><a class="nav-text" href="/createthread">Om oss</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
-                    <div id="testruta">
+        <div id="testruta">
             <h1>
                 Här är testrutan
             </h1>
@@ -42,11 +45,7 @@
             
             
         </div>
-            <div class="btn-toolbar">
-                <button type="button" class="btn btn-default">Left</button>
-                <button type="button" class="btn btn-default">Middle</button>
-                <button type="button" class="btn btn-default">Right</button>
-            </div>
+
         
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
