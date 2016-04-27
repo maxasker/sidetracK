@@ -8,8 +8,12 @@ import os
 import sys
 import datetime
 import re
-global threadlist
-threadlist = []
+global threadlistlike
+global threadlistclassified
+global threadlistdislike
+threadlistlike = []
+threadlistclassified = []
+threadlistdislike = []
 
 @route('/')
 def index():
@@ -55,30 +59,18 @@ def singlethread(threadcategori,threadname):
     
 @route('/threadoverview/<threadcategori>/<page>')
 def threadoverview(threadcategori,page):
-    if len(threadlist) == 0:
+    if len(threadlistlike) == 0 or len(threadlistclassified) == 0 or len(threadlistdislike) == 0:
         threadlist2 = os.walk('static/threads/{0}'.format(threadcategori)).next()[1]
     else:
-        if page == "1":
-            threadlist2 = threadlist[0:10]
-        elif page == "2":
-            threadlist2 = threadlist[10:20]
-        elif page == "3":
-            threadlist2 = threadlist[20:30]
-        elif page == "4":
-            threadlist2 = threadlist[30:40]
-        elif page == "5":
-            threadlist2 = threadlist[40:50]
-        elif page == "6":
-            threadlist2 = threadlist[50:60]
-        elif page == "7":
-            threadlist2 = threadlist[60:70]
-        elif page == "8":
-            threadlist2 = threadlist[70:80]
-        elif page == "9":
-            threadlist2 = threadlist[80:90]
-        elif page == "10":
-            threadlist2 = threadlist[90:100]
-    return template("threadoverview", threads=threadlist2, threadcategori=threadcategori, threadlist=threadlist)
+        mini=int(page)*10-10
+        maxi=int(page)*10
+        if threadcategori == "like":
+            threadlist2 = threadlistlike[mini:maxi]
+        elif threadcategori == "classified":
+            threadlist2 = threadlistclassified[mini:maxi]
+        elif threadcategori == "dislike":
+            threadlist2 = threadlistdislike[mini:maxi]
+    return template("threadoverview", threads=threadlist2, threadcategori=threadcategori)
 
 @route('/<threadcategori>/<threadname>/createnewcomment')
 def createnewcomment(threadname,threadcategori):
@@ -157,8 +149,15 @@ def createcommentcommentfile(commenttext,threadname,newpath,counter,threadcatego
     newcommentfile.write(date_time)
     newcommentfile.write("\n"+commenttext)
     newcommentfile.close()
-    threadlist.remove(threadname)
-    threadlist.insert(0, threadname)
+    if threadcategori == "like":
+        threadlistlike.remove(threadname)
+        threadlistlike.insert(0, threadname)
+    elif threadcategori == "classified":
+        threadlistclassified.remove(threadname)
+        threadlistclassified.insert(0, threadname)
+    elif threadcategoi == "dislike":
+        threadlistdislike.remove(threadname)
+        threadlistdislike.insert(0, threadname)
     createcommentcommentimg(threadcategori,threadname,mapp,counter)
 
 def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
@@ -167,8 +166,15 @@ def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
     newcommentfile.write(date_time)
     newcommentfile.write("\n"+commenttext)
     newcommentfile.close()
-    threadlist.remove(threadname)
-    threadlist.insert(0, threadname)
+    if threadcategori == "like":
+        threadlistlike.remove(threadname)
+        threadlistlike.insert(0, threadname)
+    elif threadcategori == "classified":
+        threadlistclassified.remove(threadname)
+        threadlistclassified.insert(0, threadname)
+    elif threadcategori == "dislike":
+        threadlistdislike.remove(threadname)
+        threadlistdislike.insert(0, threadname)
     createcommentimg(threadcategori,threadname,counter)
 
 @route('/savenewthread/<threadcategori>', method="POST")
@@ -195,7 +201,12 @@ def savethread(threadcategori):
             open_file.write(upload.file.read())
     
     savethreadfile(newpath2,threadname,text,date_time)
-    threadlist.insert(0,threadname)
+    if threadcategori == "like":
+        threadlistlike.insert(0,threadname)
+    elif threadcategori == "classified":
+        threadlistclassified.insert(0,threadname)
+    elif threadcategori == "dislike":
+        threadlistdislike.insert(0,threadname)
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
@@ -222,4 +233,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9435, debug=True, reloader=True)
+run(host='localhost', port=9445, debug=True, reloader=True)

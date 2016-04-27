@@ -35,11 +35,11 @@
                         <li><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
                     </a>
                     %classified = "classified"
-                    <a href="/threadoverview/{{classified}}">
+                    <a href="/threadoverview/{{classified}}/1">
                         <li><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified"></li>
                     </a>
                     %dislike = "dislike"
-                    <a href="/threadoverview/{{dislike}}">
+                    <a href="/threadoverview/{{dislike}}/1">
                         <li><img class="catpic" src="../static/unlike.png" alt="Picture of dislike"</li>
                     </a>
                 </ul>

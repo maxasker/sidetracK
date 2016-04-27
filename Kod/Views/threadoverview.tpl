@@ -33,15 +33,15 @@
                <div id="categories">
                 <ul>
                     %like = "like"
-                    <a href="/threadoverview/{{like}}">
+                    <a href="/threadoverview/{{like}}/1">
                         <li><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
                     </a>
                     %classified = "classified"
-                    <a href="/threadoverview/{{classified}}">
+                    <a href="/threadoverview/{{classified}}/1">
                         <li><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified"></li>
                     </a>
                     %dislike = "dislike"
-                    <a href="/threadoverview/{{dislike}}">
+                    <a href="/threadoverview/{{dislike}}/1">
                         <li><img class="catpic" src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></li>
                     </a>
                 </ul>
@@ -128,28 +128,24 @@
 		        <hr>
 		        % end
                 </div>
-                
-                % for thread in threadlist:
-                <p>{{thread}}</p>
-                % end
             
             <div class="latestpost">
                 <h2>Latest Post</h2>
             
                 
             </div>
-            
+            %tcat = threadcategori
             <div class="pages">
-                <a href="/threadoverview/{{like}}/1">1</a>
-                <a href="/threadoverview/{{like}}/2">2</a>
-                <a href="/threadoverview/{{like}}/3">3</a>
-                <a href="/threadoverview/{{like}}/4">4</a>
-                <a href="/threadoverview/{{like}}/5">5</a>
-                <a href="/threadoverview/{{like}}/6">6</a>
-                <a href="/threadoverview/{{like}}/7">7</a>
-                <a href="/threadoverview/{{like}}/8">8</a>
-                <a href="/threadoverview/{{like}}/9">9</a>
-                <a href="/threadoverview/{{like}}/10">10</a>
+                <a href="/threadoverview/{{tcat}}/1">1</a>
+                <a href="/threadoverview/{{tcat}}/2">2</a>
+                <a href="/threadoverview/{{tcat}}/3">3</a>
+                <a href="/threadoverview/{{tcat}}/4">4</a>
+                <a href="/threadoverview/{{tcat}}/5">5</a>
+                <a href="/threadoverview/{{tcat}}/6">6</a>
+                <a href="/threadoverview/{{tcat}}/7">7</a>
+                <a href="/threadoverview/{{tcat}}/8">8</a>
+                <a href="/threadoverview/{{tcat}}/9">9</a>
+                <a href="/threadoverview/{{tcat}}/10">10</a>
             </div>
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
