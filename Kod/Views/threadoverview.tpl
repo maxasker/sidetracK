@@ -132,7 +132,14 @@
                 % for thread in threadlist:
                 <p>{{thread}}</p>
                 % end
-            <div id="pages">
+            
+            <div class="latestpost">
+                <h2>Latest Post</h2>
+            
+                
+            </div>
+            
+            <div class="pages">
                 <a href="/threadoverview/{{like}}/1">1</a>
                 <a href="/threadoverview/{{like}}/2">2</a>
                 <a href="/threadoverview/{{like}}/3">3</a>

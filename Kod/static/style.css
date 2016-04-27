@@ -45,8 +45,7 @@ margin-right:150px;
 }
 
 
-#form1
-{
+#form1{
 
 width: 400px;
 height: 250px;
@@ -207,7 +206,7 @@ footer{
 
 .likebox{
 /*Likebox stylar allt inne i forumtråden*/
-        width: 100%;
+        width: 70%;
         background-color:white;
         float: left;
         margin-top: 20px;
@@ -244,6 +243,7 @@ footer{
         margin-left:10px;
 }
 
+
 .threadcomment>p{
 /*Ger marginal till orginalkommentaren till vänster.*/
         margin-left:10px;
@@ -277,6 +277,28 @@ footer{
 
 .commentcomment>p{
 /*Indenterar kommentarers kommentar*/
-    margin-left:10px;
-    padding-top: 10px;
+        margin-left:10px;
+        padding-top: 10px;
+}
+
+.latestpost{
+/*Styling för senast inlägg*/
+        background-color: #E7EAF0;
+        border-style: groove;
+        border-color: #154175;
+        border-width: thin;
+        float:right;
+        width: 28%;
+        margin-top: 25px;
+        border-radius: 15px;
+        padding: 5px;
+        height: 400px;
+        margin-left: 2%;
+}
+
+.pages{
+/*Styling för knapparna till sidvisning*/
+        clear: both;
+        float: left;
+    
 }
