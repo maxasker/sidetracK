@@ -155,6 +155,7 @@ label.myLabel input[type="file"] {
         margin-bottom:;
         width: 100%;
         text-align: center;
+        
 }
 
 .catpic{
@@ -170,6 +171,26 @@ label.myLabel input[type="file"] {
         margin-top:260px;
         font-size:30px;
 }
+
+#testrutah1{
+        margin-top: 20px;
+}
+
+#threadtitle{
+        resize: none;
+        padding: 3px;
+        width: 20%;
+        height: 30px;
+}
+
+#threadtext{
+        resize: none;
+        padding: 3px;
+        width: 70%;
+        height: 200px;
+    
+}
+
 #createthreadtext{
 /*Färglägger knappen Starta tråd*/
         color:darkgoldenrod;
@@ -316,9 +337,17 @@ footer{
         margin-left: 2%;
 }
 
-.pages{
-/*Styling för knapparna till sidvisning*/
+.pagination{
+/*Styling för knapparna till sidvisning(Föredetta pages)*/
         clear: both;
         float: left;
-    
+        padding: 8px;
+        
+        
+}
+
+#pages{
+/*Centrerar sidvisning-knapparna*/
+        margin-left: 33%;
+        
 }

@@ -136,7 +136,7 @@
             </div>
             %tcat = threadcategori
             
-        <ul class="pagination">
+        <ul id="pages" class="pagination">
         <li class="disable"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
             <li class="active"><a href="/threadoverview/{{tcat}}/1">1<span class="sr-only">(current)</span></a></li>  
             <li class="disable"><a href="/threadoverview/{{tcat}}/2">2<span class="sr-only">(current)</span></a></li> 
