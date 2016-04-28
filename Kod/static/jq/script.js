@@ -9,7 +9,7 @@ function showReplyBox(id,topicid,thispage,asd)
       if (asd==0) {
      var elem = '<form id ="form1" action = "'+formLink+'" enctype="multipart/form-data" method="post"><input type="hidden" name="comid" value="';
 elem = elem+ id + '">';
-elem = elem + '<textarea name="text" placeholder="Title" maxlength="100" rows="5" cols="50">Title</textarea><hr><a id ="close" href="javascript:void(0)" onclick="showReplyBox(44,142,1);">Close</a><hr><input type="file" name="commentimg" accept="image/*"><input type="submit" value="Spara innehåll"></form>';
+elem = elem + '<a id ="jsclose" href="javascript:void(0)" onclick="showReplyBox(44,142,1);">Close</a><textarea name="text" placeholder="Title" maxlength="100" rows="5" cols="50">Title</textarea><hr><input id="jsaddfile" type="file" name="commentimg" accept="image/*"><input id="jsaddcomment" type="submit" value="Spara innehåll"></form>';
 
     var empty = "";  
 

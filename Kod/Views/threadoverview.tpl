@@ -135,7 +135,22 @@
                 
             </div>
             %tcat = threadcategori
-            <div class="pages">
+            
+        <ul class="pagination">
+        <li class="disable"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            <li class="active"><a href="/threadoverview/{{tcat}}/1">1<span class="sr-only">(current)</span></a></li>  
+            <li class="disable"><a href="/threadoverview/{{tcat}}/2">2<span class="sr-only">(current)</span></a></li> 
+            <li class="disable"><a href="/threadoverview/{{tcat}}/3">3<span class="sr-only">(current)</span></a></li> 
+            <li class="disable"><a href="/threadoverview/{{tcat}}/4">4<span class="sr-only">(current)</span></a></li> 
+            <li class="disable"><a href="/threadoverview/{{tcat}}/5">5<span class="sr-only">(current)</span></a></li> 
+            <li class="disable"><a href="/threadoverview/{{tcat}}/6">6<span class="sr-only">(current)</span></a></li> 
+            <li class="disable"><a href="/threadoverview/{{tcat}}/7">7<span class="sr-only">(current)</span></a></li> 
+            <li class="disable"><a href="/threadoverview/{{tcat}}/8">8<span class="sr-only">(current)</span></a></li> 
+            <li class="disable"><a href="/threadoverview/{{tcat}}/9">9<span class="sr-only">(current)</span></a></li> 
+            <li class="disable"><a href="/threadoverview/{{tcat}}/10">10<span class="sr-only">(current)</span></a></li> 
+        </ul>
+            
+        <!--    <div class="pages">
                 <a href="/threadoverview/{{tcat}}/1">1</a>
                 <a href="/threadoverview/{{tcat}}/2">2</a>
                 <a href="/threadoverview/{{tcat}}/3">3</a>
@@ -146,7 +161,7 @@
                 <a href="/threadoverview/{{tcat}}/8">8</a>
                 <a href="/threadoverview/{{tcat}}/9">9</a>
                 <a href="/threadoverview/{{tcat}}/10">10</a>
-            </div>
+            </div> -->
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
                 <p>By Johannes, Simon, Max, Jacob and Per</p>
