@@ -50,7 +50,7 @@
             <script src="{{url('static',filename='static/jq/jquery-1.12.3.min.js')}}"></script>
             <script src="{{url('static', filename='static/jq/jquery-ui.js')}}"></script>
             <script src="{{url('static',filename='static/jq/script.js')}}"></script>
-            <div class="likebox">
+            <div class="singlethreadbox">
             <script>
                 var formLink = "/{{threadcategori}}/{{threadname}}/savenewcomment";
             </script>
@@ -63,7 +63,7 @@
             <script src="/static/gifffer.min.js"></script>
             <img data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
             %else:
-            <img src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+            <img class="singleboximg" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
             %end
             </div>
             <hr>
@@ -85,13 +85,13 @@
                     %end
                     %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
-                        <img src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
+                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
                     %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)
-                        <img src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
+                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
                     %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)
-                        <img src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
+                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
                     %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
                         <script src="/static/gifffer.min.js"></script>
@@ -112,13 +112,13 @@
                     %end
                     %if os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))):
                         %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))
-                        <img src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
+                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
                     %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))):
                         %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))
-                        <img src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
+                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
                     %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))):
                         %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))
-                        <img src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
+                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
                     %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))):
                         %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))
                         <script src="/static/gifffer.min.js"></script>
@@ -134,7 +134,7 @@
             %end
             </div>
             <footer>
-                <p id="sidfot">sidetracKz0r inc</p>
+                <p id="sidfot">sidetracKz0r banana inc</p>
                 <p>By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
