@@ -1,4 +1,3 @@
-
 /*Innehållsförteckning:*/
 /* 1. Pers box (Rad 20-147)*/
 /* 2. */
@@ -9,6 +8,22 @@
         height:0px;
 }
 textarea {
+<<<<<<< HEAD
+    resize: none;/* completely disable resize */
+    resize:vertical; /* disable horizontal resize */
+    resize:horizontal; /* disable vertical resize */
+    padding: 3px;
+    width: 100%;
+}
+
+#boxbutt{
+    color: aqua; /* Fortsätt härifrån */
+}
+  
+label.myLabel input[type="file"] {
+    position: fixed;
+    top: -1000px; 
+=======
         resize: none;/* completely disable resize */
         resize:vertical; /* disable horizontal resize */
         resize:horizontal; /* disable vertical resize */
@@ -24,6 +39,7 @@ textarea {
 label.myLabel input[type="file"] {
         position: fixed;
         top: -1000px; 
+>>>>>>> 5a42561a6d432c5ed857be0bae7122d9092d46f6
 }
 #uploadbutt{
         margin-right:150px;
@@ -48,6 +64,16 @@ label.myLabel input[type="file"] {
 #form1{
         width: 400px;
         height: 250px;
+<<<<<<< HEAD
+        background-color:whitesmoke;
+        border: 1px #000000 solid;
+        padding: 10px;
+
+
+        -webkit-border-radius: 18px 18px 18px 18px;
+        -moz-border-radius: 18px 18px 18px 18px;
+        border-radius: 18px 18px 18px 18px;
+=======
         background-color: #3498db;
         border: 1px #000000 solid;
         padding: 10px;
@@ -61,13 +87,20 @@ label.myLabel input[type="file"] {
         -moz-box-shadow: 0px 1px 7px 0px #121010;
         -webkit-box-shadow: 0px 1px 7px 0px #121010;
         box-shadow: 0px 1px 7px 0px #121010;
+>>>>>>> 5a42561a6d432c5ed857be0bae7122d9092d46f6
 
 }
 
+<<<<<<< HEAD
+        -moz-box-shadow: 0px 1px 7px 0px #121010;
+        -webkit-box-shadow: 0px 1px 7px 0px #121010;
+        box-shadow: 0px 1px 7px 0px #121010;
+=======
 #jsaddfile{
         max-width: 170px;
         
 }
+>>>>>>> 5a42561a6d432c5ed857be0bae7122d9092d46f6
 
 #jsaddcomment{
         margin-top: 5px;
@@ -86,11 +119,12 @@ h1{
     padding:1%;
     
 }
+/*//////////////////////////////*/
 p{
     padding:1%;
-    
+    text-align: left;
 }
-
+/*//////////////////////////////*/
 
 #container{
 /*Behållare för helheten av sidan*/
@@ -170,18 +204,19 @@ p{
 
 .catpic{
 /*Klass. Lägger kategoribilderna i ordning*/
-        width: 33%;
+        width: 32%;
         height: 125px;
         padding: 5px;
+        float: left;
         
         
 }
 #createthread{
 /*Stylar och lägger länken Starta tråd till vänster*/
         height:10px;
-        position:absolute;
-        margin-top:260px;
+        margin-bottom: 20px;
         font-size:30px;
+        text-align: left;
 }
 
 #threadtitle{
@@ -261,7 +296,7 @@ footer{
         width: 100%;
         
 }
-
+/*//////////////////////////////*/
 .likebox{
 /*Likebox stylar allt inne i forumtråden i översikten*/
         width: 70%;
@@ -269,6 +304,7 @@ footer{
         float: left;
         margin-top: 20px;
         padding: 5px;
+        text-align: left;
 
     
 }
@@ -293,10 +329,10 @@ footer{
         float: left;
         margin-top: 20px;
         padding: 5px;
+        text-align: left;
     
 }
-
-
+/*//////////////////////////////*/
 .threadcomment, .threadcommentoverview{
 /*Orginal kommentar i forumtråden*/
         background-color: #B5BCCB;
@@ -328,7 +364,6 @@ footer{
         width: 380px;
         height: auto;
         padding: 1%;
-    
 }
 
 .singleboximg{
@@ -373,7 +408,7 @@ footer{
         float:right;
         width: 28%;
         margin-top: 25px;
-        border-radius: 15px;
+        border-radius: 5px;
         padding: 5px;
         height: 400px;
         margin-left: 2%;
@@ -393,3 +428,6 @@ footer{
         margin-left: 33%;
         
 }
+<!-- ///////////////////////////////////-->
+.likebox>a{
+        text-align: right;

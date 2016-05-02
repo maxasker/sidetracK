@@ -32,25 +32,25 @@
             </div>
             
            <!---knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen--->
-            <div id="categories">
-                <ul>
-                    %like = "like"
-                    <a href="/threadoverview/{{like}}/1">
-                        <li><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
-                    </a>
-                    %classified = "classified"
-                    <a href="/threadoverview/{{classified}}/1">
-                        <li><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified"></li>
-                    </a>
-                    %dislike = "dislike"
-                    <a href="/threadoverview/{{dislike}}/1">
-                        <li><img class="catpic" src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></li>
-                    </a>
-                </ul>
+                <div id="categories">
+                        %like = "like"
+                        <a href="/threadoverview/{{like}}/1">
+                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
+                        </a></div>
+                        %classified = "classified"
+                        <a href="/threadoverview/{{classified}}/1">
+                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
+                        </a></div>
+                        %dislike = "dislike"
+                        <a href="/threadoverview/{{dislike}}/1">
+                            <div class="catdiv"><img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"</div></a>
+                            </div>
+            <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
+                    <h1 id = "threadcategori">{{threadcategori}}</h1>
                 
-                <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
-                <h1 id = "threadcategori">{{threadcategori}}</h1>
-            </div>
+                <div id="createthread"><a href="/{{threadcategori}}/createthread" id="createthreadtext">Skapa tråd</a></div>
+
+
             
             <!----Länkar in javascripten ---->
             <script src="{{url('static',filename='static/jq/jquery-1.12.3.min.js')}}"></script>
