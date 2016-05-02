@@ -71,7 +71,7 @@ label.myLabel input[type="file"] {
 
 #jsaddcomment{
         margin-top: 5px;
-        background-color: whitesmoke;
+        background-color: white;
         -moz-box-shadow: 0px 1px 5px 0px #121010;
         -webkit-box-shadow: 0px 1px 5px 0px #121010;
         box-shadow: 0px 1px 5px 0px #121010;
@@ -81,6 +81,16 @@ label.myLabel input[type="file"] {
         float: right;
         color: white;
 }
+
+h1{
+    padding:1%;
+    
+}
+p{
+    padding:1%;
+    
+}
+
 
 #container{
 /*Behållare för helheten av sidan*/
@@ -163,6 +173,8 @@ label.myLabel input[type="file"] {
         width: 33%;
         height: 125px;
         padding: 5px;
+        
+        
 }
 #createthread{
 /*Stylar och lägger länken Starta tråd till vänster*/
@@ -206,6 +218,10 @@ li{
         display: inline;
 }
 
+.test1{
+    max-width: 200px;
+}
+
 .about_us{
 /*Klass. Stylar div-rutan About Us*/
         height: 250px;
@@ -246,7 +262,7 @@ footer{
 }
 
 .likebox{
-/*Likebox stylar allt inne i forumtråden*/
+/*Likebox stylar allt inne i forumtråden i översikten*/
         width: 70%;
         background-color:white;
         float: left;
@@ -257,15 +273,26 @@ footer{
 }
 
 #tsboxen, .tsboxoverview{
+/*Ger trådarna ram runt om */
         border-style: groove;
         border-color: #154175;
         border-width: thin;
-        border-radius: 15px;
+        border-radius: 5px;
     
 }
 
 #tsboxen>img, .tsboxoverview>p{
         padding: 1%;
+}
+
+.singlethreadbox{
+/*Stylar forumtråden på enskild tråd*/
+        width: 97%;
+        background-color:white;
+        float: left;
+        margin-top: 20px;
+        padding: 5px;
+    
 }
 
 
@@ -295,6 +322,20 @@ footer{
         margin-left:95%;   
 }
 
+.tsimgoverview, .commentimgoverview{
+/*Stylar så bilderna har fast storlek i trådöversikt*/
+        width: 380px;
+        height: auto;
+        padding: 1%;
+    
+}
+
+.singleboximg{
+        width: 420px;
+        height: auto;
+        padding: 1%;
+        
+}
 #replythread{
 /*Indenterar knappen att svara på orginalkommentaren*/
         margin-left:88%;   
