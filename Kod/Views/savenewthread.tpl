@@ -29,18 +29,15 @@
                 </nav>
             </div>
         <div id="testruta">
-            <h1 id="testrutah1">
-                Skriv din tråd här nedanför
-            </h1>
             <form action="/savenewthread/{{threadcategori}}" enctype="multipart/form-data" method="post">
-	        <h2>Trådrubrik</h2>
-	        <textarea id="threadtitle" name="title" placeholder="Title" maxlength="100" rows="1" cols="50">Title</textarea>
+	        <h2 id="creathead">Trådrubrik</h2>
+	        <textarea id="threadtitle" name="title" placeholder="Title" maxlength="50" rows="1" cols="50"></textarea>
 	        <hr>
 	        <h2>Innehåll</h2>
-	        <textarea id="threadtext" name="text" placeholder="Text" maxlength="2000" rows="5" cols="50">Text</textarea>
+	        <textarea id="threadtext" name="text" placeholder="Text" maxlength="2000" rows="5" cols="50"></textarea>
 	        <hr>
-            <input type="file" name="tspic" accept="image/*">
-	        <input type="submit" value="Spara innehåll">
+            <input id="jsaddfile" type="file" name="tspic" accept="image/*">
+	        <input id="jsaddcomment" type="submit" value="Spara innehåll">
             </form>
             
             

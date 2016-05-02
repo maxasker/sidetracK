@@ -184,10 +184,6 @@ p{
         font-size:30px;
 }
 
-#testrutah1{
-        margin-top: 20px;
-}
-
 #threadtitle{
         resize: none;
         padding: 3px;
@@ -215,12 +211,11 @@ p{
 
 li{
 /*Stylar så att kategoribilderna justeras efter webbläsarens bredd*/
-        display: inline;
+        display:inline;
+        float: left;
+        
 }
 
-.test1{
-    max-width: 200px;
-}
 
 .about_us{
 /*Klass. Stylar div-rutan About Us*/
@@ -249,6 +244,12 @@ li{
 h2{
 /*Stylar h2-överskrift. Tex. i About Us och Rules*/
         margin-left: 10px;
+        
+}
+
+#creathead{
+/*Shortcut lösning för att rubriken inte ska hoppa i createthread*/
+        margin-top: 0px;
 }
 
 footer{
