@@ -1,0 +1,5 @@
+Mappen threads innehåller mappar som har trådtitelns namn
+I trådmapparna finns tsinfo.txt, tstext.txt, tstitel.txt, tsbild och en commentmapp
+I commentmappen finns mappar där varje mapp representerar ett originalsvar och dess svar-på-svar
+I commentXmapparna finns alltid en comment1.txt, det är ett originalsvar, alla commentx.txt är svar-på-svar. 
+Där finns även eventuella bilder till båda svar och svar-påsvar.

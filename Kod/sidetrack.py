@@ -275,7 +275,7 @@ def savethread(threadcategori):
         name, ext = os.path.splitext(upload.filename)
         #nekar om ext inte är giltig
         if ext not in ('.png','.jpg','.jpeg','.gif'):
-            return "File extension not allowed."
+            redirect('/errorext')
         extt = str(ext)
         file_path = "{path}/{file}".format(path=newpath2, file="tsimg" + extt)
         with open(file_path, 'wb') as open_file:
@@ -292,6 +292,12 @@ def savethread(threadcategori):
     #redirectar till den tråden man skapat
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
+
+@route('/errorext')
+def errorext():
+    errorvar = "File extension not allowed."
+    return template('error', errorvar=errorvar)
+    
 
 def savethreadfile(newpath2,threadname,text,date_time):
     #skapar tstitle.txt och skriver in trådnamnet, mao titeln
@@ -317,4 +323,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9450, debug=True, reloader=True)
+run(host='localhost', port=9456, debug=True, reloader=True)
