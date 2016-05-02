@@ -8,8 +8,10 @@
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
         </..><link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+        
     </head>
     <body>
+        <script src="{{url('static',filename='static/jq/script.js')}}"></script>
         <div id="container">
                 <!--Sidetrack logga--> 
                 <div class="main-logotype">
@@ -29,9 +31,10 @@
                 </nav>
             </div>
         <div id="testruta">
+            
             <form action="/savenewthread/{{threadcategori}}" enctype="multipart/form-data" method="post">
 	        <h2 id="creathead">Trådrubrik</h2>
-	        <textarea id="threadtitle" name="title" placeholder="Title" maxlength="50" rows="1" cols="50"></textarea>
+	        <textarea id="threadtitle" name="title" onkeydown="return limitLines(this, event)" placeholder="Title" maxlength="36" rows="1" cols="50"></textarea>
 	        <hr>
 	        <h2>Innehåll</h2>
 	        <textarea id="threadtext" name="text" placeholder="Text" maxlength="2000" rows="5" cols="50"></textarea>
