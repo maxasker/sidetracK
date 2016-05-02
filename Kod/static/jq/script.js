@@ -40,7 +40,7 @@ function showReplyBox2(id,topicid,thispage,asd,currentElement)
     
 var elem = '<form id ="form1" action = "'+mapp+'" enctype="multipart/form-data" method="post"><input type="hidden" name="comid" value="';
 elem = elem+ id + '">';
-elem = elem + '<a id ="jsclose" href="javascript:void(0)" onclick="showReplyBox(44,142,1);">Close</a><textarea name="text" placeholder="Title" maxlength="100" rows="5" cols="50">Title</textarea><hr><input id="jsaddfile" type="file" name="commentimg" accept="image/*"><input id="jsaddcomment" type="submit" value="Spara innehåll"></form>';
+elem = elem + '<a id ="jsclose" href="javascript:void(0)" onclick="showReplyBox(44,142,1);">Close</a><textarea name="text" placeholder="Title" maxlength="100" rows="5" cols="50">Title</textarea><hr><input id="jsaddfile" type="file" name="commentcommentimg" accept="image/*"><input id="jsaddcomment" type="submit" value="Spara innehåll"></form>';
     var empty = ""; 
 
     $("#elem").animate({'left':'300','opacity':'0'}, 0, function(){

@@ -30,6 +30,8 @@
                     </ul>
                 </nav>
             </div>
+            
+           <!---knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen--->
             <div id="categories">
                 <ul>
                     %like = "like"
@@ -45,44 +47,85 @@
                         <li><img class="catpic" src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></li>
                     </a>
                 </ul>
+                
+                <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
                 <h1 id = "threadcategori">{{threadcategori}}</h1>
             </div>
+            
+            <!----Länkar in javascripten ---->
             <script src="{{url('static',filename='static/jq/jquery-1.12.3.min.js')}}"></script>
             <script src="{{url('static', filename='static/jq/jquery-ui.js')}}"></script>
             <script src="{{url('static',filename='static/jq/script.js')}}"></script>
             <div class="singlethreadbox">
+                
+            <!-----skapar en variabel för svaraknappen som är skriven i javascript ----->
             <script>
                 var formLink = "/{{threadcategori}}/{{threadname}}/savenewcomment";
             </script>
+                
+<!--------------------------------------------------------------------------------------------------------------------------------------->
             <div id = "tsboxen">
-            <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
-            <p>{{threadinfo}}</p>
-            <h1>{{threadname.replace("_____", " ")}}</h1>
-		    <p>{{threadtext}}</p>
-            %if tsimg == "tsimg.gif":
-            <script src="/static/gifffer.min.js"></script>
-            <img data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
-            %else:
-            <img class="singleboximg" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
-            %end
+                <!----Knappen för att svara på TS --->
+                <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
+                
+                <!---datumochtid för TS, variabel ifrån python ---->
+                <p>{{threadinfo}}</p>
+                
+                <!---Trådnamnet(titeln) där vi tar bort _____, variabel ifrån python-->
+                <h1>{{threadname.replace("_____", " ")}}</h1>
+                
+                <!---texten för TS, variabel ifrån python--->
+		        <p>{{threadtext}}</p>
+                
+                <!--- if else för vad det är för ext, är det en gif har vi en spelare i javascript vi länkar in annars bara en <img> -->
+                %if tsimg == "tsimg.gif":
+                <script src="/static/gifffer.min.js"></script>
+                <img data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+                %else:
+                <img class="singleboximg" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+                %end
             </div>
             <hr>
+                
+            <!---forloop för kommentarslistan man får ifrån python --->
+            <!---För varje mapp i kommentarslistan --->
             %for mapp in commentlist:
+                
+                <!---Skapa en lista för filerna i mappen--->
                 %files = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
+                
+                <!---gör en ny lista men bara med filer som slutar på .txt--->
                 %filelist = [i for i in files if i.endswith('.txt')]
+                
+                <!---Sortera listan--->
+                %sorted(filelist)
+                
+                <!---För varje textfil i nya listan--->
                 %for textfile in filelist:
+                
+                <!---Om textfilen är comment1.txt så är det en originalkommentar, då gör vi lite annorlunda--->
                 %if textfile == "comment1.txt":
+                
+                    <!---f = textfilen --->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
+                
+                    <!---Läs första linen och skriv ut den i egen <p> och skriv ut svaraknappen --->
                     %line_0 = f.readlines()[0]
                     <div class="threadcomment">
-                    <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
-                    <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
+                        <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                    
+                    <!---Stäng filen--->
                     %f.close()
+                    
+                    <!---Öppna den och skriv ut alla andra linjer förutom första (som bara är datum och tid)--->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %for line in lines_1_through_end:
-                    <p>{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p>{{line.decode('iso-8859-1').encode('utf8')}}</p>
                     %end
+                    
+                    <!--- Kollar om det finns en bild och skriver ut den, är det gif så används ramverket annar bara <img> --->
                     %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
                         <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
@@ -99,17 +142,27 @@
                     %else:
                         </div>
                     %end
+
+                <!---Fortsättning ifrån första loopen om det inte är originalkommentar --->
                 %else:
+
+                <!---Öppna textfilen och läs rad 1 (0 i python) och skriv ut tid och datum--->
                 %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="commentcomment">
-                    <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        
+                    <!---Stäng filen--->
                     %f.close()
+                        
+                    <!---Öppna den igen och skriv ut alla andra rader--->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %for line in lines_1_through_end:
-                    <p>{{line}}</p>
+                        <p>{{line}}</p>
                     %end
+                        
+                    <!---Om det finns en bild skrivs den ut, är det gif så används ramverket annars bara en vanlig <img>--->
                     %if os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))):
                         %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))
                         <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
@@ -125,8 +178,8 @@
                         <img data-gifffer="{{url('static',filename=commentcommentimgpath)}}" alt="tsimg">
                     %end
                     </div>
-                    
-                    
+
+                <!---Stäng filen--->
                 %f.close()
                 %end
                 %end
