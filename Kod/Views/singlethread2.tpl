@@ -79,10 +79,10 @@
                 
                 <!--- if else för vad det är för ext, är det en gif har vi en spelare i javascript vi länkar in annars bara en <img> -->
                 %if tsimg == "tsimg.gif":
-                <script src="/static/gifffer.min.js"></script>
+                <script class="singleboximg" src="/static/gifffer.min.js"></script>
                 <img data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
                 %else:
-                <img class="singleboximg" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+                <img src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
                 %end
             </div>
             <hr>
@@ -138,7 +138,7 @@
                     %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
                         <script src="/static/gifffer.min.js"></script>
-                        <img data-gifffer="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
+                        <img class="singleboximg" data-gifffer="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
                     %else:
                         </div>
                     %end
@@ -174,7 +174,7 @@
                         <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
                     %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))):
                         %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))
-                        <script src="/static/gifffer.min.js"></script>
+                        <script class="singleboximg" src="/static/gifffer.min.js"></script>
                         <img data-gifffer="{{url('static',filename=commentcommentimgpath)}}" alt="tsimg">
                     %end
                     </div>
