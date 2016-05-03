@@ -1,4 +1,3 @@
-
 /*Innehållsförteckning:*/
 /* 1. Pers box (Rad 20-147)*/
 /* 2. */
@@ -9,6 +8,22 @@
         height:0px;
 }
 textarea {
+<<<<<<< HEAD
+    resize: none;/* completely disable resize */
+    resize:vertical; /* disable horizontal resize */
+    resize:horizontal; /* disable vertical resize */
+    padding: 3px;
+    width: 100%;
+}
+
+#boxbutt{
+    color: aqua; /* Fortsätt härifrån */
+}
+  
+label.myLabel input[type="file"] {
+        position: fixed;
+        top: -1000px; 
+
         resize: none;/* completely disable resize */
         resize:vertical; /* disable horizontal resize */
         resize:horizontal; /* disable vertical resize */
@@ -25,6 +40,7 @@ label.myLabel input[type="file"] {
         position: fixed;
         top: -1000px; 
 }
+
 #uploadbutt{
         margin-right:150px;
         background: #3498db;
@@ -48,6 +64,14 @@ label.myLabel input[type="file"] {
 #form1{
         width: 400px;
         height: 250px;
+        background-color:dodgerblue;
+        border: 1px #000000 solid;
+        padding: 10px;
+
+
+        -webkit-border-radius: 18px 18px 18px 18px;
+        -moz-border-radius: 18px 18px 18px 18px;
+        border-radius: 18px 18px 18px 18px;
         background-color: #3498db;
         border: 1px #000000 solid;
         padding: 10px;
@@ -64,12 +88,17 @@ label.myLabel input[type="file"] {
 
 }
 
+
+
 #jsaddfile{
+/*Javascriptboxen välj fil-knapp. Ser till att knappen får en bestämd storlek*/
         max-width: 170px;
         
 }
 
+
 #jsaddcomment{
+/*Javascriptboxen submitknapp*/
         margin-top: 5px;
         background-color: white;
         -moz-box-shadow: 0px 1px 5px 0px #121010;
@@ -78,6 +107,7 @@ label.myLabel input[type="file"] {
 }
 
 #jsclose{
+/*Javascriptboxens stängknapp*/
         float: right;
         color: white;
 }
@@ -86,9 +116,10 @@ h1{
     padding:1%;
     
 }
+
 p{
     padding:1%;
-    
+    text-align: left;
 }
 
 
@@ -157,7 +188,7 @@ p{
 }
         
 
-#categories{
+.categories{
 /*Div box till kategoriknapparna*/
         float: left;
         background-color:;
@@ -170,18 +201,19 @@ p{
 
 .catpic{
 /*Klass. Lägger kategoribilderna i ordning*/
-        width: 33%;
+        width: 32%;
         height: 125px;
         padding: 5px;
+        float: left;
         
         
 }
 #createthread{
 /*Stylar och lägger länken Starta tråd till vänster*/
         height:10px;
-        position:absolute;
-        margin-top:260px;
+        margin-bottom: 20px;
         font-size:30px;
+        text-align: left;
 }
 
 #threadtitle{
@@ -219,6 +251,7 @@ li{
 
 .about_us{
 /*Klass. Stylar div-rutan About Us*/
+        margin-top: 15px;
         height: 250px;
         width: 60%;
         background-color:;
@@ -231,6 +264,7 @@ li{
 
 .rules{
 /*Klass. Stylar div-rutan Rules*/
+        margin-top: 15px;
         height: 250px;
         width: 40%;
         background-color:;
@@ -252,14 +286,29 @@ h2{
         margin-top: 0px;
 }
 
-footer{
+#errorhead{
+/*Shortcut lösning för att rubriken inte ska hoppa i createthread*/
+        margin-top: 0px;
+        padding-top: 13%;
+}
+
+#footer{
 /*Stylar fothuvudet*/
         text-align: center;
-        padding: 10px;
+        margin-top: 20px;
+        padding: 8px;
+        float: left;
+        clear: both;
+        width: 100%;       
+}
+
+#createfooter{
+/*Stylar skapad av footer*/
+        text-align: center;
+        padding: 5px;
         float: left;
         clear: both;
         width: 100%;
-        
 }
 
 .likebox{
@@ -269,6 +318,7 @@ footer{
         float: left;
         margin-top: 20px;
         padding: 5px;
+        text-align: left;
 
     
 }
@@ -293,9 +343,9 @@ footer{
         float: left;
         margin-top: 20px;
         padding: 5px;
+        text-align: left;
     
 }
-
 
 .threadcomment, .threadcommentoverview{
 /*Orginal kommentar i forumtråden*/
@@ -328,7 +378,6 @@ footer{
         width: 380px;
         height: auto;
         padding: 1%;
-    
 }
 
 .singleboximg{
@@ -373,7 +422,7 @@ footer{
         float:right;
         width: 28%;
         margin-top: 25px;
-        border-radius: 15px;
+        border-radius: 5px;
         padding: 5px;
         height: 400px;
         margin-left: 2%;
@@ -393,3 +442,8 @@ footer{
         margin-left: 33%;
         
 }
+
+.likebox>a{
+        text-align: right;
+}
+
