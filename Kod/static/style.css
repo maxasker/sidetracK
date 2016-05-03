@@ -8,10 +8,7 @@
         height:0px;
 }
 textarea {
-<<<<<<< HEAD
     resize: none;/* completely disable resize */
-    resize:vertical; /* disable horizontal resize */
-    resize:horizontal; /* disable vertical resize */
     padding: 3px;
     width: 100%;
 }
@@ -92,18 +89,18 @@ label.myLabel input[type="file"] {
 
 #jsaddfile{
 /*Javascriptboxen välj fil-knapp. Ser till att knappen får en bestämd storlek*/
-        max-width: 170px;
-        
+        max-width: 200px;
+
 }
 
 
 #jsaddcomment{
 /*Javascriptboxen submitknapp*/
+        color: white;
         margin-top: 5px;
-        background-color: white;
-        -moz-box-shadow: 0px 1px 5px 0px #121010;
-        -webkit-box-shadow: 0px 1px 5px 0px #121010;
-        box-shadow: 0px 1px 5px 0px #121010;
+        background-color: limegreen;
+        border-radius: 5px;
+        border: none;
 }
 
 #jsclose{
