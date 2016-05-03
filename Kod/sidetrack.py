@@ -94,6 +94,15 @@ def savenewcomment(threadcategori,threadname):
     '''
         funktionen för att spara en orginalkommentar
     '''
+    #tar bilden ifrån formuläret
+    upload = request.files.get("commentimg")
+    #om upload finns
+    if upload is not None:
+        #den splittar extentionen och säger till om fileext är ogiltig
+        name, ext = os.path.splitext(upload.filename)
+        #kollar så att ext är giltig
+        if ext not in ('.png','.jpg','.jpeg','.gif'):
+            redirect('/errorext')
     #räknare för att kontrollera vilken kommentar som skall sparas
     counter = 1
     #gör en path med comment1 i slutet
@@ -115,6 +124,13 @@ def savenewcommentcomment(threadcategori,threadname,mapp):
     '''
         Funktionen för att spara svar-på-svar, den tar emot kategori/namn och sen vilken mapp man är inne i
     '''
+    upload = request.files.get("commentcommentimg")
+    #om upload finns så splitta namn och text och kontrollera ext
+    if upload is not None:
+        name, ext = os.path.splitext(upload.filename)
+        #kollar så att ext är giltig
+        if ext not in ('.png','.jpg','.jpeg','.gif'):
+            redirect('/errorext')
     #räknaren är på 2 iom att detta inte kan vara en originalkommentar, mao comment1.txt är en originalkommentar
     counter = 2
     #skapar en path med comment2.txt
@@ -250,6 +266,15 @@ def savethread(threadcategori):
     '''
         Sparar tråd och tar informationen ifrån formuläret på createthread.tpl
     '''
+    #tar bilden och sparar den i en variabel
+    upload = request.files.get("tspic")
+    #om det inte laddas upp en bild så nekar den och avbryter
+    if request.files.get("tspic") is None:
+        redirect('/errorimg')
+    #nekar om ext inte är giltig
+    name, ext = os.path.splitext(upload.filename)
+    if ext not in ('.png','.jpg','.jpeg','.gif'):
+        redirect('/errorext')
     #tar titlen och sparar den
     threadname = request.forms.get("title").replace(" ", "_____")
     #tar texten och sparar den
@@ -262,11 +287,6 @@ def savethread(threadcategori):
         return "There already exists a thread with this title"
     #sparar tid och datum
     date_time = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
-    #om det inte laddas upp en bild så nekar den och avbryter
-    if request.files.get("tspic") is None:
-        return "You need to upload a picture."
-    #tar bilden och sparar den i en variabel
-    upload = request.files.get("tspic")
     #om trådmappen inte finns så skapas den
     if not os.path.exists(newpath):
         os.makedirs(newpath)
@@ -297,6 +317,11 @@ def savethread(threadcategori):
 def errorext():
     errorvar = "File extension not allowed."
     return template('error', errorvar=errorvar)
+
+@route('/errorimg')
+def errorimg():
+    errorvar = "You need to upload a picture!"
+    return template('error', errorvar=errorvar)
     
 
 def savethreadfile(newpath2,threadname,text,date_time):
@@ -323,4 +348,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9456, debug=True, reloader=True)
+run(host='localhost', port=9463, debug=True, reloader=True)

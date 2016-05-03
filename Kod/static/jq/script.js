@@ -100,3 +100,7 @@ var keynum, lines = 1;
           }
         }
       }
+
+function goBack() {
+    window.history.back();
+}

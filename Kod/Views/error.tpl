@@ -47,6 +47,8 @@
             <div id="errordiv">
                 <h1>Ooops!</h1>
                 <p>{{errorvar}}</p>
+                <script src="{{url('static',filename='static/jq/script.js')}}"></script>
+                <button onclick="goBack()">Go Back</button>
             </div>
             <footer>
                 <p id="sidfot">sidetracKz0r inc</p>
