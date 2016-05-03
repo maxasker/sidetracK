@@ -97,3 +97,6 @@ var containment = $( ".selector" ).draggable( "option", "containment" );
 // Setter
 $( ".selector" ).draggable( "option", "containment", "parent" );
 
+function goBack() {
+    window.history.back();
+}

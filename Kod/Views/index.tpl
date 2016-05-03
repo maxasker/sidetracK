@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
-        </..><link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="container">
@@ -31,15 +31,15 @@
                           <div class="categories">
                         %like = "like"
                         <a href="/threadoverview/{{like}}/1">
-                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
-                        </a></div>
+                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love">
+                        </div></a>
                         %classified = "classified"
                         <a href="/threadoverview/{{classified}}/1">
                             <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
-                        </a></div>
+                        </div></a>
                         %dislike = "dislike"
                         <a href="/threadoverview/{{dislike}}/1">
-                            <div class="catdiv"><img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"</div></a>
+                            <div class="catdiv"><img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></div></a>
                             </div>
             <!-- Rutor med Information om oss och regler för forumet -->
             <div class="about_us">

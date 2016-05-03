@@ -10,8 +10,8 @@
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
     </head>
-    <div id="elem"></div>
     <body>
+        <div id="elem"></div>
         <div id="container">
                 <!-- Sidetrack logga -->
                 <div class="main-logotype">
@@ -35,15 +35,15 @@
                 <div class="categories">
                         %like = "like"
                         <a href="/threadoverview/{{like}}/1">
-                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
-                        </a></div>
+                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love">
+                        </div></a>
                         %classified = "classified"
                         <a href="/threadoverview/{{classified}}/1">
                             <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
-                        </a></div>
+                        </div></a>
                         %dislike = "dislike"
                         <a href="/threadoverview/{{dislike}}/1">
-                            <div class="catdiv"><img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"</div></a>
+                            <div class="catdiv"><img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></div></a>
                             </div>
             <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
                     <h1 id = "threadcategori">{{threadcategori}}</h1>
@@ -74,16 +74,17 @@
                 <!---Trådnamnet(titeln) där vi tar bort _____, variabel ifrån python-->
                 <h1>{{threadname.replace("_____", " ")}}</h1>
                 
-                <!---texten för TS, variabel ifrån python--->
-		        <p>{{threadtext}}</p>
-                
                 <!--- if else för vad det är för ext, är det en gif har vi en spelare i javascript vi länkar in annars bara en <img> -->
                 %if tsimg == "tsimg.gif":
                 <script class="singleboximg" src="/static/gifffer.min.js"></script>
                 <img data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
                 %else:
-                <img src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+                <img class="singleboximg" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
                 %end
+                
+                <!---texten för TS, variabel ifrån python--->
+		        <p>{{threadtext}}</p>
+            
             </div>
             <hr>
                 
