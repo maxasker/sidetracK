@@ -44,16 +44,10 @@
             
             
             <div id="errordiv">
-<<<<<<< HEAD
-                <h1>Ooops!</h1>
-                <p>{{errorvar}}</p>
+                <h1 id="errorhead">Ooops!</h1>
+                <h2>{{errorvar}}<h2>
                 <script src="{{url('static',filename='static/jq/script.js')}}"></script>
                 <button onclick="goBack()">Go Back</button>
-=======
-                <h1 id="errorhead">Ooops!</h1>
-                <h2>{{errorvar}}</h2>
-                <h2>Go back to <a href="/homepage">sidetracK</a> and try again!</h2>
->>>>>>> origin/master
             </div>
             
             <footer>
