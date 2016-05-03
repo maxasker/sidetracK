@@ -323,6 +323,9 @@ def errorimg():
     errorvar = "You need to upload a picture!"
     return template('error', errorvar=errorvar)
     
+@route('/about')
+def about():
+    return template('about')
 
 def savethreadfile(newpath2,threadname,text,date_time):
     #skapar tstitle.txt och skriver in trådnamnet, mao titeln
@@ -348,4 +351,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9467, debug=True, reloader=True)
+run(host='localhost', port=9468, debug=True, reloader=True)
