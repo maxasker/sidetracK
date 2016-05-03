@@ -327,6 +327,10 @@ def errorimg():
 def about():
     return template('about')
 
+@route('/feedback')
+def feedback():
+    return template('feedback')
+
 def savethreadfile(newpath2,threadname,text,date_time):
     #skapar tstitle.txt och skriver in trådnamnet, mao titeln
     newthreadtitlefile = open("{0}/tstitle.txt".format(newpath2), "w")

@@ -20,9 +20,9 @@
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">Feedback</a>
+                        <li role="presentation"><a class="nav-text" id="feedback" href="/feedback">Feedback</a>
                         </li>
-                        <li role="presentation"><a class="nav-text" href="/about">Om oss</a>
+                        <li role="presentation"><a class="nav-text" href="/about">About us</a>
                         </li>
                     </ul>
                 </nav>

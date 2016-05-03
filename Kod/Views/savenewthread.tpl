@@ -25,7 +25,7 @@
                     <ul class="nav nav-pills">
                         <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">Feedback</a>
                         </li>
-                        <li role="presentation"><a class="nav-text" href="/createthread">Om oss</a>
+                        <li role="presentation"><a class="nav-text" href="/createthread">About us</a>
                         </li>
                     </ul>
                 </nav>
