@@ -28,7 +28,7 @@
                 </nav>
             </div>
             <!-- Våra tre huvudkategorier -->
-                          <div id="categories">
+                          <div class="categories">
                         %like = "like"
                         <a href="/threadoverview/{{like}}/1">
                             <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
@@ -45,15 +45,16 @@
             <div class="about_us">
                 <h2>About us</h2>
                 <p>Detta är ett projekt som är gjort av</p>
-                <p>Max,Johannes,Per,Jacob och simon</p>
+                <p>Max, Johannes, Per, Jacob och Simon</p>
             </div>
             <div class="rules">
                 <h2>Rules</h2>
                 <p>Va trevlig</p>
             </div>
+            
             <footer>
-                <p id="sidfot">sidetracKz0r inc</p>
-                <p>By Johannes, Simon, Max, Jacob and Per</p>
+                <p id="footer">sidetracKz0r inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
     </body>

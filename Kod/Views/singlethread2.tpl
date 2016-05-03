@@ -32,7 +32,7 @@
             </div>
             
            <!---knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen--->
-                <div id="categories">
+                <div class="categories">
                         %like = "like"
                         <a href="/threadoverview/{{like}}/1">
                             <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
@@ -186,9 +186,10 @@
                 <hr>
             %end
             </div>
+
             <footer>
-                <p id="sidfot">sidetracKz0r banana inc</p>
-                <p>By Johannes, Simon, Max, Jacob and Per</p>
+                <p id="footer">sidetracKz0r banana inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
     </body>

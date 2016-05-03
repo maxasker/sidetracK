@@ -28,29 +28,30 @@
                 </nav>
             </div>
             <!-- Våra tre huvudkategorier -->
-            <div id="categories">
-                <ul>
-                    %like = "like"
-                    <a href="/threadoverview/{{like}}/1">
-                        <li><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
-                    </a>
-                    %classified = "classified"
-                    <a href="/threadoverview/{{classified}}/1">
-                        <li><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified"></li>
-                    </a>
-                    %dislike = "dislike"
-                    <a href="/threadoverview/{{dislike}}/1">
-                        <li><img class="catpic" src="../static/unlike.png" alt="Picture of dislike"</li>
-                    </a>
-                </ul>
+            <div class="categories">
+                        %like = "like"
+                        <a href="/threadoverview/{{like}}/1">
+                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love"></li>
+                        </a></div>
+                        %classified = "classified"
+                        <a href="/threadoverview/{{classified}}/1">
+                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
+                        </a></div>
+                        %dislike = "dislike"
+                        <a href="/threadoverview/{{dislike}}/1">
+                            <div class="catdiv"><img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"</div></a>
             </div>
+            
+            
             <div id="errordiv">
-                <h1>Ooops!</h1>
-                <p>{{errorvar}}</p>
+                <h1 id="errorhead">Ooops!</h1>
+                <h2>{{errorvar}}</h2>
+                <h2>Go back to <a href="/homepage">sidetracK</a> and try again!</h2>
             </div>
+            
             <footer>
-                <p id="sidfot">sidetracKz0r inc</p>
-                <p>By Johannes, Simon, Max, Jacob and Per</p>
+                <p id="footer">sidetracKz0r inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
     </body>

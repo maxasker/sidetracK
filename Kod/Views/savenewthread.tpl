@@ -48,8 +48,8 @@
 
         
             <footer>
-                <p id="sidfot">sidetracKz0r inc</p>
-                <p>By Johannes, Simon, Max, Jacob and Per</p>
+                <p id="footer">sidetracKz0r inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
     </body>
