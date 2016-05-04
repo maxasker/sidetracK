@@ -21,7 +21,11 @@ threadlistdislike = []
 def sendfeedback():
     feedbacktext = request.forms.get("feedbacktext")
     feedbacksender = request.forms.get("sender")
-    if feedbacktext or feedbacksender is not None:
+    if feedbacksender is None:
+        feedbacksender = "anonymous"
+    if feedbacktext == "":
+        errorvar = "You missed a field!"
+    else:
         mail = smtplib.SMTP('smtp.gmail.com',587)
         mail.ehlo()
         mail.starttls()
@@ -30,8 +34,6 @@ def sendfeedback():
         mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',feedbacktext)
         mail.close()
         errorvar = "Thank you for your feedback!"
-    else:
-        errorvar = "You missed a field!"
     return template('error',errorvar=errorvar)
 
 @route('/')
@@ -349,6 +351,11 @@ def about():
 def feedback():
     return template('feedback')
 
+@error(404)
+def error404(error):
+    errorvar = "Nothing here, sorry"
+    return template('error', errorvar = errorvar)
+
 def savethreadfile(newpath2,threadname,text,date_time):
     #skapar tstitle.txt och skriver in trådnamnet, mao titeln
     newthreadtitlefile = open("{0}/tstitle.txt".format(newpath2), "w")
@@ -373,4 +380,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9481, debug=True, reloader=True)
+run(host='localhost', port=9484, debug=True, reloader=True)
