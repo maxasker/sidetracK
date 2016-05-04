@@ -7,9 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
-        </..><link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
-        
+        <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
     </head>
+    
     <body>
         <script src="{{url('static',filename='static/jq/script.js')}}"></script>
         <div id="container">
