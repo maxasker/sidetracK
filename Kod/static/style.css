@@ -239,13 +239,6 @@ p{
         
         
 }
-#createthread{
-/*Stylar och lägger länken Starta tråd till vänster*/
-        height:10px;
-        margin-bottom: 20px;
-        font-size:30px;
-        text-align: left;
-}
 
 #threadtitle{
         resize: none;
@@ -262,9 +255,24 @@ p{
     
 }
 
-#createthreadtext{
-/*Färglägger knappen Starta tråd*/
-        color:darkgoldenrod;
+#createthreada{
+        background-color: limegreen;
+        color:white;
+        border-radius: 10px;
+        border: none;
+        height:10px;
+        margin-bottom: 20px;
+        font-size:35px;
+        text-align: left;
+        padding-top: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+}
+
+#createthreada:hover{
+        text-decoration: none;
+        background-color: darkgreen;
 }
 
 #threadcategori{
@@ -327,7 +335,7 @@ h2{
 #footer{
 /*Stylar fothuvudet*/
         text-align: center;
-        margin-top: 70px;
+        margin-top: 50px;
         padding: 8px;
         float: left;
         clear: both;
@@ -481,6 +489,11 @@ h2{
 .feedbackthanks{
         margin-top:200px;
         font-size:75px;
+}
+
+#contacthead, #abouthead{
+/*Designar h1 taggen i Feedback*/
+        margin-top: 0px;
 }
 
 #inputmail{

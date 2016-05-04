@@ -43,7 +43,7 @@
                             </div>
            <form id="about" action="/sendfeedback" method="POST" enctype="multipart/form-data">
 			   
-			   <h1>Contact us</h1>
+			   <h1 id="contacthead">Contact us</h1>
 			   <p>If you experience a bug or have any wishes or any kind of critique, don't hesitate to contact us through the form below!</p>
 			   
 			   <h2>Email:</h2>

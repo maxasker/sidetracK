@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id="container">
-                
+                <!--Sidetrack logga--> 
                 <div class="main-logotype">
                     <header>
                         <a class="main-logotype" href="/homepage">sidetracK</a>
@@ -27,7 +27,7 @@
                     </ul>
                 </nav>
             </div>
-            
+            <!-- Våra tre huvudkategorier -->
                           <div class="categories">
                         %like = "like"
                         <a href="/threadoverview/{{like}}/1">
@@ -43,8 +43,7 @@
                             </div>
             
             <div id="about">
-				
-				<h1>About us</h1>
+				<h1 id="abouthead">About us</h1>
 				
 				<p>Here at sidetracK we are all about freedom of speech! If you ever have a train of thought that you are to uncomfortable saying out loud you can post it here at sidetracK. Feeling happy? Come over the "Like" page and share your thoughts! If you are pissed off you can go ventilate your anger at the "Dislike" page and if you have done some thing really wacked we would love to hear all about it at the "Classified" page.</p>
 				

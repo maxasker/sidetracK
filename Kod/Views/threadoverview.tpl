@@ -46,7 +46,7 @@
             <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
                     <h1 id = "threadcategori">{{threadcategori}}</h1>
                 
-                <div id="createthread"><a href="/{{threadcategori}}/createthread" id="createthreadtext">Skapa tråd</a></div>
+            <div id="createthreadtext"><a id="createthreada" href="/{{threadcategori}}/createthread">Skapa tråd</a></div>
 
 
             <!---Skapar en div för alla trådar i kategorin--->
