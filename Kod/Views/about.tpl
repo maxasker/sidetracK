@@ -50,7 +50,7 @@
 				
 				<p>Our mission is to create a site where you are completely anonymous and where you can share all your crazy thoughts and experiences with others! The site is supposed to start debates, make people laugh or engage in wild discussions and just let you say whatever comes to mind!</p>
 				
-				<p>If you are the kind of person that gets offended by everyone and everything, you cam to the wrong place!</p>
+				<p>If you are the kind of person that gets offended by everyone and everything, you came to the wrong place!</p>
 			</div>
             
             <footer>
