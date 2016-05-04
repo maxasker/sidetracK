@@ -44,7 +44,7 @@
             
             
             <div id="errordiv">
-                %if errorvar == "Thank you for your feedback!":
+                %if errorvar == "Thank you for your feedback!" or errorvar == "Thank you for the report, we will investigare this further!":
                 
                 %else:
                 <h1 id="errorhead">Ooops!</h1>

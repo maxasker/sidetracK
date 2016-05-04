@@ -17,6 +17,17 @@ threadlistlike = []
 threadlistclassified = []
 threadlistdislike = []
 
+@route('/reportts/<threadname>')
+def reportts(threadname):
+    mail = smtplib.SMTP('smtp.gmail.com',587)
+    mail.ehlo()
+    mail.starttls()
+    mail.login('sidetrack.inc@gmail.com','githubsucks123')
+    mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
+    mail.close()
+    errorvar = "Thank you for the report, we will investigare this further!"
+    return template('error',errorvar=errorvar)
+
 @route('/sendfeedback', method="POST")
 def sendfeedback():
     feedbacktext = request.forms.get("feedbacktext")
@@ -131,6 +142,7 @@ def savenewcomment(threadcategori,threadname):
     checkifdirexists(newpath2,counter,threadname,threadcategori)
     #tar ut texten som har skrivits i formuläret
     commenttext = request.forms.get("text")
+    commenttext = checklangcomment(commenttext)
     #gör en ny path för att spara kommentaren
     newpath = r'static/threads/{0}/{1}/comments/comment{2}/comment1.txt'.format(threadcategori,threadname,counter)
     #kollar om den redan finns
@@ -157,6 +169,7 @@ def savenewcommentcomment(threadcategori,threadname,mapp):
     newpath = r'static/threads/{0}/{1}/comments/{2}/comment{3}.txt'.format(threadcategori,threadname,mapp,counter)
     #tar ut texten ifrån formuläret
     commenttext = request.forms.get("text")
+    commenttext = checklangcomment(commenttext)
     #kör funktionen som kollar om den finns eller inte som till slut sparar kommentaren
     checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcategori,mapp)
     #redirectar till samma tråd igen
@@ -281,15 +294,50 @@ def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
     #kör funktionen för att skapa bilden som kanske laddats upp
     createcommentimg(threadcategori,threadname,counter)
 
-def checklang(text):
+def checklangcomment(commenttext):
+    text2 = commenttext.lower()
+    commenttext = ""
+    for word in text2.split():
+        word = word.replace("nigger","individual of african descent")
+        word = word.replace("cunt","my vocabulary sucks")
+        word = word.replace("whore","lady")
+        word = word.replace("max","our lord and savior")
+        word = word.replace("faggot","homosexual")
+        word = word.replace("dyke","homosexual")
+        word = word.replace("simon","simonsemen")
+        word = word.replace("chink","individual of asian descent")
+        commenttext = commenttext + word + " "
+    return commenttext
+
+def checklangts(text):
     text2 = text.lower()
     text = ""
     for word in text2.split():
-        word = word.replace("nigger","sister")
+        word = word.replace("nigger","individual of african descent")
         word = word.replace("cunt","my vocabulary sucks")
-        word = word.replace("whore","advocado")
+        word = word.replace("whore","lady")
+        word = word.replace("max","our lord and savior")
+        word = word.replace("faggot","homosexual")
+        word = word.replace("dyke","homosexual")
+        word = word.replace("simon","simonsemen")
+        word = word.replace("chink","individual of asian descent")
         text = text + word + " "
     return text
+
+def checklangtitle(threadname):
+    text2 = threadname.lower()
+    threadname = ""
+    for word in text2.split():
+        word = word.replace("nigger","individual of african descent")
+        word = word.replace("cunt","my vocabulary sucks")
+        word = word.replace("whore","lady")
+        word = word.replace("max","our lord and savior")
+        word = word.replace("faggot","homosexual")
+        word = word.replace("dyke","homosexual")
+        word = word.replace("simon","simonsemen")
+        word = word.replace("chink","individual of asian descent")
+        threadname = threadname + word + " "
+    return threadname
 
 @route('/savenewthread/<threadcategori>', method="POST")
 def savethread(threadcategori):
@@ -306,10 +354,12 @@ def savethread(threadcategori):
     if ext not in ('.png','.jpg','.jpeg','.gif'):
         redirect('/errorext')
     #tar titlen och sparar den
-    threadname = request.forms.get("title").replace(" ", "_____")
+    threadname = request.forms.get("title")
+    threadname = checklangtitle(threadname)
+    threadname = threadname.replace(" ", "_____")
     #tar texten och sparar den
     text = request.forms.get("text")
-    text = checklang(text)
+    text = checklangts(text)
     #skapar 2 paths, en för commentmappen i trådmappen och en för förstainstansen i trådmappen
     newpath = r'static/threads/{1}/{0}/comments'.format(threadname, threadcategori)
     newpath2 = r'static/threads/{1}/{0}'.format(threadname, threadcategori)
@@ -391,4 +441,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9495, debug=True, reloader=True)
+run(host='localhost', port=9517, debug=True, reloader=True)
