@@ -41,18 +41,18 @@
                         <a href="/threadoverview/{{dislike}}/1">
                             <div class="catdiv"><img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></div></a>
                             </div>
-           <form id="about" action="MAILTO:sidetrack.inc@gmail.com" method="POST" enctype="text/plain">
+           <form id="about" action="/sendfeedback" method="POST" enctype="multipart/form-data">
 			   
 			   <h1>Contact us</h1>
 			   <p>If you experience a bug or have any wishes or any kind of critique, dont hesitate to contact us through the form below!</p>
 			   
 			   <h2>Email:</h2>
 			   
-			   <input type="text" name="email" placeholder="Email" rows="1" cols="30" maxlength="30">
+			   <input type="text" name="sender" placeholder="sender" rows="1" cols="30" maxlength="30">
 			   
 			   <h2>Type in your feedback here</h2>
 			   
-			   <input type="text" name="text" placeholder="Title" rows="5" cols="50" maxlength="1500">
+			   <input type="text" name="feedbacktext" placeholder="feedbacktext" rows="5" cols="50" maxlength="1500">
 			   
 			   <input type="submit" value="Send">
 			   <input type="reset" value="Reset"

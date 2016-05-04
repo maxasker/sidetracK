@@ -20,7 +20,7 @@
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">Feedback</a>
+                        <li role="presentation"><a class="nav-text" id="feedback" href="/feedback">Feedback</a>
                         </li>
                         <li role="presentation"><a class="nav-text" href="/about">About us</a>
                         </li>
@@ -44,10 +44,21 @@
             
             
             <div id="errordiv">
+                %if errorvar == "Thank you for your feedback!":
+                
+                %else:
                 <h1 id="errorhead">Ooops!</h1>
-                <h2>{{errorvar}}<h2>
+                %end
+                %if errorvar == "Thank you for your feedback!":
+                <h1 class="feedbackthanks">{{errorvar}}</h1>
+                %else:
+                <h2>{{errorvar}}</h2>
                 <script src="{{url('static',filename='static/jq/script.js')}}"></script>
+                %if errorvar == "Thank you for your feedback!":
+                    
+                %else:
                 <button onclick="goBack()">Go Back</button>
+                %end
             </div>
             
             <footer>

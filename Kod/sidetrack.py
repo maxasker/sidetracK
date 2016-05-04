@@ -8,6 +8,7 @@ import os
 import sys
 import datetime
 import re
+import smtplib
 global threadlistlike
 global threadlistclassified
 global threadlistdislike
@@ -15,6 +16,23 @@ global threadlistdislike
 threadlistlike = []
 threadlistclassified = []
 threadlistdislike = []
+
+@route('/sendfeedback', method="POST")
+def sendfeedback():
+    feedbacktext = request.forms.get("feedbacktext")
+    feedbacksender = request.forms.get("sender")
+    if feedbacktext or feedbacksender is not None:
+        mail = smtplib.SMTP('smtp.gmail.com',587)
+        mail.ehlo()
+        mail.starttls()
+        feedbacktext = feedbacktext + " sent from " + feedbacksender
+        mail.login('sidetrack.inc@gmail.com','githubsucks123')
+        mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',feedbacktext)
+        mail.close()
+        errorvar = "Thank you for your feedback!"
+    else:
+        errorvar = "You missed a field!"
+    return template('error',errorvar=errorvar)
 
 @route('/')
 def index():
@@ -87,7 +105,7 @@ def threadoverview(threadcategori,page):
     elif threadcategori == "dislike":
         threadlist2 = threadlistdislike[mini:maxi]
     #returnerar threadoverview och skickar med threadlist2 och kategorin
-    return template("threadoverview", threads=threadlist2, threadcategori=threadcategori)
+    return template("threadoverview", threads=threadlist2, threadcategori=threadcategori, page=page)
 
 @route('/<threadcategori>/<threadname>/savenewcomment', method="POST")
 def savenewcomment(threadcategori,threadname):
@@ -355,4 +373,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9468, debug=True, reloader=True)
+run(host='localhost', port=9481, debug=True, reloader=True)

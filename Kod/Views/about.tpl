@@ -20,9 +20,9 @@
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" id="feedback" href="/threadoverview">Feedback</a>
+                        <li role="presentation"><a class="nav-text" id="feedback" href="/feedback">Feedback</a>
                         </li>
-                        <li role="presentation"><a class="nav-text" href="/createthread">Om oss</a>
+                        <li role="presentation"><a class="nav-text" href="/about">About us</a>
                         </li>
                     </ul>
                 </nav>
@@ -48,9 +48,9 @@
 				
 				<p>Here at sidetracK we are all about freedom of speech! If you ever have a train of thought that you are to uncomfortable saying out loud you can post it here at sidetracK. Feeling happy? Come over the "Like" page and share your thoughts! If you are pissed off you can go ventilate your anger at the "Dislike" page and if you have done some thing really wacked we would love to hear all about it at the "Classified" page.</p>
 				
-				<p>Our mission is to create a site where you are completely anonymous and caa share all your crazy thoughts and experiences with others! The site is supposed to start debates, make people laugh or engage in wild discussions.</p>
+				<p>Our mission is to create a site where you are completely anonymous and where you can share all your crazy thoughts and experiences with others! The site is supposed to start debates, make people laugh or engage in wild discussions.</p>
 				
-				<p>But dont forget to be polite people! No one likes and assh*ole!</p>
+				<p>But dont forget to be polite people! No one likes an assh*ole!</p>
 			</div>
             
             <footer>
