@@ -48,9 +48,9 @@
 				
 				<p>Here at sidetracK we are all about freedom of speech! If you ever have a train of thought that you are to uncomfortable saying out loud you can post it here at sidetracK. Feeling happy? Come over the "Like" page and share your thoughts! If you are pissed off you can go ventilate your anger at the "Dislike" page and if you have done some thing really wacked we would love to hear all about it at the "Classified" page.</p>
 				
-				<p>Our mission is to create a site where you are completely anonymous and where you can share all your crazy thoughts and experiences with others! The site is supposed to start debates, make people laugh or engage in wild discussions.</p>
+				<p>Our mission is to create a site where you are completely anonymous and where you can share all your crazy thoughts and experiences with others! The site is supposed to start debates, make people laugh or engage in wild discussions and just let you say whatever comes to mind!</p>
 				
-				<p>But dont forget to be polite people! No one likes an assh*ole!</p>
+				<p>If you are the kind of person that gets offended by everyone and everything, you cam to the wrong place!</p>
 			</div>
             
             <footer>
