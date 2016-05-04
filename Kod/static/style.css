@@ -111,7 +111,6 @@ label.myLabel input[type="file"] {
 
 h1{
     padding:1%;
-    
 }
 
 p{
@@ -271,6 +270,7 @@ p{
 #threadcategori{
 /*Centrerar texten för vilken kategori vi är i*/
         text-align: center;
+        margin-top: 0px;
 }
 
 li{
