@@ -281,6 +281,16 @@ def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
     #kör funktionen för att skapa bilden som kanske laddats upp
     createcommentimg(threadcategori,threadname,counter)
 
+def checklang(text):
+    text2 = text.lower()
+    text = ""
+    for word in text2.split():
+        word = word.replace("nigger","sister")
+        word = word.replace("cunt","my vocabulary sucks")
+        word = word.replace("whore","advocado")
+        text = text + word + " "
+    return text
+
 @route('/savenewthread/<threadcategori>', method="POST")
 def savethread(threadcategori):
     '''
@@ -299,6 +309,7 @@ def savethread(threadcategori):
     threadname = request.forms.get("title").replace(" ", "_____")
     #tar texten och sparar den
     text = request.forms.get("text")
+    text = checklang(text)
     #skapar 2 paths, en för commentmappen i trådmappen och en för förstainstansen i trådmappen
     newpath = r'static/threads/{1}/{0}/comments'.format(threadname, threadcategori)
     newpath2 = r'static/threads/{1}/{0}'.format(threadname, threadcategori)
@@ -380,4 +391,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9484, debug=True, reloader=True)
+run(host='localhost', port=9495, debug=True, reloader=True)
