@@ -44,18 +44,19 @@
            <form id="about" action="/sendfeedback" method="POST" enctype="multipart/form-data">
 			   
 			   <h1>Contact us</h1>
-			   <p>If you experience a bug or have any wishes or any kind of critique, dont hesitate to contact us through the form below!</p>
+			   <p>If you experience a bug or have any wishes or any kind of critique, don't hesitate to contact us through the form below!</p>
 			   
 			   <h2>Email:</h2>
 			   
-			   <input type="text" name="sender" placeholder="sender" rows="1" cols="30" maxlength="30">
+			   <input id="inputmail" type="text" name="sender" placeholder="Input your E-mail" maxlength="40">
 			   
-			   <h2>Type in your feedback here</h2>
+			   <h2>Type in your feedback here:</h2>
 			   
-			   <input type="text" name="feedbacktext" placeholder="feedbacktext" rows="5" cols="50" maxlength="1500">
+			   <textarea id="inputtext" type="text" name="feedbacktext" placeholder="Input text here" rows="5" cols="50" maxlength="1500"></textarea>
+			   <hr>
+               <input id="inputreset" type="reset" value="Reset">
+			   <input id="inputsubmit" type="submit" value="Send">
 			   
-			   <input type="submit" value="Send">
-			   <input type="reset" value="Reset"
 					  
 			</form>
             

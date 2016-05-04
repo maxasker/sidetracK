@@ -89,7 +89,7 @@
                     %end
                 
                     <!---Skriv ut brödtexten för TS--->
-                    <p class = "tstextoverview">{{threadtext}}</p>
+                    <p id="tstextoverview">{{threadtext}}</p>
                 </div>
                 
                 <!---Vi skriver bara ut originalkommentarer och högst tre av dem--->
@@ -221,24 +221,12 @@
             <li class="disable"><a href="/threadoverview/{{tcat}}/9">9<span class="sr-only">(current)</span></a></li>
             %end
             %if page == "10":
-            <li class="disable"><a href="/threadoverview/{{tcat}}/10">10<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/threadoverview/{{tcat}}/10">10<span class="sr-only">(current)</span></a></li>
             %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/10">10<span class="sr-only">(current)</span></a></li> 
             %end
         </ul>
             
-        <!--    <div class="pages">
-                <a href="/threadoverview/{{tcat}}/1">1</a>
-                <a href="/threadoverview/{{tcat}}/2">2</a>
-                <a href="/threadoverview/{{tcat}}/3">3</a>
-                <a href="/threadoverview/{{tcat}}/4">4</a>
-                <a href="/threadoverview/{{tcat}}/5">5</a>
-                <a href="/threadoverview/{{tcat}}/6">6</a>
-                <a href="/threadoverview/{{tcat}}/7">7</a>
-                <a href="/threadoverview/{{tcat}}/8">8</a>
-                <a href="/threadoverview/{{tcat}}/9">9</a>
-                <a href="/threadoverview/{{tcat}}/10">10</a>
-            </div> -->
             
             <footer>
                 <p id="footer">sidetracKz0r inc</p>

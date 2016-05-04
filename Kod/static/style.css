@@ -119,6 +119,41 @@ p{
     text-align: left;
 }
 
+#threadcontent{
+/*Behåller trådtext inuti trådboxen i singlethread*/
+    padding:1%;
+    text-align: left;
+    max-width: 100%;
+    overflow:visible;
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+ /* Non standard for webkit */
+     word-break: break-word;
+
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+}
+
+#tstextoverview{
+/*Behåller trådtext inuti trådboxen i threadoverview*/
+    padding:1%;
+    text-align: left;
+    max-width: 100%;
+    overflow:visible;
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+ /* Non standard for webkit */
+     word-break: break-word;
+
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+}
 
 #container{
 /*Behållare för helheten av sidan*/
@@ -431,7 +466,6 @@ h2{
         float: left;
         padding: 8px;
         
-        
 }
 
 #pages{
@@ -447,4 +481,33 @@ h2{
 .feedbackthanks{
         margin-top:200px;
         font-size:75px;
+}
+
+#inputmail{
+/*Designar e-mail rutan i Feedback*/
+    width: 30%;
+}
+#inputtext{
+/*Designar textrutan rutan i Feedback*/
+    width: 600px;
+    height: 150px;
+}
+#inputsubmit{
+/*Designar submitknappen rutan i Feedback*/
+    margin-left: 480px;
+    color: white;
+    margin-top: 5px;
+    background-color: limegreen;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+}
+#inputreset{
+/*Designar resetknappen rutan i Feedback*/
+    color: white;
+    margin-top: 5px;
+    background-color: orangered;
+    border-radius: 5px;
+    border: none;
+    
 }

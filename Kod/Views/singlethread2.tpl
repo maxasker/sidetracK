@@ -46,10 +46,7 @@
                             <div class="catdiv"><img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></div></a>
                             </div>
             <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
-                    <h1 id = "threadcategori">{{threadcategori}}</h1>
-                
-                <div id="createthread"><a href="/{{threadcategori}}/createthread" id="createthreadtext">Skapa tråd</a></div>
-
+            <h1 id = "threadcategori">{{threadcategori}}</h1>
 
             
             <!----Länkar in javascripten ---->
@@ -83,7 +80,7 @@
                 %end
                 
                 <!---texten för TS, variabel ifrån python--->
-		        <p>{{threadtext}}</p>
+		        <p id="threadcontent">{{threadtext}}</p>
             
             </div>
             <hr>
