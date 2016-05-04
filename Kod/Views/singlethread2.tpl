@@ -62,6 +62,8 @@
                 
 <!--------------------------------------------------------------------------------------------------------------------------------------->
             <div id = "tsboxen">
+                <a id="reportthread" href="">Report</a>
+                
                 <!----Knappen för att svara på TS --->
                 <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
                 
