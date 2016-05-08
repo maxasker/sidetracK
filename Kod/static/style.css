@@ -160,7 +160,7 @@ p{
         width: 90%;
         height: auto;
         margin-left: 5%;
-        margin-right: 5 %;
+        margin-right: 5%;
 }
 .main-logotype{
 /*Styling till överskriften på sidan*/
@@ -339,7 +339,8 @@ h2{
         padding: 8px;
         float: left;
         clear: both;
-        width: 100%;       
+        width: 100%;
+    
 }
 
 #createfooter{
@@ -349,6 +350,7 @@ h2{
         float: left;
         clear: both;
         width: 100%;
+        height: 500px; /*Till för att skapa scroller på höger sida för att bredden ska vara samma på alla tpl*/
 }
 
 .likebox{
