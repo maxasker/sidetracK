@@ -441,4 +441,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9523, debug=True, reloader=True)
+run(host='localhost', port=9524, debug=True, reloader=True)
