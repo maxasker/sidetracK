@@ -263,7 +263,7 @@ def createcommentcommentfile(commenttext,threadname,newpath,counter,threadcatego
     elif threadcategori == "classified":
         threadlistclassified.remove(threadname)
         threadlistclassified.insert(0, threadname)
-    elif threadcategoi == "dislike":
+    elif threadcategori == "dislike":
         threadlistdislike.remove(threadname)
         threadlistdislike.insert(0, threadname)
     #startar funktionen som sparar eventuell bild
@@ -441,4 +441,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9520, debug=True, reloader=True)
+run(host='localhost', port=9523, debug=True, reloader=True)
