@@ -178,18 +178,16 @@ p{
         color: black;
         border-bottom-style: groove;
         border-bottom-color: #154175;
-        border-width: thin;
-        
-        
+        border-width: thin; 
 }
 
-.tsreplybuttoverview
-{
+.main-logotype:hover{
+        text-decoration: none;
+}
+
+.tsreplybuttoverview{
   
-    padding:10px;
-    
-    
-    
+        padding:10px;  
 }
 
 
@@ -199,15 +197,13 @@ p{
 
 .top-bar{
 /*Styling till Feedback och Om oss knapp*/
-       float:right;
+        float:right;
         width: 40%;
         height: 70px;
         border-bottom-style: groove;
         border-bottom-color: #154175;
         border-width: thin;
-        
-       
-        
+         
 }
 
 .middle-bar{
@@ -222,8 +218,10 @@ p{
 /*Klass. Styling till Feedback och Om oss knapp*/
         margin-top: 15px;
         margin-left: 10px;
-        color:whitesmoke;
-        background-color: black;     
+        color:white;
+        background-color: #154175;
+        border: 1px solid black;
+        
 }
 
 
