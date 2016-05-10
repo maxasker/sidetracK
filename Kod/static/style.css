@@ -420,12 +420,19 @@ h2{
 .threadcomment, .threadcommentoverview{
 /*Orginal kommentar i forumtråden*/
         background-color: #B5BCCB;
-        height: auto;
+        
         margin-top:10px;
         border-style: groove;
         border-color: #154175;
         border-width: thin;
         border-radius: 5px;
+    border-style: groove;
+        border-color: #154175;
+        border-width: thin;
+        border-radius: 5px;
+        height:auto;
+        overflow-x: hidden;
+        
 }
 
 .threadcommentoverview>p{
