@@ -146,13 +146,13 @@ p{
 
 #tstextoverview{
 /*Behåller trådtext inuti trådboxen i threadoverview*/
-    padding:1%;
+    
     text-align: left;
     max-width: 100%;
     overflow:visible;
     -ms-word-break: break-all;
     word-break: break-all;
-  
+    overflow:hidden;
 
  /* Non standard for webkit */
      word-break: break-word;
@@ -377,7 +377,6 @@ h2{
         float: left;
         clear: both;
         width: 100%;
-        height: 50px; /*Till för att skapa scroller på höger sida för att bredden ska vara samma på alla tpl*/
 }
 
 .likebox{
@@ -400,12 +399,11 @@ h2{
         border-radius: 5px;
         height:auto;
         overflow-x: hidden;
-        
-        
+           
     
 }
 
-#tsboxen>img, .tsboxoverview>p{
+#tsboxen>img{
         padding: 1%;
 }
 
@@ -413,12 +411,8 @@ h2{
 /*Stylar forumtråden på enskild tråd*/
         width: 97%;
         background-color:white;
-       
-       
         padding: 5px;
-        text-align: left;
-       
-        
+        text-align: left;       
     
 }
 
@@ -431,7 +425,7 @@ h2{
         border-color: #154175;
         border-width: thin;
         border-radius: 5px;
-    border-style: groove;
+        border-style: groove;
         border-color: #154175;
         border-width: thin;
         border-radius: 5px;
