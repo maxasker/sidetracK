@@ -175,7 +175,7 @@ p{
         width: 60%;
         height: 70px;
         font-size: 50px;
-        color: black;
+        color: #154175;
         border-bottom-style: groove;
         border-bottom-color: #154175;
         border-width: thin; 
@@ -566,4 +566,8 @@ h2{
     border-radius: 5px;
     border: none;
     
+}
+
+a {
+  outline:none !important;
 }
