@@ -175,7 +175,7 @@ p{
         width: 60%;
         height: 70px;
         font-size: 50px;
-        color: black;
+        color: #154175;
         border-bottom-style: groove;
         border-bottom-color: #154175;
         border-width: thin; 
@@ -251,10 +251,11 @@ p{
 
 .catpic{
 /*Klass. Lägger kategoribilderna i ordning*/
-        width: 33%;
-        height: 125px;
+        width: 25%;
+        height: 200px;
         padding: 5px;
         float: left;
+        margin-left: 75px;
         
         
 }
@@ -566,4 +567,8 @@ h2{
     border-radius: 5px;
     border: none;
     
+}
+
+a {
+  outline:none !important;
 }
