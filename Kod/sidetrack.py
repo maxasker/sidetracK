@@ -295,47 +295,86 @@ def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
     createcommentimg(threadcategori,threadname,counter)
 
 def checklangcomment(commenttext):
-    text2 = commenttext.lower()
+    text2 = commenttext
     commenttext = ""
     for word in text2.split():
-        word = word.replace("nigger","individual of african descent")
-        word = word.replace("cunt","my vocabulary sucks")
-        word = word.replace("whore","lady")
-        word = word.replace("max","our lord and savior")
-        word = word.replace("faggot","homosexual")
-        word = word.replace("dyke","homosexual")
-        word = word.replace("simon","simonsemen")
-        word = word.replace("chink","individual of asian descent")
+        if word.lower() == "nigger":
+            word = word.lower()
+            word = word.replace("nigger","individual of african descent")
+        elif word.lower() == "cunt":
+            word = word.lower()
+            word = word.replace("cunt","my vocabulary sucks")
+        elif word.lower() == "whore":
+            word = word.lower()
+            word = word.replace("whore","lady")
+        elif word.lower() == "max":
+            word = word.lower()
+            word = word.replace("max","our lord and savior")
+        elif word.lower() == "faggot":
+            word = word.lower()
+            word = word.replace("faggot","homosexual")
+        elif word.lower() == "dyke":
+            word = word.lower()
+            word = word.replace("dyke","homosexual")
+        elif word.lower() == "chink":
+            word = word.lower()
+            word = word.replace("chink","individual of asian descent")
         commenttext = commenttext + word + " "
     return commenttext
 
 def checklangts(text):
-    text2 = text.lower()
+    text2 = text
     text = ""
     for word in text2.split():
-        word = word.replace("nigger","individual of african descent")
-        word = word.replace("cunt","my vocabulary sucks")
-        word = word.replace("whore","lady")
-        word = word.replace("max","our lord and savior")
-        word = word.replace("faggot","homosexual")
-        word = word.replace("dyke","homosexual")
-        word = word.replace("simon","simonsemen")
-        word = word.replace("chink","individual of asian descent")
+        if word.lower() == "nigger":
+            word = word.lower()
+            word = word.replace("nigger","individual of african descent")
+        elif word.lower() == "cunt":
+            word = word.lower()
+            word = word.replace("cunt","my vocabulary sucks")
+        elif word.lower() == "whore":
+            word = word.lower()
+            word = word.replace("whore","lady")
+        elif word.lower() == "max":
+            word = word.lower()
+            word = word.replace("max","our lord and savior")
+        elif word.lower() == "faggot":
+            word = word.lower()
+            word = word.replace("faggot","homosexual")
+        elif word.lower() == "dyke":
+            word = word.lower()
+            word = word.replace("dyke","homosexual")
+        elif word.lower() == "chink":
+            word = word.lower()
+            word = word.replace("chink","individual of asian descent")
         text = text + word + " "
     return text
 
 def checklangtitle(threadname):
-    text2 = threadname.lower()
+    text2 = threadname
     threadname = ""
     for word in text2.split():
-        word = word.replace("nigger","individual of african descent")
-        word = word.replace("cunt","my vocabulary sucks")
-        word = word.replace("whore","lady")
-        word = word.replace("max","our lord and savior")
-        word = word.replace("faggot","homosexual")
-        word = word.replace("dyke","homosexual")
-        word = word.replace("simon","simonsemen")
-        word = word.replace("chink","individual of asian descent")
+        if word.lower() == "nigger":
+            word = word.lower()
+            word = word.replace("nigger","individual of african descent")
+        elif word.lower() == "cunt":
+            word = word.lower()
+            word = word.replace("cunt","my vocabulary sucks")
+        elif word.lower() == "whore":
+            word = word.lower()
+            word = word.replace("whore","lady")
+        elif word.lower() == "max":
+            word = word.lower()
+            word = word.replace("max","our lord and savior")
+        elif word.lower() == "faggot":
+            word = word.lower()
+            word = word.replace("faggot","homosexual")
+        elif word.lower() == "dyke":
+            word = word.lower()
+            word = word.replace("dyke","homosexual")
+        elif word.lower() == "chink":
+            word = word.lower()
+            word = word.replace("chink","individual of asian descent")
         threadname = threadname + word + " "
     return threadname
 
@@ -441,4 +480,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9524, debug=True, reloader=True)
+run(host='localhost', port=9541, debug=True, reloader=True)
