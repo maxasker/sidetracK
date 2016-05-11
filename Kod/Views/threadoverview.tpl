@@ -111,7 +111,7 @@
                 %else:
                     
                     <!---Gör en break--->
-                    <hr>
+                    
                 
                     <!---För varje mapp i kommentarslistan--->
                     %for mapp in commentlist:
@@ -148,13 +148,13 @@
                     %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                         %for line in lines_1_through_end:
-                        <p class = "commenttextoverview">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p class = "commenttextoverview" id="commenttextid">{{line.decode('iso-8859-1').encode('utf8')}}</p>
                         %end
                     </div>
                 
                         <!---Om det inte är sista kommentaren så skriv ut en break--->
                         %if not (commentcounter == (commentlimit-1)):
-                        <hr>
+                        
                         %end
                     %commentcounter = commentcounter+1
                     %end

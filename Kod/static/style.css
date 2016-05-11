@@ -127,40 +127,25 @@ p{
 /*Behåller trådtext inuti trådboxen i singlethread*/
     padding:1%;
     text-align: left;
+    word-wrap: break-word;
     max-width: 100%;
     overflow:visible;
     -ms-word-break: break-all;
     word-break: break-all;
-    overflow:hidden;
-
-    
-
- /* Non standard for webkit */
-     word-break: break-word;
-
-    -webkit-hyphens: auto;
-       -moz-hyphens: auto;
-        -ms-hyphens: auto;
-            hyphens: auto;
+     
 }
 
 #tstextoverview{
 /*Behåller trådtext inuti trådboxen i threadoverview*/
+    padding: 1%;
     
+    word-wrap: break-word;
     text-align: left;
     max-width: 100%;
     overflow:visible;
     -ms-word-break: break-all;
     word-break: break-all;
-    overflow:hidden;
 
- /* Non standard for webkit */
-     word-break: break-word;
-
-    -webkit-hyphens: auto;
-       -moz-hyphens: auto;
-        -ms-hyphens: auto;
-            hyphens: auto;
 }
 
 #container{
@@ -393,6 +378,7 @@ h2{
 
 #tsboxen, .tsboxoverview{
 /*Ger trådarna ram runt om */
+        background-color: #B5BCCB;
         border-style: groove;
         border-color: #154175;
         border-width: thin;
@@ -418,7 +404,6 @@ h2{
 
 .threadcomment, .threadcommentoverview{
 /*Orginal kommentar i forumtråden*/
-        background-color: #B5BCCB;
         
         margin-top:10px;
         border-style: groove;
@@ -434,8 +419,19 @@ h2{
         
 }
 
+.threadcommentoverview{
+        margin-left: 30px;
+        
+}
+
+#commenttextid{
+        padding: 0px;
+}
+
 .threadcommentoverview>p{
         margin-left:10px;
+        max-width: 100%;
+        
 }
 
 
@@ -453,7 +449,9 @@ h2{
 /*Stylar så bilderna har fast storlek i trådöversikt*/
         width: 380px;
         height: auto;
+        max-height: 500px;
         padding: 1%;
+        margin-right: 15px;
         float:left;
         
 }
@@ -461,10 +459,12 @@ h2{
 .singleboximg{
         width: 420px;
         height: auto;
+        max-height: 500px;
         padding: 1%;
         float:left;
         overflow:hidden;
         
+               
 }
 #replythread{
 /*Indenterar knappen att svara på orginalkommentaren*/
