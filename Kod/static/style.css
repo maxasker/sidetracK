@@ -127,12 +127,17 @@ p{
 /*Behåller trådtext inuti trådboxen i singlethread*/
     padding:1%;
     text-align: left;
-    word-wrap: break-word;
     max-width: 100%;
-    overflow:visible;
-    -ms-word-break: break-all;
+    word-wrap: break-word;
+
+}
+
+#singletslongword{
+    padding:1%;
+    text-align: left;
+    max-width: 100%;
+    word-wrap: break-word;
     word-break: break-all;
-     
 }
 
 #tstextoverview{
@@ -143,7 +148,6 @@ p{
     text-align: left;
     max-width: 100%;
     overflow:visible;
-    -ms-word-break: break-all;
     word-break: break-all;
 
 }
@@ -398,7 +402,8 @@ h2{
         width: 97%;
         background-color:white;
         padding: 5px;
-        text-align: left;       
+        text-align: left;
+        float:left;
     
 }
 
@@ -460,10 +465,8 @@ h2{
         width: 420px;
         height: auto;
         max-height: 500px;
-        padding: 1%;
+        margin:1px;
         float:left;
-        overflow:hidden;
-        
                
 }
 #replythread{
