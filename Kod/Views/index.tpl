@@ -7,6 +7,7 @@
         <title>sidetracK</title>
         <link href="{{url('static',filename='style.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
     </head>
     <body>
         <div id="container">
@@ -20,7 +21,7 @@
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" id="feedback" href="/feedback">Feedback</a>
+                        <li role="presentation"><a class="nav-text" href="/feedback">Feedback</a>
                         </li>
                         <li role="presentation"><a class="nav-text" href="/about">About us</a>
                         </li>

@@ -155,7 +155,7 @@ p{
 #container{
 /*Behållare för helheten av sidan*/
         background-color:;
-        width: 90%;
+        width: 1200px;
         height: auto;
         margin-left: 5%;
         margin-right: 5%;
@@ -225,7 +225,7 @@ p{
 
 .nav-butt{
 /*Storlek på knapparna Feedback och Om oss*/
-        width:33%;        
+        width:100px;        
         text-align: center;
         
 }
@@ -239,16 +239,18 @@ p{
         margin-bottom:;
         width: 100%;
         text-align: center;
+        margin-left: 13%;
+        
         
 }
 
 .catpic{
 /*Klass. Lägger kategoribilderna i ordning*/
-        width: 25%;
+        width: 300px;
         height: 200px;
         padding: 5px;
         float: left;
-        margin-left: 75px;
+        margin-left:;
         
         
 }
@@ -575,3 +577,80 @@ h2{
 a {
   outline:none !important;
 }
+
+
+@media screen and (max-width: 480px) {
+    
+    
+#uploadbutt{
+            width:auto;
+}
+
+#form1{
+            width:auto;
+}
+
+#jsaddfile{
+            width:auto;
+}
+
+#threadcontent{
+            width:auto;
+}
+
+#tstextoverview{        
+            width:auto;
+}
+
+#container{   
+            width:auto;
+}
+
+.main-logotype{    
+            width:auto;
+}
+.tsreplybuttoverview{
+    
+    }
+.top-bar{   
+            width:auto;
+            height:40px;
+            
+}
+
+.middle-bar{
+            width:auto;
+}
+.nav-text{  
+            height:20px;
+            width:60px;
+            overflow:hidden;
+                
+}
+.nav-butt{ 
+            width:auto;
+}
+
+.categories{ 
+            width:480px;
+            margin-left:5px;
+}
+    
+.catpic{
+            width: 90px;
+            height: 100px;
+        
+    }
+    
+.about_us{
+            clear:both;
+}
+.main-logotype{
+            width:auto;
+}
+    .latestpost{
+            display: none;
+}
+}
+
+
