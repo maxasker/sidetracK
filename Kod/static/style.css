@@ -155,10 +155,11 @@ p{
 #container{
 /*Behållare för helheten av sidan*/
         background-color:;
-        width: 1200px;
+        width: 80%;
         height: auto;
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left:10%;
+        
+       
 }
 .main-logotype{
 /*Styling till överskriften på sidan*/
@@ -184,6 +185,13 @@ p{
 }
 
 
+.nav.nav-pills{
+/* positionering till höger */
+    width:50%;
+    float:right;
+    
+    
+}
 
 
 
@@ -196,6 +204,7 @@ p{
         border-bottom-style: groove;
         border-bottom-color: #154175;
         border-width: thin;
+    
          
 }
 
@@ -214,6 +223,8 @@ p{
         color:white;
         background-color: #154175;
         border: 1px solid black;
+        
+        
         
 }
 
@@ -234,23 +245,22 @@ p{
 .categories{
 /*Div box till kategoriknapparna*/
         float: left;
-        background-color:;
         margin-top: 24px;
-        margin-bottom:;
-        width: 100%;
-        text-align: center;
-        margin-left: 13%;
+        width: 40%;
+        margin-left: 30%;
+        margin-right:30%;
+
         
         
 }
 
 .catpic{
 /*Klass. Lägger kategoribilderna i ordning*/
-        width: 300px;
+        width: 33.3%;
         height: 200px;
         padding: 5px;
         float: left;
-        margin-left:;
+    
         
         
 }
@@ -652,5 +662,21 @@ a {
             display: none;
 }
 }
+/* ---------------------------------------------------*/
+@media screen and (max-width: 1280px) 
+{
+    .nav.nav-pills{
+/* positionering till höger */
+    width:50%;
+    float:right;
+    
+    
+}
 
+    
 
+    
+    
+    
+    
+}
