@@ -123,6 +123,12 @@ p{
     text-align: left;
 }
 
+#picbull {
+
+    width:0xp;
+
+}
+
 #threadcontent{
 /*Behåller trådtext inuti trådboxen i singlethread*/
     padding:1%;
@@ -187,7 +193,7 @@ p{
 
 .nav.nav-pills{
 /* positionering till höger */
-    width:50%;
+    
     float:right;
     
     
@@ -226,6 +232,8 @@ p{
         
         
         
+        
+        
 }
 
 
@@ -246,21 +254,31 @@ p{
 /*Div box till kategoriknapparna*/
         float: left;
         margin-top: 24px;
-        width: 40%;
-        margin-left: 30%;
-        margin-right:30%;
+        width: 100%;
+        width:100%;
+        text-align: center;
+        
+       
 
+          
         
-        
+}
+
+
+
+.picposition
+{
+    width:auto;
+
+  
 }
 
 .catpic{
 /*Klass. Lägger kategoribilderna i ordning*/
-        width: 33.3%;
+        width: 165px;
         height: 200px;
         padding: 5px;
-        float: left;
-    
+        
         
         
 }
@@ -584,7 +602,7 @@ h2{
     
 }
 
-a {
+#picbull {
   outline:none !important;
 }
 
@@ -663,18 +681,40 @@ a {
 }
 }
 /* ---------------------------------------------------*/
-@media screen and (max-width: 1280px) 
+@media screen and (max-width: 1000px) 
 {
     .nav.nav-pills{
 /* positionering till höger */
-    width:50%;
-    float:right;
+   
+    
+    
+    
     
     
 }
 
+    .top-bar{
+/*Styling till Feedback och Om oss knapp*/
+        float:right;
+        width: 40%;
+        height: 70px;
+        border-bottom-style: groove;
+        border-bottom-color: #154175;
+        border-width: thin;
     
-
+         
+}
+.nav-text{
+/*Klass. Styling till Feedback och Om oss knapp*/
+        margin-top: 15px;
+        margin-left: 10px;
+        color:white;
+        background-color: #154175;
+        border: 1px solid black;
+        
+        
+        
+}
     
     
     
