@@ -9,6 +9,7 @@ import sys
 import datetime
 import re
 import smtplib
+from socket import gethostname, gethostbyname
 global threadlistlike
 global threadlistclassified
 global threadlistdislike
@@ -85,6 +86,12 @@ def lookatsinglethread(threadcategori,threadname):
     commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
     #sorterar listan
     sorted(commentlist)
+    filelist2 = []
+    for mapp in commentlist:
+        files = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
+        addfilelist = [i for i in files if i.endswith('.txt')]
+        filelist2= filelist2 + addfilelist
+    commentcounter2 = len(filelist2)
     #gör en lista över innehållet i trådmappen för att hitta ts-bilden och loopar sedan ut bild och lägger den i tsimg-variabeln
     myList = os.listdir('static/threads/{1}/{0}/'.format(threadname,threadcategori))
     for myFile in myList:
@@ -99,7 +106,7 @@ def lookatsinglethread(threadcategori,threadname):
     #gör hela pathen med bilden
     tsimgpath = ('static/threads/{0}/{1}/{2}'.format(threadcategori,threadname,tsimg))
     #returnar singlethread2 och skickar med variabler
-    return template("singlethread2",tsimg=tsimg,tsimgpath=tsimgpath, threadname=threadname, threadtext=threadtext, commentlist=commentlist,threadcategori=threadcategori,threadinfo=threadinfo)
+    return template("singlethread2",commentcounter2=commentcounter2,tsimg=tsimg,tsimgpath=tsimgpath, threadname=threadname, threadtext=threadtext, commentlist=commentlist,threadcategori=threadcategori,threadinfo=threadinfo)
 
     
 @route('/threadoverview/<threadcategori>/<page>')
@@ -113,18 +120,29 @@ def threadoverview(threadcategori,page):
     #tar ut vissa items i listan beroende på vilken page man är på, tex 0:10 och beroende på vilken kategori man är på
     if threadcategori == "like":
         threadlist2 = threadlistlike[mini:maxi]
+        threadlisttest = threadlistlike
     elif threadcategori == "classified":
         threadlist2 = threadlistclassified[mini:maxi]
+        threadlisttest = threadlistclassified
     elif threadcategori == "dislike":
         threadlist2 = threadlistdislike[mini:maxi]
+        threadlisttest = threadlistdislike
     #returnerar threadoverview och skickar med threadlist2 och kategorin
-    return template("threadoverview", threads=threadlist2, threadcategori=threadcategori, page=page)
+    return template("threadoverview", threads=threadlist2, threadcategori=threadcategori, page=page,threadlisttest=threadlisttest)
 
 @route('/<threadcategori>/<threadname>/savenewcomment', method="POST")
 def savenewcomment(threadcategori,threadname):
     '''
         funktionen för att spara en orginalkommentar
     '''
+    commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
+    filelist3 = []
+    for mapp in commentlist:
+        files = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
+        addfilelist = [i for i in files if i.endswith('.txt')]
+        filelist3= filelist3 + addfilelist
+    if len(filelist3) > 5:
+        redirect('/errorlimit')
     #tar bilden ifrån formuläret
     upload = request.files.get("commentimg")
     #om upload finns
@@ -156,6 +174,14 @@ def savenewcommentcomment(threadcategori,threadname,mapp):
     '''
         Funktionen för att spara svar-på-svar, den tar emot kategori/namn och sen vilken mapp man är inne i
     '''
+    commentlist = os.walk('static/threads/{1}/{0}/comments'.format(threadname,threadcategori)).next()[1]
+    filelist3 = []
+    for mappar in commentlist:
+        files = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
+        addfilelist = [i for i in files if i.endswith('.txt')]
+        filelist3= filelist3 + addfilelist
+    if len(filelist3) > 5:
+        redirect('/errorlimit')
     upload = request.files.get("commentcommentimg")
     #om upload finns så splitta namn och text och kontrollera ext
     if upload is not None:
@@ -392,10 +418,12 @@ def savethread(threadcategori):
     name, ext = os.path.splitext(upload.filename)
     if ext not in ('.png','.jpg','.jpeg','.gif'):
         redirect('/errorext')
+    ip = gethostbyname(gethostname())
     #tar titlen och sparar den
     threadname = request.forms.get("title")
     threadname = checklangtitle(threadname)
     threadname = threadname.replace(" ", "_____")
+    threadname = threadname + str(ip)
     #tar texten och sparar den
     text = request.forms.get("text")
     text = checklangts(text)
@@ -404,7 +432,7 @@ def savethread(threadcategori):
     newpath2 = r'static/threads/{1}/{0}'.format(threadname, threadcategori)
     #om pathen för trådmappen finns så nekar den och avbryter
     if os.path.exists(newpath2):
-        return "There already exists a thread with this title"
+        redirect('/errorthreadname')
     #sparar tid och datum
     date_time = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
     #om trådmappen inte finns så skapas den
@@ -422,13 +450,20 @@ def savethread(threadcategori):
             open_file.write(upload.file.read())
     #startar funktionen som sparar tråden och skickar med vilken path, trådnamn, trådtext och datumochtid
     savethreadfile(newpath2,threadname,text,date_time)
-    #kollar vilken kategori tråden är i och lägger in tråden längst framme i listan
+    #kollar vilken kategori tråden är i och lägger in tråden längst framme i listan, tar bort sista tråden om det är mer än 100
     if threadcategori == "like":
         threadlistlike.insert(0,threadname)
+        if len(threadlistlike) > 100:
+            #KOLLA HÄR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            removed_item = threadlistlike.pop(-1)
     elif threadcategori == "classified":
         threadlistclassified.insert(0,threadname)
+        if len(threadlistclassified) > 100:
+            threadlistclassified.pop(-1)
     elif threadcategori == "dislike":
         threadlistdislike.insert(0,threadname)
+        if len(threadlistdislike) > 100:
+            threadlistdislike.pop(-1)
     #redirectar till den tråden man skapat
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
@@ -438,11 +473,21 @@ def errorext():
     errorvar = "File extension not allowed."
     return template('error', errorvar=errorvar)
 
+@route('/errorthreadname')
+def errorextthreadname():
+    errorvar = "Threadname already exists :("
+    return template('error', errorvar=errorvar)
+
 @route('/errorimg')
 def errorimg():
     errorvar = "You need to upload a picture!"
     return template('error', errorvar=errorvar)
-    
+
+@route('/errorlimit')
+def errorlimit():
+    errorvar = "Commentlimit reached, thread closed."
+    return template('error', errorvar=errorvar)
+
 @route('/about')
 def about():
     return template('about')
@@ -480,4 +525,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9548, debug=True, reloader=True)
+run(host='localhost', port=9562, debug=True, reloader=True)

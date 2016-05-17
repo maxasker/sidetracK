@@ -173,65 +173,34 @@
             </div>
             %tcat = threadcategori
             
-        <ul id="pages" class="pagination">
-        <li class="disable"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-            %if page == "1":
-            <li class="active"><a href="/threadoverview/{{tcat}}/1">1<span class="sr-only">(current)</span></a></li>
-            %else:
+        <ul id="pages" class="pagination" data-page="{{page}}">
+            <li class="disable"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
             <li class="disable"><a href="/threadoverview/{{tcat}}/1">1<span class="sr-only">(current)</span></a></li>
-            %end
-            %if page == "2":
-            <li class="active"><a href="/threadoverview/{{tcat}}/2">2<span class="sr-only">(current)</span></a></li>
-            %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/2">2<span class="sr-only">(current)</span></a></li>
-            %end
-            %if page == "3":
-            <li class="active"><a href="/threadoverview/{{tcat}}/3">3<span class="sr-only">(current)</span></a></li>
-            %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/3">3<span class="sr-only">(current)</span></a></li>
-            %end
-            %if page == "4":
-            <li class="active"><a href="/threadoverview/{{tcat}}/4">4<span class="sr-only">(current)</span></a></li>
-            %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/4">4<span class="sr-only">(current)</span></a></li>
-            %end
-            %if page == "5":
-            <li class="active"><a href="/threadoverview/{{tcat}}/5">5<span class="sr-only">(current)</span></a></li>
-            %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/5">5<span class="sr-only">(current)</span></a></li>
-            %end
-            %if page == "6":
-            <li class="active"><a href="/threadoverview/{{tcat}}/6">6<span class="sr-only">(current)</span></a></li>
-            %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/6">6<span class="sr-only">(current)</span></a></li>
-            %end
-            %if page == "7":
-            <li class="active"><a href="/threadoverview/{{tcat}}/7">7<span class="sr-only">(current)</span></a></li>
-            %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/7">7<span class="sr-only">(current)</span></a></li>
-            %end
-            %if page == "8":
-            <li class="active"><a href="/threadoverview/{{tcat}}/8">8<span class="sr-only">(current)</span></a></li>
-            %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/8">8<span class="sr-only">(current)</span></a></li>
-            %end
-            %if page == "9":
-            <li class="active"><a href="/threadoverview/{{tcat}}/9">9<span class="sr-only">(current)</span></a></li>
-            %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/9">9<span class="sr-only">(current)</span></a></li>
-            %end
-            %if page == "10":
-            <li class="active"><a href="/threadoverview/{{tcat}}/10">10<span class="sr-only">(current)</span></a></li>
-            %else:
             <li class="disable"><a href="/threadoverview/{{tcat}}/10">10<span class="sr-only">(current)</span></a></li> 
-            %end
         </ul>
-            
             
             <footer>
                 <p id="footer">sidetracKz0r inc</p>
                 <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
+                    <p>{{threadlisttest}}</p>
             </footer>
         </div>
+        <script src="/static/js/jquery.js"></script>
+        <script>
+            var page = $("#pages").attr("data-page");
+            $.each($("#pages li"), function(){
+                if(page + "(current)" == $(this).text()){
+                    $(this).attr("class", "active");
+                }
+            });
+        </script>
     </body>
 </html>

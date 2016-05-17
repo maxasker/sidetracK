@@ -65,8 +65,11 @@
                 <a id="reportthread" href="/reportts/{{threadname}}">Report</a>
                 
                 <!----Knappen för att svara på TS --->
+                %if commentcounter2 < 5:
                 <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
-                
+                %else:
+                <p id="replythread">THREAD CLOSED</p>
+                %end
                 <!---datumochtid för TS, variabel ifrån python ---->
                 <p>{{threadinfo}}</p>
                 
@@ -80,9 +83,17 @@
                 %else:
                 <img class="singleboximg" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
                 %end
-                
-                <!---texten för TS, variabel ifrån python--->
-		        <p id="threadcontent">{{threadtext}}</p>
+                %counter2 = 0
+                %for word in threadtext.split():
+                %if len(word) > 50:
+                %counter2 = counter2 + 1
+                %end
+                %end
+                %if counter2 > 0:
+                <div id="singletslongword">{{threadtext}}</div>
+                %else:
+                <div id="threadcontent">{{threadtext}}</div>
+                %end
             
             </div>
             <hr>
@@ -112,7 +123,9 @@
                     <!---Läs första linen och skriv ut den i egen <p> och skriv ut svaraknappen --->
                     %line_0 = f.readlines()[0]
                     <div class="threadcomment">
+                        %if commentcounter2 < 200:
                         <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
+                        %end
                         <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                     
                     <!---Stäng filen--->
