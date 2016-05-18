@@ -229,6 +229,7 @@ p{
         color:white;
         background-color: #154175;
         border: 1px solid black;
+        padding: 10px 15px;
         
         
         
@@ -498,6 +499,7 @@ h2{
         max-height: 500px;
         margin:1px;
         float:left;
+        padding:1%;
                
 }
 #replythread{
@@ -650,7 +652,7 @@ h2{
 .nav-text{
 /*Klass. Styling till Feedback och Om oss knapp*/
        
-        
+       
         color:white;
         background-color: #154175;
         border: 1px solid black;
@@ -678,6 +680,8 @@ h2{
 
 @media screen and (max-width: 508px) {
     
+
+    
     .top-bar
     {
   
@@ -693,14 +697,28 @@ h2{
     }
     
     
-
     
+.nav > li > a {
+    display: block;
+    
+   
+    margin-left:2px;
+    height:22px;
+  
+    }
 
 
     .nav-text
 {  
   
+    text-align: center;
+    
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-align: center;
    
+   
+    
 }
     
     .nav.nav-pills
