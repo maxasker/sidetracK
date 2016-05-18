@@ -29,18 +29,20 @@
             </div>
             <!-- Våra tre huvudkategorier -->
                           <div class="categories">
+                        <div class = "picposition">
                         %like = "like"
-                        <a href="/threadoverview/{{like}}/1">
-                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love">
-                        </div></a>
+                        <a id = "picbull" href="/threadoverview/{{like}}/1">
+                            <img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love">
+                        </a>
                         %classified = "classified"
-                        <a href="/threadoverview/{{classified}}/1">
-                            <div class="catdiv"><img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
-                        </div></a>
+                        <a id = "picbull"href="/threadoverview/{{classified}}/1">
+                            <img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
+                        </a>
                         %dislike = "dislike"
-                        <a href="/threadoverview/{{dislike}}/1">
-                            <div class="catdiv"><img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></div></a>
-                            </div>
+                        <a id = "picbull"  href="/threadoverview/{{dislike}}/1">
+                            <img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></a>
+        </div>
+                    </div>
             
             <div id="about">
 				<h1 id="abouthead">About us</h1>
@@ -53,7 +55,7 @@
 			</div>
             
             <footer>
-                <p id="footer">sidetracKz0r inc</p>
+                <p id="footer">sidetracK inc</p>
                 <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>

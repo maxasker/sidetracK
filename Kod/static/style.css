@@ -328,12 +328,6 @@ p{
         
 }
 
-li{
-/*Stylar så att kategoribilderna justeras efter webbläsarens bredd*/
-        display:inline;
-        float: left;
-        
-}
 
 
 .about_us{
@@ -349,22 +343,30 @@ li{
     
 }
 
+#ruleslist{
+        margin-left: 10px;
+        display: inline-block;
+        text-align: left;
+        font-size: 15px;
+}
+
 
 .rules{
 /*Klass. Stylar div-rutan Rules*/
         margin-top: 15px;
         height: 170px;
-        width: 40%;
-        background-color:;
+        width: 100%;
+        text-align: center;
         float: left;
-        border-style: groove;
-        border-color: #154175;
-        border-left: none;
-        border-width: thin;
+}
+
+.rules>h2{
+        margin-left: 10px;
+        text-decoration: underline;
 }
 
 h2{
-/*Stylar h2-överskrift. Tex. i About Us och Rules*/
+/*Stylar h2-överskrift. Tex. i Rules*/
         margin-left: 10px;
         
 }

@@ -29,7 +29,7 @@
                 </nav>
             </div>
             <!-- Våra tre huvudkategorier -->
-            
+            <!---knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen--->
                     <div class="categories">
                         <div class = "picposition">
                         %like = "like"
@@ -46,18 +46,25 @@
         </div>
                     </div>
             <!-- Rutor med Information om oss och regler för forumet -->
+            <!--
             <div class="about_us">
                 <h2>About us</h2>
                 <p>Detta är ett projekt som är gjort av</p>
                 <p>Max, Johannes, Per, Jacob och Simon</p>
             </div>
+            -->
             <div class="rules">
                 <h2>Rules</h2>
-                <p>Va trevlig</p>
+                    <ul id="ruleslist">
+                        <li>Va trevlig</li>
+                        <li>Vårda språket</li>
+                        <li>Endast passande innehåll</li>
+                        <li>SidetracKa hur mycket du vill</li>
+                    </ul>
             </div>
             
             <footer>
-                <p id="footer">sidetracKz0r inc</p>
+                <p id="footer">sidetracK inc</p>
                 <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
