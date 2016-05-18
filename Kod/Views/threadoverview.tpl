@@ -209,7 +209,6 @@
             <footer>
                 <p id="footer">sidetracKz0r inc</p>
                 <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
-                    <p>{{threadlisttest}}</p>
             </footer>
         </div>
         <script src="/static/js/jquery.js"></script>
