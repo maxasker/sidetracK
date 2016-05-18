@@ -119,12 +119,12 @@ h1{
 }
 
 p{
-    padding:1%;
+    padding:5%;
     text-align: left;
 }
 
 #picbull {
-
+    display: inline-block;
     width:0xp;
 
 }
@@ -277,7 +277,8 @@ p{
 /*Klass. Lägger kategoribilderna i ordning*/
         width: 165px;
         height: 200px;
-        padding: 5px;
+        padding: 3px;
+        
         
         
         
@@ -607,83 +608,12 @@ h2{
 }
 
 
-@media screen and (max-width: 480px) {
-    
-    
-#uploadbutt{
-            width:auto;
-}
 
-#form1{
-            width:auto;
-}
-
-#jsaddfile{
-            width:auto;
-}
-
-#threadcontent{
-            width:auto;
-}
-
-#tstextoverview{        
-            width:auto;
-}
-
-#container{   
-            width:auto;
-}
-
-.main-logotype{    
-            width:auto;
-}
-.tsreplybuttoverview{
-    
-    }
-.top-bar{   
-            width:auto;
-            height:40px;
-            
-}
-
-.middle-bar{
-            width:auto;
-}
-.nav-text{  
-            height:20px;
-            width:60px;
-            overflow:hidden;
-                
-}
-.nav-butt{ 
-            width:auto;
-}
-
-.categories{ 
-            width:480px;
-            margin-left:5px;
-}
-    
-.catpic{
-            width: 90px;
-            height: 100px;
-        
-    }
-    
-.about_us{
-            clear:both;
-}
-.main-logotype{
-            width:auto;
-}
-    .latestpost{
-            display: none;
-}
-}
 /* ---------------------------------------------------*/
-@media screen and (max-width: 1000px) 
+@media screen and (max-width: 660px) 
 {
-    .nav.nav-pills{
+    .nav.nav-pills
+{
 /* positionering till höger */
    
     
@@ -693,21 +623,34 @@ h2{
     
 }
 
+    
+    .catpic
+{
+            width: 120px;
+            height: 160px;
+        
+}
+   
+    
+    
+
+    
     .top-bar{
 /*Styling till Feedback och Om oss knapp*/
-        float:right;
+       
         width: 40%;
         height: 70px;
         border-bottom-style: groove;
         border-bottom-color: #154175;
         border-width: thin;
+        
     
          
 }
 .nav-text{
 /*Klass. Styling till Feedback och Om oss knapp*/
-        margin-top: 15px;
-        margin-left: 10px;
+       
+        
         color:white;
         background-color: #154175;
         border: 1px solid black;
@@ -715,8 +658,112 @@ h2{
         
         
 }
+    .nav-text{  
+         
+            
+                
+}
+    
+    .nav.nav-pills{
+/* positionering till höger */
+    margin-left:-100px;
+    
+}
+
     
     
     
+}
+
+
+@media screen and (max-width: 508px) {
+    
+    .top-bar
+    {
+  
+        
+        
+    }
+
+    h2
+    {
+       font-size-adjust: auto;
+        
+        
+    }
+    
+    
+
+    
+
+
+    .nav-text
+{  
+  
+   
+}
+    
+    .nav.nav-pills
+{
+    
+    
+}
+   
+    
+    
+    .main-logotype 
+{
+    
+}
+    
+    
+    
+    
+    .picposition
+{
+     width:auto;
+}
+    
+    
+.catpic
+{
+     width:auto;
+    
+}
+
+}
+
+
+@media screen and (max-width: 405px) 
+{
+    
+    
+    
+    
+    
+    
+    .catpic
+{
+     width:90px;
+    
+}
+    
+    
+    
+    
+}
+
+@media screen and (max-width: 350px) 
+{
+    
+        
+    .catpic
+{
+     width:60px;
+    
+}
+    
+  
+
     
 }
