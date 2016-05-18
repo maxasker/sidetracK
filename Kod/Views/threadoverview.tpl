@@ -68,6 +68,7 @@
                 
                 <!---Starta en div för TS och skriv ut datum och tid och knapp för att titta på tråden och skriv ut rubriken--->
                 <div class = "tsboxoverview">
+                    <a id="reportthread" href="/reportts/{{threadname}}">Report</a>
                     <p class = "tsdatetimeoverview">{{threadinfo}}</p>
                     <a href="/{{threadcategori}}/thread/{{threadname}}" class = "tsreplybuttoverview">Klicka här för att titta på tråden</a>
                     <h2 class = "tsheadlineoverview">{{threadname.replace("_____", " ")}}</h2>

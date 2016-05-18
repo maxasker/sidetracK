@@ -525,4 +525,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9564, debug=True, reloader=True)
+run(host='localhost', port=9569, debug=True, reloader=True)
