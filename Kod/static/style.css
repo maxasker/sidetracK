@@ -118,6 +118,14 @@ h1{
     width:100%;
 }
 
+.tsheadlineoverview{
+    word-break: break-all;
+}
+
+#singlethreadh1{
+    word-break: break-all;   
+}
+
 p{
     padding: 1%;
     text-align: left;
@@ -397,7 +405,7 @@ h2{
 /*Stylar fothuvudet*/
         
         text-align: center;
-        margin-top: 70px;
+        margin-top: 45px;
         
         float: left;
         clear: both;

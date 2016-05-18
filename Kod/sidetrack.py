@@ -70,6 +70,18 @@ def threadshow(threadcategori):
     threadcategori = threadcategori
     return template("savenewthread", threadcategori=threadcategori)
 
+def convertthreadname(threadname):
+    threadname = threadname.replace("_____", "fuuuccckkk")
+    threadname = threadname.replace("<", "☽")
+    threadname = threadname.replace(">", "-!qda-")
+    threadname = threadname.replace("?", "-!aqw")
+    threadname = threadname.replace("/", "-!kka")
+    threadname = threadname.replace("\\", "-!feo")
+    threadname = threadname.replace(":", "-!ewh")
+    threadname = threadname.replace("*", "-!qbb")
+    threadname = threadname.replace('"', "-!alo")
+    return threadname
+
 @route('/<threadcategori>/thread/<threadname>')
 def lookatsinglethread(threadcategori,threadname):
     '''
@@ -418,12 +430,20 @@ def savethread(threadcategori):
     name, ext = os.path.splitext(upload.filename)
     if ext not in ('.png','.jpg','.jpeg','.gif'):
         redirect('/errorext')
-    ip = gethostbyname(gethostname())
+    #ip = gethostbyname(gethostname())
     #tar titlen och sparar den
-    threadname = request.forms.get("title")
+    threadname = request.forms.get(r"title")
     threadname = checklangtitle(threadname)
-    threadname = threadname.replace(" ", "_____")
-    threadname = threadname + str(ip)
+    threadname = threadname.replace(" ", "─")
+    threadname = threadname.replace("<", "∽")
+    threadname = threadname.replace(">", "╶ ")
+    threadname = threadname.replace("?", "╾")
+    threadname = threadname.replace("/", "━")
+    threadname = threadname.replace("\\", "─")
+    threadname = threadname.replace(":", "╸")
+    threadname = threadname.replace("*", "╾")
+    threadname = threadname.replace('"', "┅")
+    #threadname = threadname + str(ip)
     #tar texten och sparar den
     text = request.forms.get("text")
     text = checklangts(text)
@@ -525,4 +545,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9569, debug=True, reloader=True)
+run(host='localhost', port=9617, debug=True, reloader=True)

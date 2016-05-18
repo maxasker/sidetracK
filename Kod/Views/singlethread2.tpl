@@ -74,10 +74,19 @@
                 %end
                 <!---datumochtid för TS, variabel ifrån python ---->
                 <p>{{threadinfo}}</p>
-                
+                %tempholder = threadname
+                %threadname = threadname.replace("─", " ")
+                %threadname = threadname.replace("∽", "≺")
+                %threadname = threadname.replace("╶ ", "≻")
+                %threadname = threadname.replace("╾", "?")
+                %threadname = threadname.replace("━", "/")
+                %threadname = threadname.replace("─", "\\")
+                %threadname = threadname.replace("╸", ":")
+                %threadname = threadname.replace("╾", "*")
+                %threadname = threadname.replace("┅", '"')
                 <!---Trådnamnet(titeln) där vi tar bort _____, variabel ifrån python-->
-                <h1>{{threadname.replace("_____", " ")}}</h1>
-                
+                <h1 id="singlethreadh1">{{threadname}}</h1>
+                %threadname = tempholder
                 <!--- if else för vad det är för ext, är det en gif har vi en spelare i javascript vi länkar in annars bara en <img> -->
                 %if tsimg == "tsimg.gif":
                 <script class="singleboximg" src="/static/gifffer.min.js"></script>
@@ -146,9 +155,9 @@
                     %end
                     %for line in lines_1_through_end:
                         %if counter3 > 0:
-                        <p id="commentlongword">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p id="commentlongword">{{line}}</p>
                         %else:
-                        <p id="commenttext">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p id="commenttext">{{line}}</p>
                         %end
                     %end
                     
@@ -195,9 +204,9 @@
                     %end
                     %for line in lines_1_through_end:
                         %if counter4 > 0:
-                        <p id="commentcommentlongword">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p id="commentcommentlongword">{{line}}</p>
                         %else:
-                        <p id="commentcommenttext">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p id="commentcommenttext">{{line}}</p>
                         %end
                     %end
                         

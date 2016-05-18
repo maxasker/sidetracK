@@ -73,8 +73,18 @@
                     <a id="reportthread" href="/reportts/{{threadname}}">Report</a>
                     <p class = "tsdatetimeoverview">{{threadinfo}}</p>
                     <a href="/{{threadcategori}}/thread/{{threadname}}" class = "tsreplybuttoverview">Klicka här för att titta på tråden</a>
-                    <h2 class = "tsheadlineoverview">{{threadname.replace("_____", " ")}}</h2>
-                
+                    %tempholder = threadname
+                    %threadname = threadname.replace("─", " ")
+                    %threadname = threadname.replace("∽", "≺")
+                    %threadname = threadname.replace("╶ ", "≻")
+                    %threadname = threadname.replace("╾", "?")
+                    %threadname = threadname.replace("━", "/")
+                    %threadname = threadname.replace("─", "\\")
+                    %threadname = threadname.replace("╸", ":")
+                    %threadname = threadname.replace("╾", "*")
+                    %threadname = threadname.replace("┅", '"')
+                    <h2 class = "tsheadlineoverview">{{threadname}}</h2>
+                    %threadname = tempholder
                     <!---Kolla vilken extention som bilden har och skriv ut, är det gif används ramverk annars bara <img>--->
                     %if os.path.isfile("static/threads/{1}/{0}/tsimg.jpg".format(threadname,threadcategori)):
                     %tsimgpath = "static/threads/{1}/{0}/tsimg.jpg".format(threadname,threadcategori)
@@ -168,9 +178,10 @@
                     %end
                         %for line in lines_1_through_end:
                         %if counter2 > 0:
-                        <p class = "commenttextoverview" id="commenttextlongwordid">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p class = "commenttextoverview" id="commenttextlongwordid">{{line}}</p>
                         %else:
-                        <p class = "commenttextoverview" id="commenttextid">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p class = "commenttextoverview" id="commenttextid">{{line}}</p>
+                        %end
                         %end
                     </div>
                 
@@ -187,7 +198,6 @@
 		        <hr>
 		        % end
                 </div>
-            
             <div class="latestpost">
                 <h2>Latest Post</h2>
             
