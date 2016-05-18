@@ -65,7 +65,7 @@
                 <a id="reportthread" href="/reportts/{{threadname}}">Report</a>
                 
                 <!----Knappen för att svara på TS --->
-                %if commentcounter2 < 5:
+                %if commentcounter2 < 200:
                 <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
                 %else:
                 <p id="replythread">THREAD CLOSED</p>
@@ -134,8 +134,20 @@
                     <!---Öppna den och skriv ut alla andra linjer förutom första (som bara är datum och tid)--->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
+                    %counter3 = 0
                     %for line in lines_1_through_end:
-                        <p>{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        %for word in line.split():
+                            %if len(word) > 50:
+                                %counter3 = counter3 +1
+                    %end
+                    %end
+                    %end
+                    %for line in lines_1_through_end:
+                        %if counter3 > 0:
+                        <p id="commentlongword">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        %else:
+                        <p id="commenttext">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        %end
                     %end
                     
                     <!--- Kollar om det finns en bild och skriver ut den, är det gif så används ramverket annar bara <img> --->
@@ -171,8 +183,20 @@
                     <!---Öppna den igen och skriv ut alla andra rader--->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
+                    %counter4 = 0
                     %for line in lines_1_through_end:
-                        <p>{{line}}</p>
+                        %for word in line.split():
+                            %if len(word) > 50:
+                                %counter4 = counter4 +1
+                    %end
+                    %end
+                    %end
+                    %for line in lines_1_through_end:
+                        %if counter4 > 0:
+                        <p id="commentcommentlongword">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        %else:
+                        <p id="commentcommenttext">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        %end
                     %end
                         
                     <!---Om det finns en bild skrivs den ut, är det gif så används ramverket annars bara en vanlig <img>--->

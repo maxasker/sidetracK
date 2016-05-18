@@ -141,7 +141,7 @@ def savenewcomment(threadcategori,threadname):
         files = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
         addfilelist = [i for i in files if i.endswith('.txt')]
         filelist3= filelist3 + addfilelist
-    if len(filelist3) > 5:
+    if len(filelist3) > 200:
         redirect('/errorlimit')
     #tar bilden ifrån formuläret
     upload = request.files.get("commentimg")
@@ -180,7 +180,7 @@ def savenewcommentcomment(threadcategori,threadname,mapp):
         files = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
         addfilelist = [i for i in files if i.endswith('.txt')]
         filelist3= filelist3 + addfilelist
-    if len(filelist3) > 5:
+    if len(filelist3) > 200:
         redirect('/errorlimit')
     upload = request.files.get("commentcommentimg")
     #om upload finns så splitta namn och text och kontrollera ext
@@ -485,7 +485,7 @@ def errorimg():
 
 @route('/errorlimit')
 def errorlimit():
-    errorvar = "Commentlimit reached, thread closed."
+    errorvar = "Comment-limit reached, thread closed."
     return template('error', errorvar=errorvar)
 
 @route('/about')
@@ -525,4 +525,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9562, debug=True, reloader=True)
+run(host='localhost', port=9564, debug=True, reloader=True)

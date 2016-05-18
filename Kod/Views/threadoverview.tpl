@@ -87,9 +87,17 @@
                     <script src="/static/gifffer.min.js"></script>
                     <img class = "tsimgoverview" data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
                     %end
-                
-                    <!---Skriv ut brödtexten för TS--->
+                    %counter1 = 0
+                    %for word in threadtext.split():
+                        %if len(word) > 50:
+                            %counter1 = counter1 +1
+                    %end
+                    %end
+                    %if counter1 > 0:
+                    <p id="tstextoverviewlongword">{{threadtext}}</p>
+                    %else:
                     <p id="tstextoverview">{{threadtext}}</p>
+                    %end
                 </div>
                 
                 <!---Vi skriver bara ut originalkommentarer och högst tre av dem--->
@@ -147,7 +155,18 @@
                     <!---Öppna filen igen och skriv ut resterade text--->
                     %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
                     %lines_1_through_end = f.readlines()[1:]
+                    %counter2 = 0
+                    %for line in lines_1_through_end:
+                        %for word in line.split():
+                            %if len(word) > 50:
+                                %counter2 = counter2 +1
+                    %end
+                    %end
+                    %end
                         %for line in lines_1_through_end:
+                        %if counter2 > 0:
+                        <p class = "commenttextoverview" id="commenttextlongwordid">{{line.decode('iso-8859-1').encode('utf8')}}</p>
+                        %else:
                         <p class = "commenttextoverview" id="commenttextid">{{line.decode('iso-8859-1').encode('utf8')}}</p>
                         %end
                     </div>
