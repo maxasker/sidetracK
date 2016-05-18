@@ -382,25 +382,39 @@ h2{
         padding-top: 13%;
 }
 
-#footer{
+#footinc{
 /*Stylar fothuvudet*/
         text-align: center;
-        margin-top: 50px;
-        padding: 8px;
+        padding: 0px;
+        float: left;
+        margin-top: 5px;
+        width: 100%;
+        
+    
+}
+
+#footer{
+/*Stylar fothuvudet*/
+        
+        text-align: center;
+        margin-top: 70px;
+        
         float: left;
         clear: both;
         width: 100%;
-    
+
 }
 
 #createfooter{
 /*Stylar skapad av footer*/
         text-align: center;
-        padding: 5px;
+        margin: 0px;
         float: left;
-        clear: both;
+        padding: 0px;
         width: 100%;
+        
 }
+
 
 .likebox{
 /*Likebox stylar allt inne i forumtråden i översikten*/
