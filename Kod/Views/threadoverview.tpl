@@ -219,11 +219,12 @@
             <li class="disable"><a href="/threadoverview/{{tcat}}/10">10<span class="sr-only">(current)</span></a></li> 
         </ul>
             
-            <footer>
-                <p id="footer">sidetracK inc</p>
-                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
-            </footer>
         </div>
+        <footer class="footer">
+                <p id="footinc">sidetracK inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
+        </footer>
+        
         <script src="/static/js/jquery.js"></script>
         <script>
             var page = $("#pages").attr("data-page");

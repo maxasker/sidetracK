@@ -401,16 +401,31 @@ h2{
     
 }
 
-#footer{
+.footer{
 /*Stylar fothuvudet*/
-        
+        color: white;
         text-align: center;
-        margin-top: 45px;
-        
+        margin-top: 35px;
         float: left;
         clear: both;
         width: 100%;
+        background-color: #154175;
+        
+        
+        
+}
 
+#footerindex{
+/*Stylar fothuvudet i Index*/
+        color: white;
+        text-align: center;
+        margin-top: 35px;
+        float: left;
+        clear: both;
+        width: 100%;
+        background-color: #154175;
+        position: fixed;
+        bottom: 0;   
 }
 
 #createfooter{
@@ -419,8 +434,7 @@ h2{
         margin: 0px;
         float: left;
         padding: 0px;
-        width: 100%;
-        
+        width: 100%;   
 }
 
 

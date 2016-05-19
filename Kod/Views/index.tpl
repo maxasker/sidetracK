@@ -56,11 +56,10 @@
                         <li>SidetracKa hur mycket du vill</li>
                     </ul>
             </div>
-            
-            <footer id="footer">
+        </div>
+        <footer id="footerindex">
                 <p id="footinc">sidetracK inc</p>
                 <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
-            </footer>
-        </div>
+        </footer>
     </body>
 </html>

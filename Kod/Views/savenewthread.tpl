@@ -46,11 +46,11 @@
             
         </div>
 
-        
-            <footer>
-                <p id="footer">sidetracKz0r inc</p>
-                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
-            </footer>
+
         </div>
+        <footer id="footerindex">
+                <p id="footinc">sidetracK inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
+        </footer>
     </body>
 </html>
