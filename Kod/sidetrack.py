@@ -30,12 +30,12 @@ def reportts(threadcategori,threadname):
     errorvar = "Thank you for the report, we will investigare this further!"
     return template('error',errorvar=errorvar)
 
-@route('/report/<threadcategori>/<threadname>/<mapp>')
-def reportcommentthreadoverview(threadcategori,threadname,mapp):
+@route('/report/<threadcategori>/<threadname>/<mapp>/<textfile>'):
+def reportcommentsinglethread(threadcategori,threadname,mapp,textfile):
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
     mail.starttls()
-    threadname = str(threadname) + " " + str(threadcategori) + " " + str(mapp)
+    threadname = str(threadname) + " " + str(threadcategori) + " " + str(mapp) + " " + str(textfile)
     mail.login('sidetrack.inc@gmail.com','githubsucks123')
     mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
     mail.close()
@@ -569,4 +569,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9620, debug=True, reloader=True)
+run(host='localhost', port=9621, debug=True, reloader=True)
