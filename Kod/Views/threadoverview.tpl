@@ -48,7 +48,7 @@
             <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
                     <h1 id = "threadcategori">{{threadcategori}}</h1>
                 
-            <div id="createthreadtext"><a id="createthreada" href="/{{threadcategori}}/createthread">Skapa tråd</a></div>
+            <div id="createthreadtext"><a id="createthreada" href="/{{threadcategori}}/createthread">Create new thread</a></div>
 
 
             <!---Skapar en div för alla trådar i kategorin--->
@@ -72,7 +72,7 @@
                 <div class = "tsboxoverview">
                     <a id="reportthread" href="/reportts/{{threadcategori}}/{{threadname}}">Report</a>
                     <p class = "tsdatetimeoverview">{{threadinfo}}</p>
-                    <a href="/{{threadcategori}}/thread/{{threadname}}" class = "tsreplybuttoverview">Klicka här för att titta på tråden</a>
+                    <a href="/{{threadcategori}}/thread/{{threadname}}" class = "tsreplybuttoverview">View thread</a>
                     %tempholder = threadname
                     %threadname = threadname.replace("─", " ")
                     %threadname = threadname.replace("∽", "≺")

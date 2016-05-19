@@ -68,7 +68,7 @@
                 
                 <!----Knappen för att svara på TS --->
                 %if commentcounter2 < 200:
-                <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
+                <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Reply</a>
                 %else:
                 <p id="replythread">THREAD CLOSED</p>
                 %end
@@ -134,12 +134,13 @@
                     <!---Läs första linen och skriv ut den i egen <p> och skriv ut svaraknappen --->
                     %line_0 = f.readlines()[0]
                     <div class="threadcomment">
-                        <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
-                        %if commentcounter2 < 200:
-                        <a id="replythread" href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
-                        %end
-                        <p class="tsdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
-                    
+                        <div id = "threadhead">
+                            <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
+                            %if commentcounter2 < 200:
+                            <a id="replythread" href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Reply</a>
+                            %end
+                            <p class="tsdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        </div>
                     <!---Stäng filen--->
                     %f.close()
                     
@@ -187,8 +188,11 @@
                 %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="commentcomment">
-                        <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
-                        <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        <div id = "threadhead">
+                            <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
+                            
+                            <p class = "tsdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        </div>
                         
                     <!---Stäng filen--->
                     %f.close()
