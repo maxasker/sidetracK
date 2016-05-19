@@ -145,7 +145,14 @@ p{
     word-wrap: break-word;
 
 }
-
+#threadhead{
+/* fun with divs */
+width:100%;
+    
+    
+    
+    
+}
 #singletslongword{
     padding:1%;
     text-align: left;
@@ -318,6 +325,7 @@ p{
         padding: 5px;
         height: 5px;
         padding-top: 5px;
+    
 }
 
 #reportthread:hover{
