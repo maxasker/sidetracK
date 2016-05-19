@@ -144,6 +144,7 @@
                     %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="threadcommentoverview">
+                        <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}">Report</a>
                         <p class = "commentdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                         
                     <!---Om det finns en bild så skriv ut, är det en gif används ramverk annars vanlig <img>--->

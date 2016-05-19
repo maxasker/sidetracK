@@ -29,6 +29,29 @@ def reportts(threadname):
     errorvar = "Thank you for the report, we will investigare this further!"
     return template('error',errorvar=errorvar)
 
+@route('/report/<threadcategori>/<threadname>/<mapp>')
+def reportcommentthreadoverview(threadcategori,threadname,mapp):
+    mail = smtplib.SMTP('smtp.gmail.com',587)
+    mail.ehlo()
+    mail.starttls()
+    threadname = str(threadcategori) + " " + str(threadname) + " " + str(mapp)
+    mail.login('sidetrack.inc@gmail.com','githubsucks123')
+    mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
+    mail.close()
+    errorvar = "Thank you for the report, we will investigare this further!"
+
+@route('/report/<threadname>/<mapp>/<textfile>')
+def reportcomment(threadname,mapp,textfile):
+    mail = smtplib.SMTP('smtp.gmail.com',587)
+    mail.ehlo()
+    mail.starttls()
+    threadname = str(threadname) + " " + str(mapp) + " " + str(textfile)
+    mail.login('sidetrack.inc@gmail.com','githubsucks123')
+    mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
+    mail.close()
+    errorvar = "Thank you for the report, we will investigare this further!"
+    return template('error',errorvar=errorvar)
+
 @route('/sendfeedback', method="POST")
 def sendfeedback():
     feedbacktext = request.forms.get("feedbacktext")
