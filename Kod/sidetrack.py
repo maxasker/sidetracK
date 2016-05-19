@@ -30,7 +30,7 @@ def reportts(threadcategori,threadname):
     errorvar = "Thank you for the report, we will investigare this further!"
     return template('error',errorvar=errorvar)
 
-@route('/report/<threadcategori>/<threadname>/<mapp>/<textfile>'):
+@route('/report/<threadcategori>/<threadname>/<mapp>/<textfile>')
 def reportcommentsinglethread(threadcategori,threadname,mapp,textfile):
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
@@ -40,6 +40,7 @@ def reportcommentsinglethread(threadcategori,threadname,mapp,textfile):
     mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
     mail.close()
     errorvar = "Thank you for the report, we will investigare this further!"
+    return template('error',errorvar=errorvar)
 
 @route('/report/<threadname>/<mapp>/<textfile>')
 def reportcomment(threadname,mapp,textfile):
