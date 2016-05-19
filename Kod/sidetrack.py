@@ -533,6 +533,11 @@ def errorlimit():
     errorvar = "Comment-limit reached, thread closed."
     return template('error', errorvar=errorvar)
 
+@route('/errorfilesize')
+def errorfilesize():
+    errorvar = "Uploadlimit is 4MB :("
+    return template('error', errorvar=errorvar)
+
 @route('/about')
 def about():
     return template('about')
@@ -545,6 +550,7 @@ def feedback():
 def error404(error):
     errorvar = "Nothing here, sorry"
     return template('error', errorvar = errorvar)
+
 
 def savethreadfile(newpath2,threadname,text,date_time):
     #skapar tstitle.txt och skriver in trådnamnet, mao titeln
@@ -560,7 +566,6 @@ def savethreadfile(newpath2,threadname,text,date_time):
     newthreadtextfile.write(date_time)
     newthreadtextfile.close()
 
-
 @route('<filename:re:.*\.css>',name='static')
 def css(filename):
     print "css:",filename
@@ -570,4 +575,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9622, debug=True, reloader=True)
+run(host='localhost', port=9642, debug=True, reloader=True)
