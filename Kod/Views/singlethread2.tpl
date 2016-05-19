@@ -68,7 +68,7 @@
                 
                 <!----Knappen för att svara på TS --->
                 %if commentcounter2 < 200:
-                <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
+                <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Reply</a>
                 %else:
                 <p id="replythread">THREAD CLOSED</p>
                 %end
@@ -137,7 +137,7 @@
                         <div id = "threadhead">
                             <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
                             %if commentcounter2 < 200:
-                            <a id="replythread" href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
+                            <a id="replythread" href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Reply</a>
                             %end
                             <p class="tsdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                         </div>

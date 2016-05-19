@@ -50,10 +50,10 @@
             <div class="rules">
                 <h2>Rules</h2>
                     <ul id="ruleslist">
-                        <li>Va trevlig</li>
-                        <li>Vårda språket</li>
-                        <li>Endast passande innehåll</li>
-                        <li>SidetracKa hur mycket du vill</li>
+                        <li>Be nice</li>
+                        <li>Watch your language</li>
+                        <li>Only appropriate content</li>
+                        <li>SidetracK as much as you like</li>
                     </ul>
             </div>
         </div>
