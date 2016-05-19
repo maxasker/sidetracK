@@ -64,7 +64,7 @@
                 
 <!--------------------------------------------------------------------------------------------------------------------------------------->
             <div id = "tsboxen">
-                <a id="reportthread" href="/reportts/{{threadname}}">Report</a>
+                <a id="reportthread" href="/reportts/{{threadcategori}}/{{threadname}}">Report</a>
                 
                 <!----Knappen för att svara på TS --->
                 %if commentcounter2 < 200:

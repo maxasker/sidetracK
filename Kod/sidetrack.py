@@ -18,11 +18,12 @@ threadlistlike = []
 threadlistclassified = []
 threadlistdislike = []
 
-@route('/reportts/<threadname>')
-def reportts(threadname):
+@route('/reportts/<threadcategori>/<threadname>')
+def reportts(threadcategori,threadname):
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
     mail.starttls()
+    threadname = str(threadname) + " " + str(threadcategori)
     mail.login('sidetrack.inc@gmail.com','githubsucks123')
     mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
     mail.close()
@@ -34,7 +35,7 @@ def reportcommentthreadoverview(threadcategori,threadname,mapp):
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
     mail.starttls()
-    threadname = str(threadcategori) + " " + str(threadname) + " " + str(mapp)
+    threadname = str(threadname) + " " + str(threadcategori) + " " + str(mapp)
     mail.login('sidetrack.inc@gmail.com','githubsucks123')
     mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
     mail.close()
@@ -568,4 +569,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9617, debug=True, reloader=True)
+run(host='localhost', port=9620, debug=True, reloader=True)
