@@ -143,6 +143,23 @@
                     <!---Stäng filen--->
                     %f.close()
                     
+                    
+                    
+                    <!--- Kollar om det finns en bild och skriver ut den, är det gif så används ramverket annar bara <img> --->
+                    %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
+                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)
+                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)
+                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
+                        <script src="/static/gifffer.min.js"></script>
+                        <img class="singleboximg" data-gifffer="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %end
                     <!---Öppna den och skriv ut alla andra linjer förutom första (som bara är datum och tid)--->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
@@ -161,24 +178,7 @@
                         <p id="commenttext">{{line}}</p>
                         %end
                     %end
-                    
-                    <!--- Kollar om det finns en bild och skriver ut den, är det gif så används ramverket annar bara <img> --->
-                    %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
-                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
-                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
-                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)):
-                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)
-                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
-                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)):
-                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)
-                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
-                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
-                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
-                        <script src="/static/gifffer.min.js"></script>
-                        <img class="singleboximg" data-gifffer="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
-                    %else:
-                        </div>
-                    %end
+                </div>
 
                 <!---Fortsättning ifrån första loopen om det inte är originalkommentar --->
                 %else:
@@ -193,7 +193,25 @@
                     <!---Stäng filen--->
                     %f.close()
                         
-                    <!---Öppna den igen och skriv ut alla andra rader--->
+                    
+                        
+                    <!---Om det finns en bild skrivs den ut, är det gif så används ramverket annars bara en vanlig <img>--->
+                    %if os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))):
+                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))
+                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
+                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))):
+                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))
+                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
+                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))):
+                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))
+                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
+                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))):
+                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))
+                        <script class="singleboximg" src="/static/gifffer.min.js"></script>
+                        <img data-gifffer="{{url('static',filename=commentcommentimgpath)}}" alt="tsimg">
+                    %end
+                        
+                <!---Öppna den igen och skriv ut alla andra rader--->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %counter4 = 0
@@ -210,22 +228,6 @@
                         %else:
                         <p id="commentcommenttext">{{line}}</p>
                         %end
-                    %end
-                        
-                    <!---Om det finns en bild skrivs den ut, är det gif så används ramverket annars bara en vanlig <img>--->
-                    %if os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))):
-                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))
-                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
-                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))):
-                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))
-                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
-                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))):
-                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))
-                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
-                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))):
-                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))
-                        <script class="singleboximg" src="/static/gifffer.min.js"></script>
-                        <img data-gifffer="{{url('static',filename=commentcommentimgpath)}}" alt="tsimg">
                     %end
                     </div>
 
