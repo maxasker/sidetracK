@@ -136,9 +136,9 @@
                     <div class="threadcomment">
                         <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
                         %if commentcounter2 < 200:
-                        <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
+                        <a id="replythread" href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
                         %end
-                        <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        <p class="tsdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                     
                     <!---Stäng filen--->
                     %f.close()

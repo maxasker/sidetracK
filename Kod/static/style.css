@@ -137,7 +137,7 @@ p{
 
 }
 
-#threadcontent{
+#threadcontent, #commenttext{
 /*Behåller trådtext inuti trådboxen i singlethread*/
     padding:1%;
     text-align: left;
@@ -543,10 +543,6 @@ h2{
         margin-left:10px;
 }
 
-.threadcomment>a{
-/*Indenterar orginalkommentaren*/
-        margin-left:95%;   
-}
 
 .tsimgoverview, .commentimgoverview{
 /*Stylar så bilderna har fast storlek i trådöversikt*/
