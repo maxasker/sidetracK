@@ -73,7 +73,7 @@
                 <p id="replythread">THREAD CLOSED</p>
                 %end
                 <!---datumochtid för TS, variabel ifrån python ---->
-                <p>{{threadinfo}}</p>
+                <p class = "tsdatetimeoverview">{{threadinfo}}</p>
                 %tempholder = threadname
                 %threadname = threadname.replace("─", " ")
                 %threadname = threadname.replace("∽", "≺")

@@ -193,21 +193,14 @@ p{
         text-decoration: none;
 }
 
-.tsreplybuttoverview{
-  
-        padding:10px;  
-}
 
 
 .nav.nav-pills{
 /* positionering till höger */
     
     float:right;
-    
-    
+      
 }
-
-
 
 
 .top-bar{
@@ -237,11 +230,7 @@ p{
         color:white;
         background-color: #154175;
         border: 1px solid black;
-        padding: 10px 15px;
-        
-        
-        
-        
+        padding: 10px 15px; 
         
 }
 
@@ -265,21 +254,15 @@ p{
         margin-top: 24px;
         width: 100%;
         width:100%;
-        text-align: center;
-        
-       
-
-          
+        text-align: center;     
         
 }
 
 
 
-.picposition
-{
-    width:auto;
+.picposition{
+        width:auto;
 
-  
 }
 
 .catpic{
@@ -287,10 +270,7 @@ p{
         width: 165px;
         height: 200px;
         padding: 3px;
-        
-        
-        
-        
+               
 }
 
 #threadtitle{
@@ -309,7 +289,7 @@ p{
 }
 
 #createthreada{
-        background-color: limegreen;
+        background-color: #3bc718;
         color:white;
         border-radius: 10px;
         border: none;
@@ -324,15 +304,63 @@ p{
 }
 
 #createthreada:hover{
+/*Stylen ändras on hover*/
         text-decoration: none;
         background-color: darkgreen;
+}
+
+#reportthread{
+/*Stylar Report-knappen i trådarna*/
+        background-color: red;
+        color:white;
+        border-radius: 5px;
+        border-bottom-left-radius: 0px;
+        padding: 5px;
+        height: 5px;
+        padding-top: 5px;
+}
+
+#reportthread:hover{
+/*Stylen ändras on hover*/
+        text-decoration: none;
+        background-color: darkred;
+}
+
+.tsdatetimeoverview{
+/*Style till tid och datumvisning*/
+        width: 30%;
+        display: inline;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 5px;
+}
+
+.tsreplybuttoverview, #replythread{
+/*Style för att titta på tråd och svara på tråd*/
+        float: right;
+        background-color: #154175;
+        color:white;
+        border-radius: 5px;
+        border-bottom-right-radius: 0px;
+        height: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        
+}
+
+.tsreplybuttoverview, #replythread:hover{
+/*Stylen ändras on hover*/
+        text-decoration: none;
+        background-color: #09213d;
+        color: white;
+        
 }
 
 #threadcategori{
 /*Centrerar texten för vilken kategori vi är i*/
         text-align: center;
         margin-top: 0px;
-        
         
 }
 
@@ -540,10 +568,6 @@ h2{
         padding:1%;
                
 }
-#replythread{
-/*Indenterar knappen att svara på orginalkommentaren*/
-        margin-left:84%;   
-}
 
 .likebox>hr{
 /*Ger en understruken linje att avskilja kommentarer i en forumtråd*/
@@ -739,7 +763,7 @@ h2{
 .nav > li > a {
     display: block;
     
-   
+    
     margin-left:2px;
     height:22px;
   
@@ -752,9 +776,9 @@ h2{
     text-align: center;
     
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
-   
+    
    
     
 }
