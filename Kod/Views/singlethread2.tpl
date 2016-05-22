@@ -240,5 +240,49 @@
                 <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
             </footer>
         </div>
+		
+			<script>
+				
+				var storedArray = JSON.parse(localStorage.getItem("latest"));
+				
+				if (storedArray == null){
+					var latestArr = [];
+					latestArr.push(window.location.href);
+					localStorage.setItem("latest", JSON.stringify(latestArr));
+				}
+				
+				else {
+					var testArr = window.location.href;
+					var i = storedArray.length;
+					while (i--){
+						if(storedArray[i] == testArr){
+							break;
+							}
+					
+						else{
+							var j = storedArray.length;
+							if(j === 5){
+								storedArray.pop();
+								storedArray.unshift(window.location.href);
+								localStorage.setItem("latest", JSON.stringify(storedArray));
+								break;
+								
+							}
+							
+							else{
+								storedArray.push(window.location.href);
+								localStorage.setItem("latest", JSON.stringify(storedArray));
+								break;
+							}
+						}
+						
+					}
+						
+					
+				}
+				
+				
+
+			</script>
     </body>
 </html>
