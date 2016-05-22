@@ -198,24 +198,8 @@
 		        <hr>
 		        % end
                 </div>
-            <div id="latestpost">
+            <div class="latestpost">
                 <h2>Latest Post</h2>
-				
-				<ul id=thelatest>
-					
-				<script>
-					
-					var postArray = JSON.parse(localStorage.getItem("latest"));
-					var arrayLength = postArray.length;
-
-					for (var i = 0; i < arrayLength; i++) {
-						document.write("<li>" + "<a href=" + postArray[i] + ">" + "Post" + "</a>" + "</li>");
-						}
-
-				</script>
-					
-				</ul>
-				
             
                 
             </div>

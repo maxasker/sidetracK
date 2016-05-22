@@ -555,7 +555,7 @@ h2{
         padding-top: 10px;
 }
 
-#latestpost{
+.latestpost{
 /*Styling för senast inlägg*/
         background-color: #E7EAF0;
         border-style: groove;
@@ -568,13 +568,6 @@ h2{
         padding: 5px;
         height: 400px;
         margin-left: 2%;
-}
-
-#thelatest{
-	list-style-type: none;
-	padding-left: 30px;
-	font-size: 20px;
-		
 }
 
 .pagination{
