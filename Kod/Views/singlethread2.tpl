@@ -90,7 +90,7 @@
                 <!--- if else för vad det är för ext, är det en gif har vi en spelare i javascript vi länkar in annars bara en <img> -->
                 %if tsimg == "tsimg.gif":
                 <script class="singleboximg" src="/static/gifffer.min.js"></script>
-                <img data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
+                <img class ='singleboximg' data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
                 %else:
                 <img class="singleboximg" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
                 %end

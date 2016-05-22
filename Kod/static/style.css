@@ -696,6 +696,18 @@ h2{
 }
 
 
+element {
+
+    position: relative;
+    float: left;
+    cursor: pointer;
+    width: calc(auto +20px);
+    max-width: 500px;
+    height: auto;
+    max-height: 500px;
+
+}
+
 
 /* ---------------------------------------------------*/
 @media screen and (max-width: 660px) 

@@ -363,25 +363,22 @@ def checklangcomment(commenttext):
     for word in text2.split():
         if word.lower() == "nigger":
             word = word.lower()
-            word = word.replace("nigger","individual of african descent")
+            word = word.replace("nigger","PoC")
         elif word.lower() == "cunt":
             word = word.lower()
-            word = word.replace("cunt","my vocabulary sucks")
+            word = word.replace("cunt","lady")
         elif word.lower() == "whore":
             word = word.lower()
             word = word.replace("whore","lady")
-        elif word.lower() == "max":
-            word = word.lower()
-            word = word.replace("max","our lord and savior")
         elif word.lower() == "faggot":
             word = word.lower()
-            word = word.replace("faggot","homosexual")
+            word = word.replace("faggot","Cigarette")
         elif word.lower() == "dyke":
             word = word.lower()
-            word = word.replace("dyke","homosexual")
+            word = word.replace("dyke","lady")
         elif word.lower() == "chink":
             word = word.lower()
-            word = word.replace("chink","individual of asian descent")
+            word = word.replace("chink","PoC")
         commenttext = commenttext + word + " "
     return commenttext
 
@@ -391,25 +388,22 @@ def checklangts(text):
     for word in text2.split():
         if word.lower() == "nigger":
             word = word.lower()
-            word = word.replace("nigger","individual of african descent")
+            word = word.replace("nigger","PoC")
         elif word.lower() == "cunt":
             word = word.lower()
-            word = word.replace("cunt","my vocabulary sucks")
+            word = word.replace("cunt","Person")
         elif word.lower() == "whore":
             word = word.lower()
             word = word.replace("whore","lady")
-        elif word.lower() == "max":
-            word = word.lower()
-            word = word.replace("max","our lord and savior")
         elif word.lower() == "faggot":
             word = word.lower()
-            word = word.replace("faggot","homosexual")
+            word = word.replace("faggot","Cigarette")
         elif word.lower() == "dyke":
             word = word.lower()
-            word = word.replace("dyke","homosexual")
+            word = word.replace("dyke","lady")
         elif word.lower() == "chink":
             word = word.lower()
-            word = word.replace("chink","individual of asian descent")
+            word = word.replace("chink","PoC")
         text = text + word + " "
     return text
 
@@ -419,25 +413,22 @@ def checklangtitle(threadname):
     for word in text2.split():
         if word.lower() == "nigger":
             word = word.lower()
-            word = word.replace("nigger","individual of african descent")
+            word = word.replace("nigger","PoC")
         elif word.lower() == "cunt":
             word = word.lower()
-            word = word.replace("cunt","my vocabulary sucks")
+            word = word.replace("cunt","person")
         elif word.lower() == "whore":
             word = word.lower()
             word = word.replace("whore","lady")
-        elif word.lower() == "max":
-            word = word.lower()
-            word = word.replace("max","our lord and savior")
         elif word.lower() == "faggot":
             word = word.lower()
-            word = word.replace("faggot","homosexual")
+            word = word.replace("faggot","Cigarette")
         elif word.lower() == "dyke":
             word = word.lower()
-            word = word.replace("dyke","homosexual")
+            word = word.replace("dyke","lady")
         elif word.lower() == "chink":
             word = word.lower()
-            word = word.replace("chink","individual of asian descent")
+            word = word.replace("chink","PoC")
         threadname = threadname + word + " "
     return threadname
 
@@ -575,4 +566,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9646, debug=True, reloader=True)
+run(host='localhost', port=9648, debug=True, reloader=True)
