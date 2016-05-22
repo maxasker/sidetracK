@@ -54,10 +54,11 @@
 				<p>If you are the kind of person that gets offended by everyone and everything, you came to the wrong place!</p>
 			</div>
             
-            <footer>
-                <p id="footer">sidetracK inc</p>
-                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
-            </footer>
+
         </div>
+        <footer id="footerindex">
+                <p id="footinc">sidetracK inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
+        </footer>
     </body>
 </html>

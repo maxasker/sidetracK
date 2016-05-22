@@ -98,9 +98,10 @@ label.myLabel input[type="file"] {
 /*Javascriptboxen submitknapp*/
         color: white;
         margin-top: 5px;
-        background-color: limegreen;
+        background-color: #3bc718;
         border-radius: 5px;
         border: none;
+        box-shadow:0px 2px 3px #000000;
 }
 
 #jsclose{
@@ -137,7 +138,7 @@ p{
 
 }
 
-#threadcontent{
+#threadcontent, #commenttext{
 /*Behåller trådtext inuti trådboxen i singlethread*/
     padding:1%;
     text-align: left;
@@ -145,7 +146,14 @@ p{
     word-wrap: break-word;
 
 }
-
+#threadhead{
+/* fun with divs */
+width:100%;
+    
+    
+    
+    
+}
 #singletslongword{
     padding:1%;
     text-align: left;
@@ -193,21 +201,14 @@ p{
         text-decoration: none;
 }
 
-.tsreplybuttoverview{
-  
-        padding:10px;  
-}
 
 
 .nav.nav-pills{
 /* positionering till höger */
     
     float:right;
-    
-    
+      
 }
-
-
 
 
 .top-bar{
@@ -237,11 +238,7 @@ p{
         color:white;
         background-color: #154175;
         border: 1px solid black;
-        padding: 10px 15px;
-        
-        
-        
-        
+        padding: 10px 15px; 
         
 }
 
@@ -265,21 +262,15 @@ p{
         margin-top: 24px;
         width: 100%;
         width:100%;
-        text-align: center;
-        
-       
-
-          
+        text-align: center;     
         
 }
 
 
 
-.picposition
-{
-    width:auto;
+.picposition{
+        width:auto;
 
-  
 }
 
 .catpic{
@@ -287,10 +278,7 @@ p{
         width: 165px;
         height: 200px;
         padding: 3px;
-        
-        
-        
-        
+               
 }
 
 #threadtitle{
@@ -309,7 +297,7 @@ p{
 }
 
 #createthreada{
-        background-color: limegreen;
+        background-color: #3bc718;
         color:white;
         border-radius: 10px;
         border: none;
@@ -317,22 +305,81 @@ p{
         margin-bottom: 20px;
         font-size:35px;
         text-align: left;
-        padding-top: 10px;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-bottom: 10px;
+        padding-top: 8px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 8px;
+        box-shadow:0px 2px 9px #000000;
 }
 
 #createthreada:hover{
+/*Stylen ändras on hover*/
         text-decoration: none;
         background-color: darkgreen;
+}
+
+#reportthread{
+/*Stylar Report-knappen i trådarna*/
+        background-color: red;
+        color:white;
+        border-radius: 5px;
+        border-bottom-left-radius: 0px;
+        padding: 5px;
+        height: 5px;
+        padding-top: 5px;
+        box-shadow:0px 2px 3px #000000;
+        
+    
+}
+
+#reportthread:hover{
+/*Stylen ändras on hover*/
+        text-decoration: none;
+        background-color: darkred;
+}
+
+.tsdatetimeoverview{
+/*Style till tid och datumvisning*/
+        width: 30%;
+        display: inline;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 5px;
+}
+
+.tsreplybuttoverview, #replythread{
+/*Style för att titta på tråd och svara på tråd*/
+        float: right;
+        background-color: #154175;
+        color:white;
+        border-radius: 5px;
+        border-bottom-right-radius: 0px;
+        height: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        box-shadow:0px 2px 3px #000000;
+        
+}
+
+.tsreplybuttoverview:hover{
+/*Stylen ändras on hover*/
+        text-decoration: none;
+        background-color: #09213d;
+        color: white;     
+}
+
+#replythread:hover{
+/*Stylen ändras on hover*/
+        text-decoration: none;
+        background-color: #09213d;
+        color: white;     
 }
 
 #threadcategori{
 /*Centrerar texten för vilken kategori vi är i*/
         text-align: center;
         margin-top: 0px;
-        
         
 }
 
@@ -401,16 +448,31 @@ h2{
     
 }
 
-#footer{
+.footer{
 /*Stylar fothuvudet*/
-        
+        color: white;
         text-align: center;
-        margin-top: 45px;
-        
+        margin-top: 35px;
         float: left;
         clear: both;
         width: 100%;
+        background-color: #154175;
+        
+        
+        
+}
 
+#footerindex{
+/*Stylar fothuvudet i Index*/
+        color: white;
+        text-align: center;
+        margin-top: 35px;
+        float: left;
+        clear: both;
+        width: 100%;
+        background-color: #154175;
+        position: fixed;
+        bottom: 0;   
 }
 
 #createfooter{
@@ -419,8 +481,7 @@ h2{
         margin: 0px;
         float: left;
         padding: 0px;
-        width: 100%;
-        
+        width: 100%;   
 }
 
 
@@ -501,10 +562,6 @@ h2{
         margin-left:10px;
 }
 
-.threadcomment>a{
-/*Indenterar orginalkommentaren*/
-        margin-left:95%;   
-}
 
 .tsimgoverview, .commentimgoverview{
 /*Stylar så bilderna har fast storlek i trådöversikt*/
@@ -525,10 +582,6 @@ h2{
         float:left;
         padding:1%;
                
-}
-#replythread{
-/*Indenterar knappen att svara på orginalkommentaren*/
-        margin-left:84%;   
 }
 
 .likebox>hr{
@@ -614,10 +667,11 @@ h2{
     margin-left: 480px;
     color: white;
     margin-top: 5px;
-    background-color: limegreen;
+    background-color: #3bc718;
     border-radius: 5px;
     border: none;
     font-size: 20px;
+    box-shadow:0px 2px 3px #000000;
 }
 #inputreset{
 /*Designar resetknappen rutan i Feedback*/
@@ -626,6 +680,7 @@ h2{
     background-color: orangered;
     border-radius: 5px;
     border: none;
+    box-shadow:0px 2px 3px #000000;
     
 }
 
@@ -725,7 +780,7 @@ h2{
 .nav > li > a {
     display: block;
     
-   
+    
     margin-left:2px;
     height:22px;
   
@@ -738,9 +793,9 @@ h2{
     text-align: center;
     
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
-   
+    
    
     
 }

@@ -33,24 +33,24 @@
         <div id="testruta">
             
             <form action="/savenewthread/{{threadcategori}}" enctype="multipart/form-data" method="post">
-	        <h2 id="creathead">Trådrubrik</h2>
+	        <h2 id="creathead">Title</h2>
 	        <textarea id="threadtitle" name="title" onkeydown="return limitLines(this, event)" placeholder="Title" maxlength="50" rows="1" cols="50"></textarea>
 	        <hr>
-	        <h2>Innehåll</h2>
-	        <textarea id="threadtext" name="text" placeholder="Text" maxlength="2000" rows="5" cols="50"></textarea>
+	        <h2>Text</h2>
+	        <textarea id="threadtext" name="text" placeholder="Text (Optional)" maxlength="2000" rows="5" cols="50"></textarea>
 	        <hr>
             <input id="jsaddfile" type="file" name="tspic" accept="image/*">
-	        <input id="jsaddcomment" type="submit" value="Spara innehåll">
+	        <input id="jsaddcomment" type="submit" value="Submit">
             </form>
             
             
         </div>
 
-        
-            <footer>
-                <p id="footer">sidetracKz0r inc</p>
-                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
-            </footer>
+
         </div>
+        <footer id="footerindex">
+                <p id="footinc">sidetracK inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
+        </footer>
     </body>
 </html>

@@ -18,11 +18,36 @@ threadlistlike = []
 threadlistclassified = []
 threadlistdislike = []
 
-@route('/reportts/<threadname>')
-def reportts(threadname):
+@route('/reportts/<threadcategori>/<threadname>')
+def reportts(threadcategori,threadname):
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
     mail.starttls()
+    threadname = str(threadname) + " " + str(threadcategori)
+    mail.login('sidetrack.inc@gmail.com','githubsucks123')
+    mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
+    mail.close()
+    errorvar = "Thank you for the report, we will investigare this further!"
+    return template('error',errorvar=errorvar)
+
+@route('/report/<threadcategori>/<threadname>/<mapp>/<textfile>')
+def reportcommentsinglethread(threadcategori,threadname,mapp,textfile):
+    mail = smtplib.SMTP('smtp.gmail.com',587)
+    mail.ehlo()
+    mail.starttls()
+    threadname = str(threadname) + " " + str(threadcategori) + " " + str(mapp) + " " + str(textfile)
+    mail.login('sidetrack.inc@gmail.com','githubsucks123')
+    mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
+    mail.close()
+    errorvar = "Thank you for the report, we will investigare this further!"
+    return template('error',errorvar=errorvar)
+
+@route('/report/<threadname>/<mapp>/<textfile>')
+def reportcomment(threadname,mapp,textfile):
+    mail = smtplib.SMTP('smtp.gmail.com',587)
+    mail.ehlo()
+    mail.starttls()
+    threadname = str(threadname) + " " + str(mapp) + " " + str(textfile)
     mail.login('sidetrack.inc@gmail.com','githubsucks123')
     mail.sendmail('sidetrack.inc@gmail.com','sidetrack.inc@gmail.com',"report "+threadname)
     mail.close()
@@ -508,6 +533,11 @@ def errorlimit():
     errorvar = "Comment-limit reached, thread closed."
     return template('error', errorvar=errorvar)
 
+@route('/errorfilesize')
+def errorfilesize():
+    errorvar = "Uploadlimit is 4MB :("
+    return template('error', errorvar=errorvar)
+
 @route('/about')
 def about():
     return template('about')
@@ -520,6 +550,7 @@ def feedback():
 def error404(error):
     errorvar = "Nothing here, sorry"
     return template('error', errorvar = errorvar)
+
 
 def savethreadfile(newpath2,threadname,text,date_time):
     #skapar tstitle.txt och skriver in trådnamnet, mao titeln
@@ -535,7 +566,6 @@ def savethreadfile(newpath2,threadname,text,date_time):
     newthreadtextfile.write(date_time)
     newthreadtextfile.close()
 
-
 @route('<filename:re:.*\.css>',name='static')
 def css(filename):
     print "css:",filename
@@ -545,4 +575,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9617, debug=True, reloader=True)
+run(host='localhost', port=9642, debug=True, reloader=True)

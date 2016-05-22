@@ -48,7 +48,7 @@
             <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
                     <h1 id = "threadcategori">{{threadcategori}}</h1>
                 
-            <div id="createthreadtext"><a id="createthreada" href="/{{threadcategori}}/createthread">Skapa tråd</a></div>
+            <div id="createthreadtext"><a id="createthreada" href="/{{threadcategori}}/createthread">Create new thread</a></div>
 
 
             <!---Skapar en div för alla trådar i kategorin--->
@@ -70,9 +70,9 @@
                 
                 <!---Starta en div för TS och skriv ut datum och tid och knapp för att titta på tråden och skriv ut rubriken--->
                 <div class = "tsboxoverview">
-                    <a id="reportthread" href="/reportts/{{threadname}}">Report</a>
+                    <a id="reportthread" href="/reportts/{{threadcategori}}/{{threadname}}">Report</a>
                     <p class = "tsdatetimeoverview">{{threadinfo}}</p>
-                    <a href="/{{threadcategori}}/thread/{{threadname}}" class = "tsreplybuttoverview">Klicka här för att titta på tråden</a>
+                    <a href="/{{threadcategori}}/thread/{{threadname}}" class = "tsreplybuttoverview">View thread</a>
                     %tempholder = threadname
                     %threadname = threadname.replace("─", " ")
                     %threadname = threadname.replace("∽", "≺")
@@ -144,6 +144,7 @@
                     %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="threadcommentoverview">
+                        <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}">Report</a>
                         <p class = "commentdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                         
                     <!---Om det finns en bild så skriv ut, är det en gif används ramverk annars vanlig <img>--->
@@ -219,11 +220,12 @@
             <li class="disable"><a href="/threadoverview/{{tcat}}/10">10<span class="sr-only">(current)</span></a></li> 
         </ul>
             
-            <footer>
-                <p id="footer">sidetracK inc</p>
-                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
-            </footer>
         </div>
+        <footer class="footer">
+                <p id="footinc">sidetracK inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
+        </footer>
+        
         <script src="/static/js/jquery.js"></script>
         <script>
             var page = $("#pages").attr("data-page");

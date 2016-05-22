@@ -64,16 +64,16 @@
                 
 <!--------------------------------------------------------------------------------------------------------------------------------------->
             <div id = "tsboxen">
-                <a id="reportthread" href="/reportts/{{threadname}}">Report</a>
+                <a id="reportthread" href="/reportts/{{threadcategori}}/{{threadname}}">Report</a>
                 
                 <!----Knappen för att svara på TS --->
                 %if commentcounter2 < 200:
-                <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Svara på tråden</a>
+                <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Reply</a>
                 %else:
                 <p id="replythread">THREAD CLOSED</p>
                 %end
                 <!---datumochtid för TS, variabel ifrån python ---->
-                <p>{{threadinfo}}</p>
+                <p class = "tsdatetimeoverview">{{threadinfo}}</p>
                 %tempholder = threadname
                 %threadname = threadname.replace("─", " ")
                 %threadname = threadname.replace("∽", "≺")
@@ -134,14 +134,33 @@
                     <!---Läs första linen och skriv ut den i egen <p> och skriv ut svaraknappen --->
                     %line_0 = f.readlines()[0]
                     <div class="threadcomment">
-                        %if commentcounter2 < 200:
-                        <a href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Svara</a>
-                        %end
-                        <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
-                    
+                        <div id = "threadhead">
+                            <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
+                            %if commentcounter2 < 200:
+                            <a id="replythread" href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Reply</a>
+                            %end
+                            <p class="tsdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        </div>
                     <!---Stäng filen--->
                     %f.close()
                     
+                    
+                    
+                    <!--- Kollar om det finns en bild och skriver ut den, är det gif så används ramverket annar bara <img> --->
+                    %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
+                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)
+                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)
+                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
+                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
+                        <script src="/static/gifffer.min.js"></script>
+                        <img class="singleboximg" data-gifffer="{{url('static',filename=commentimgpath)}}" alt="tsimg">
+                    %end
                     <!---Öppna den och skriv ut alla andra linjer förutom första (som bara är datum och tid)--->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
@@ -160,24 +179,7 @@
                         <p id="commenttext">{{line}}</p>
                         %end
                     %end
-                    
-                    <!--- Kollar om det finns en bild och skriver ut den, är det gif så används ramverket annar bara <img> --->
-                    %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
-                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
-                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
-                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)):
-                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpg".format(threadcategori,threadname,mapp)
-                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
-                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)):
-                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.jpeg".format(threadcategori,threadname,mapp)
-                        <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
-                    %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
-                        %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
-                        <script src="/static/gifffer.min.js"></script>
-                        <img class="singleboximg" data-gifffer="{{url('static',filename=commentimgpath)}}" alt="tsimg"></div>
-                    %else:
-                        </div>
-                    %end
+                </div>
 
                 <!---Fortsättning ifrån första loopen om det inte är originalkommentar --->
                 %else:
@@ -186,12 +188,34 @@
                 %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="commentcomment">
-                        <p>{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        <div id = "threadhead">
+                            <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
+                            
+                            <p class = "tsdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        </div>
                         
                     <!---Stäng filen--->
                     %f.close()
                         
-                    <!---Öppna den igen och skriv ut alla andra rader--->
+                    
+                        
+                    <!---Om det finns en bild skrivs den ut, är det gif så används ramverket annars bara en vanlig <img>--->
+                    %if os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))):
+                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))
+                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
+                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))):
+                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))
+                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
+                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))):
+                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))
+                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
+                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))):
+                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))
+                        <script class="singleboximg" src="/static/gifffer.min.js"></script>
+                        <img data-gifffer="{{url('static',filename=commentcommentimgpath)}}" alt="tsimg">
+                    %end
+                        
+                <!---Öppna den igen och skriv ut alla andra rader--->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %counter4 = 0
@@ -209,22 +233,6 @@
                         <p id="commentcommenttext">{{line}}</p>
                         %end
                     %end
-                        
-                    <!---Om det finns en bild skrivs den ut, är det gif så används ramverket annars bara en vanlig <img>--->
-                    %if os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))):
-                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))
-                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
-                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))):
-                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".png"))
-                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
-                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))):
-                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpeg"))
-                        <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
-                    %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))):
-                        %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))
-                        <script class="singleboximg" src="/static/gifffer.min.js"></script>
-                        <img data-gifffer="{{url('static',filename=commentcommentimgpath)}}" alt="tsimg">
-                    %end
                     </div>
 
                 <!---Stäng filen--->
@@ -235,10 +243,10 @@
             %end
             </div>
 
-            <footer>
-                <p id="footer">sidetracK inc</p>
-                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
-            </footer>
         </div>
+        <footer class="footer">
+                <p id="footinc">sidetracK inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
+        </footer>
     </body>
 </html>

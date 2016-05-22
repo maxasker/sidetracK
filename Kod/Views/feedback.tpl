@@ -61,11 +61,11 @@
 			   
 					  
 			</form>
-            
-            <footer>
-                <p id="footer">sidetracK inc</p>
-                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
-            </footer>
+           
         </div>
+        <footer class="footer">
+                <p id="footinc">sidetracK inc</p>
+                <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
+        </footer>
     </body>
 </html>
