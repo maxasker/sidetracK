@@ -17,7 +17,7 @@
                         <a class="main-logotype" href="/homepage">sidetracK</a>
                     </header>
                 </div>
-            <!-- Navigationsbar om oss och feedback. Lite bootstrap använt i designen -->
+            <!--Navigationsbar om oss och feedback. Lite bootstrap använt i designen-->
               <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
@@ -28,20 +28,20 @@
                     </ul>
                 </nav>
             </div>
-            <!-- Våra tre huvudkategorier -->
-            <!---knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen--->
+            <!--Våra tre huvudkategorier-->
+            <!--knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen-->
                     <div class="categories">
                         <div class = "picposition">
                         %like = "like"
-                        <a id = "picbull" href="/threadoverview/{{like}}/1">
+                        <a class="picbull" href="/threadoverview/{{like}}/1">
                             <img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love">
                         </a>
                         %classified = "classified"
-                        <a id = "picbull"href="/threadoverview/{{classified}}/1">
+                        <a class="picbull" href="/threadoverview/{{classified}}/1">
                             <img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
                         </a>
                         %dislike = "dislike"
-                        <a id = "picbull"  href="/threadoverview/{{dislike}}/1">
+                        <a class="picbull" href="/threadoverview/{{dislike}}/1">
                             <img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></a>
         </div>
                     </div>

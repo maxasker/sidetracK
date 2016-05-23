@@ -29,46 +29,46 @@
                     </ul>
                 </nav>
             </div>
-            <!---knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen--->
+            <!--knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen-->
                    <div class="categories">
                         <div class = "picposition">
                         %like = "like"
-                        <a id = "picbull" href="/threadoverview/{{like}}/1">
+                        <a class="picbull" href="/threadoverview/{{like}}/1">
                             <img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love">
                         </a>
                         %classified = "classified"
-                        <a id = "picbull"href="/threadoverview/{{classified}}/1">
+                        <a class="picbull" href="/threadoverview/{{classified}}/1">
                             <img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
                         </a>
                         %dislike = "dislike"
-                        <a id = "picbull"  href="/threadoverview/{{dislike}}/1">
+                        <a class="picbull" href="/threadoverview/{{dislike}}/1">
                             <img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></a>
         </div>
                     </div>
-            <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
+            <!--Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet-->
                     <h1 id = "threadcategori">{{threadcategori}}</h1>
                 
             <div id="createthreadtext"><a id="createthreada" href="/{{threadcategori}}/createthread">Create new thread</a></div>
 
 
-            <!---Skapar en div för alla trådar i kategorin--->
+            <!--Skapar en div för alla trådar i kategorin-->
             <div class="likebox">
                 
-                <!---Skapar en loop ifrån listan som man får ifrån python med trådmappar--->
-                <!---För varje trådmapp i trådlistan--->
+                <!--Skapar en loop ifrån listan som man får ifrån python med trådmappar-->
+                <!--För varje trådmapp i trådlistan-->
                 % for threadname in threads:
                 
-                <!---Öppna trådmappen och spara TS datum och tid och spara i threadinfo--->
+                <!--Öppna trådmappen och spara TS datum och tid och spara i threadinfo-->
                 %tsthreadinfo = open("static/threads/{1}/{0}/tsinfo.txt".format(threadname,threadcategori), "r")
                 %threadinfo = tsthreadinfo.read()
                 %tsthreadinfo.close()
                 
-                <!---Öppna trådmappen och spara vad som står i TS brödtext-->
+                <!--Öppna trådmappen och spara vad som står i TS brödtext-->
                 %threadtextfile = open("static/threads/{1}/{0}/tstext.txt".format(threadname,threadcategori), "r")
                 %threadtext = threadtextfile.read()
                 %threadtextfile.close()
                 
-                <!---Starta en div för TS och skriv ut datum och tid och knapp för att titta på tråden och skriv ut rubriken--->
+                <!--Starta en div för TS och skriv ut datum och tid och knapp för att titta på tråden och skriv ut rubriken-->
                 <div class = "tsboxoverview">
                     <a id="reportthread" href="/reportts/{{threadcategori}}/{{threadname}}">Report</a>
                     <p class = "tsdatetimeoverview">{{threadinfo}}</p>
@@ -85,7 +85,7 @@
                     %threadname = threadname.replace("┅", '"')
                     <h2 class = "tsheadlineoverview">{{threadname}}</h2>
                     %threadname = tempholder
-                    <!---Kolla vilken extention som bilden har och skriv ut, är det gif används ramverk annars bara <img>--->
+                    <!--Kolla vilken extention som bilden har och skriv ut, är det gif används ramverk annars bara <img>-->
                     %if os.path.isfile("static/threads/{1}/{0}/tsimg.jpg".format(threadname,threadcategori)):
                     %tsimgpath = "static/threads/{1}/{0}/tsimg.jpg".format(threadname,threadcategori)
                     <img class = "tsimgoverview" src="{{url('static',filename=tsimgpath)}}" alt="tsimg">
@@ -113,9 +113,9 @@
                     %end
                 </div>
                 
-                <!---Vi skriver bara ut originalkommentarer och högst tre av dem--->
+                <!--Vi skriver bara ut originalkommentarer och högst tre av dem-->
                 
-                <!---Gör en lista med kommentarer, räknar hur många kommentarer som finns, det är för att inte få för många breaks--->
+                <!--Gör en lista med kommentarer, räknar hur många kommentarer som finns, det är för att inte få för många breaks-->
                 %commentcounter = 0
                 %commentlist = os.walk('static/threads/{0}/{1}/comments'.format(threadcategori,threadname)).next()[1]
                 %if len(commentlist) == 1:
@@ -125,29 +125,29 @@
                     %elif len(commentlist) == 3 or len(commentlist) > 3:
                     %commentlimit = 3
                 %end
-                <!---Om listan är tom så gör inget--->
+                <!--Om listan är tom så gör inget-->
                 %if len(commentlist) == 0:
                 
-                <!---Annars gå igenom commentlisten--->
+                <!--Annars gå igenom commentlisten-->
                 %else:
                     
-                    <!---Gör en break--->
+                    <!--Gör en break-->
                     
                 
-                    <!---För varje mapp i kommentarslistan--->
+                    <!--För varje mapp i kommentarslistan-->
                     %for mapp in commentlist:
                     
-                    <!---Om räknaren för kommentarer inte har kommit upp i limiten--->
+                    <!--Om räknaren för kommentarer inte har kommit upp i limiten-->
                     %if not (commentcounter == commentlimit):
                     
-                    <!---Öppna första originalkommentaren och läs första raden med tid och datum, gör ny div och skriv ut tid/datum--->
+                    <!--Öppna första originalkommentaren och läs första raden med tid och datum, gör ny div och skriv ut tid/datum-->
                     %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="threadcommentoverview">
                         <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}">Report</a>
                         <p class = "commentdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                         
-                    <!---Om det finns en bild så skriv ut, är det en gif används ramverk annars vanlig <img>--->
+                    <!--Om det finns en bild så skriv ut, är det en gif används ramverk annars vanlig <img>-->
                     %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
                         <img class = "commentimgoverview" src="{{url('static',filename=commentimgpath)}}" alt="commentimg">
@@ -163,10 +163,10 @@
                         <img data-gifffer="{{url('static',filename=commentimgpath)}}" alt="commentimg">
                     %end
                     
-                    <!---Stäng filen--->
+                    <!--Stäng filen-->
                     %f.close()
                     
-                    <!---Öppna filen igen och skriv ut resterade text--->
+                    <!--Öppna filen igen och skriv ut resterade text-->
                     %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %counter2 = 0
@@ -186,7 +186,7 @@
                         %end
                     </div>
                 
-                        <!---Om det inte är sista kommentaren så skriv ut en break--->
+                        <!--Om det inte är sista kommentaren så skriv ut en break-->
                         %if not (commentcounter == (commentlimit-1)):
                         
                         %end
@@ -195,7 +195,7 @@
                     %end
                 %end
                 
-                <!---Break efter varje trådvisningssektion--->
+                <!--Break efter varje trådvisningssektion-->
 		        <hr>
 		        % end
                 </div>

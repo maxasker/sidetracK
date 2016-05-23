@@ -31,15 +31,15 @@
                <div class="categories">
                         <div class = "picposition">
                         %like = "like"
-                        <a id = "picbull" href="/threadoverview/{{like}}/1">
+                        <a class="picbull" href="/threadoverview/{{like}}/1">
                             <img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love">
                         </a>
                         %classified = "classified"
-                        <a id = "picbull"href="/threadoverview/{{classified}}/1">
+                        <a class="picbull" href="/threadoverview/{{classified}}/1">
                             <img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
                         </a>
                         %dislike = "dislike"
-                        <a id = "picbull"  href="/threadoverview/{{dislike}}/1">
+                        <a class="picbull"  href="/threadoverview/{{dislike}}/1">
                             <img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></a>
         </div>
                     </div>
@@ -54,7 +54,7 @@
 			   
 			   <h2>Type in your feedback here:</h2>
 			   
-			   <textarea id="inputtext" type="text" name="feedbacktext" placeholder="Input text here" rows="5" cols="50" maxlength="1500"></textarea>
+			   <textarea id="inputtext" name="feedbacktext" placeholder="Input text here" rows="5" cols="50" maxlength="1500"></textarea>
 			   <hr>
                <input id="inputreset" type="reset" value="Reset">
 			   <input id="inputsubmit" type="submit" value="Send">

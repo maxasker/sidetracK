@@ -31,48 +31,48 @@
                 </nav>
             </div>
             
-           <!---knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen--->
+           <!--knapparna för de olika kategorierna, skickar med like,classified eller dislike i pythonfunktionen-->
                 <div class="categories">
                         <div class = "picposition">
                         %like = "like"
-                        <a id = "picbull" href="/threadoverview/{{like}}/1">
+                        <a class="picbull" href="/threadoverview/{{like}}/1">
                             <img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love">
                         </a>
                         %classified = "classified"
-                        <a id = "picbull"href="/threadoverview/{{classified}}/1">
+                        <a class="picbull" href="/threadoverview/{{classified}}/1">
                             <img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
                         </a>
                         %dislike = "dislike"
-                        <a id = "picbull"  href="/threadoverview/{{dislike}}/1">
+                        <a class="picbull"  href="/threadoverview/{{dislike}}/1">
                             <img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></a>
         </div>
                     </div>
-            <!-----Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet--->
+            <!--Text som visar vilken kategori man befinner sig på, finns mellan trådkategorierna och trådinnehållet-->
             <h1 id = "threadcategori">{{threadcategori}}</h1>
 
             
-            <!----Länkar in javascripten ---->
+            <!--Länkar in javascripten-->
             <script src="{{url('static',filename='static/jq/jquery-1.12.3.min.js')}}"></script>
             <script src="{{url('static', filename='static/jq/jquery-ui.js')}}"></script>
             <script src="{{url('static',filename='static/jq/script.js')}}"></script>
             <div class="singlethreadbox">
                 
-            <!-----skapar en variabel för svaraknappen som är skriven i javascript ----->
+            <!--skapar en variabel för svaraknappen som är skriven i javascript-->
             <script>
                 var formLink = "/{{threadcategori}}/{{threadname}}/savenewcomment";
             </script>
                 
-<!--------------------------------------------------------------------------------------------------------------------------------------->
+
             <div id = "tsboxen">
-                <a id="reportthread" href="/reportts/{{threadcategori}}/{{threadname}}">Report</a>
+                <a class="reportthread" href="/reportts/{{threadcategori}}/{{threadname}}">Report</a>
                 
-                <!----Knappen för att svara på TS --->
+                <!--Knappen för att svara på TS-->
                 %if commentcounter2 < 200:
-                <a id="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Reply</a>
+                <a class="replythread" href="javascript:void(0)" onclick="showReplyBox(44,142,'comments.php',0);">Reply</a>
                 %else:
-                <p id="replythread">THREAD CLOSED</p>
+                <p class="replythread">THREAD CLOSED</p>
                 %end
-                <!---datumochtid för TS, variabel ifrån python ---->
+                <!--datumochtid för TS, variabel ifrån python-->
                 <p class = "tsdatetimeoverview">{{threadinfo}}</p>
                 %tempholder = threadname
                 %threadname = threadname.replace("─", " ")
@@ -84,10 +84,10 @@
                 %threadname = threadname.replace("╸", ":")
                 %threadname = threadname.replace("╾", "*")
                 %threadname = threadname.replace("┅", '"')
-                <!---Trådnamnet(titeln) där vi tar bort _____, variabel ifrån python-->
+                <!--Trådnamnet(titeln) där vi tar bort _____, variabel ifrån python-->
                 <h1 id="singlethreadh1">{{threadname}}</h1>
                 %threadname = tempholder
-                <!--- if else för vad det är för ext, är det en gif har vi en spelare i javascript vi länkar in annars bara en <img> -->
+                <!--if else för vad det är för ext, är det en gif har vi en spelare i javascript vi länkar in annars bara en <img>-->
                 %if tsimg == "tsimg.gif":
                 <script class="singleboximg" src="/static/gifffer.min.js"></script>
                 <img class ='singleboximg' data-gifffer="{{url('static',filename=tsimgpath)}}" alt="tsimg">
@@ -109,44 +109,44 @@
             </div>
             <hr>
                 
-            <!---forloop för kommentarslistan man får ifrån python --->
-            <!---För varje mapp i kommentarslistan --->
+            <!--forloop för kommentarslistan man får ifrån python-->
+            <!--För varje mapp i kommentarslistan-->
             %for mapp in commentlist:
                 
-                <!---Skapa en lista för filerna i mappen--->
+                <!--Skapa en lista för filerna i mappen-->
                 %files = os.listdir("static/threads/{0}/{1}/comments/{2}/".format(threadcategori,threadname,mapp))
                 
-                <!---gör en ny lista men bara med filer som slutar på .txt--->
+                <!--gör en ny lista men bara med filer som slutar på .txt-->
                 %filelist = [i for i in files if i.endswith('.txt')]
                 
-                <!---Sortera listan--->
+                <!--Sortera listan-->
                 %sorted(filelist)
                 
-                <!---För varje textfil i nya listan--->
+                <!--För varje textfil i nya listan-->
                 %for textfile in filelist:
                 
-                <!---Om textfilen är comment1.txt så är det en originalkommentar, då gör vi lite annorlunda--->
+                <!--Om textfilen är comment1.txt så är det en originalkommentar, då gör vi lite annorlunda-->
                 %if textfile == "comment1.txt":
                 
-                    <!---f = textfilen --->
+                    <!--f = textfilen-->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                 
-                    <!---Läs första linen och skriv ut den i egen <p> och skriv ut svaraknappen --->
+                    <!--Läs första linen och skriv ut den i egen <p> och skriv ut svaraknappen -->
                     %line_0 = f.readlines()[0]
                     <div class="threadcomment">
-                        <div id = "threadhead">
-                            <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
+                        <div class = "threadhead">
+                            <a class="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
                             %if commentcounter2 < 200:
-                            <a id="replythread" href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Reply</a>
+                            <a class="replythread" href="javascript:void(0)" onclick="showReplyBox2(44,142,'comments.php',0, this);" data-form-link="/{{threadcategori}}/{{threadname}}/{{mapp}}/savenewcommentcomment">Reply</a>
                             %end
                             <p class="tsdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                         </div>
-                    <!---Stäng filen--->
+                    <!--Stäng filen-->
                     %f.close()
                     
                     
                     
-                    <!--- Kollar om det finns en bild och skriver ut den, är det gif så används ramverket annar bara <img> --->
+                    <!--Kollar om det finns en bild och skriver ut den, är det gif så används ramverket annar bara <img>-->
                     %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)
                         <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
@@ -161,7 +161,7 @@
                         <script src="/static/gifffer.min.js"></script>
                         <img class="singleboximg" data-gifffer="{{url('static',filename=commentimgpath)}}" alt="tsimg">
                     %end
-                    <!---Öppna den och skriv ut alla andra linjer förutom första (som bara är datum och tid)--->
+                    <!--Öppna den och skriv ut alla andra linjer förutom första (som bara är datum och tid)-->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %counter3 = 0
@@ -181,25 +181,25 @@
                     %end
                 </div>
 
-                <!---Fortsättning ifrån första loopen om det inte är originalkommentar --->
+                <!--Fortsättning ifrån första loopen om det inte är originalkommentar-->
                 %else:
 
-                <!---Öppna textfilen och läs rad 1 (0 i python) och skriv ut tid och datum--->
+                <!--Öppna textfilen och läs rad 1 (0 i python) och skriv ut tid och datum-->
                 %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="commentcomment">
-                        <div id = "threadhead">
-                            <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
+                        <div class = "threadhead">
+                            <a class="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}/{{textfile}}">Report</a>
                             
                             <p class = "tsdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                         </div>
                         
-                    <!---Stäng filen--->
+                    <!--Stäng filen-->
                     %f.close()
                         
                     
                         
-                    <!---Om det finns en bild skrivs den ut, är det gif så används ramverket annars bara en vanlig <img>--->
+                    <!--Om det finns en bild skrivs den ut, är det gif så används ramverket annars bara en vanlig <img>-->
                     %if os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))):
                         %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".jpg"))
                         <img class="singleboximg" src="{{url('static',filename=commentcommentimgpath)}}" alt="commentcommentimg">
@@ -215,7 +215,7 @@
                         <img data-gifffer="{{url('static',filename=commentcommentimgpath)}}" alt="tsimg">
                     %end
                         
-                <!---Öppna den igen och skriv ut alla andra rader--->
+                <!--Öppna den igen och skriv ut alla andra rader-->
                     %f= open('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile), 'r')
                     %lines_1_through_end = f.readlines()[1:]
                     %counter4 = 0
@@ -235,7 +235,7 @@
                     %end
                     </div>
 
-                <!---Stäng filen--->
+                <!--Stäng filen-->
                 %f.close()
                 %end
                 %end

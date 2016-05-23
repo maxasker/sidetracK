@@ -31,15 +31,15 @@
             <div class="categories">
                         <div class = "picposition">
                         %like = "like"
-                        <a id = "picbull" href="/threadoverview/{{like}}/1">
+                        <a class="picbull" href="/threadoverview/{{like}}/1">
                             <img class="catpic" src="{{url('static',filename='static/like.png')}}" alt="Picture of love">
                         </a>
                         %classified = "classified"
-                        <a id = "picbull"href="/threadoverview/{{classified}}/1">
+                        <a class="picbull" href="/threadoverview/{{classified}}/1">
                             <img class="catpic" src="{{url('static',filename='static/classified.png')}}" alt="Picture of classified">
                         </a>
                         %dislike = "dislike"
-                        <a id = "picbull"  href="/threadoverview/{{dislike}}/1">
+                        <a class="picbull"  href="/threadoverview/{{dislike}}/1">
                             <img class="catpic"  src="{{url('static',filename='static/unlike.png')}}" alt="Picture of dislike"></a>
         </div>
                     </div>
@@ -52,7 +52,7 @@
                 <h1 id="errorhead">Ooops!</h1>
                 %end
                 %if errorvar == "Thank you for your feedback!":
-                <h1 class="feedbackthanks">{{errorvar}}</h1>
+				<h1 class="feedbackthanks">{{errorvar}}</h1>
                 %else:
                 <h2>{{errorvar}}</h2>
                 <script src="{{url('static',filename='static/jq/script.js')}}"></script>
@@ -61,6 +61,7 @@
                 %else:
                 <button onclick="goBack()">Go Back</button>
                 %end
+				%end
             </div>
         
         </div>
