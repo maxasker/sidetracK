@@ -19,10 +19,10 @@
                     </header>
                 </div>
               <!-- Navigations bar. Med lite bootstrap styling -->
-              <div class="top-bar">
+             <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" id="feedback" href="/feedback">Feedback</a>
+                        <li role="presentation"><a class="nav-text" href="/feedback">Feedback</a>
                         </li>
                         <li role="presentation"><a class="nav-text" href="/about">About us</a>
                         </li>
@@ -70,9 +70,9 @@
                 
                 <!--Starta en div för TS och skriv ut datum och tid och knapp för att titta på tråden och skriv ut rubriken-->
                 <div class = "tsboxoverview">
-                    <a id="reportthread" href="/reportts/{{threadcategori}}/{{threadname}}">Report</a>
-                    <p class = "tsdatetimeoverview">{{threadinfo}}</p>
+                    <a class="reportthread" href="/reportts/{{threadcategori}}/{{threadname}}">Report</a>
                     <a href="/{{threadcategori}}/thread/{{threadname}}" class = "tsreplybuttoverview">View thread</a>
+                    <p class = "tsdatetimeoverview">{{threadinfo}}</p>
                     %tempholder = threadname
                     %threadname = threadname.replace("─", " ")
                     %threadname = threadname.replace("∽", "≺")
@@ -144,7 +144,7 @@
                     %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="threadcommentoverview">
-                        <a id="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}">Report</a>
+                        <a class="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}">Report</a>
                         <p class = "commentdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
                         
                     <!--Om det finns en bild så skriv ut, är det en gif används ramverk annars vanlig <img>-->
@@ -233,7 +233,7 @@
         </ul>
             
         </div>
-        <footer class="footer">
+        <footer id="footerindex">
                 <p id="footinc">sidetracK inc</p>
                 <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
         </footer>

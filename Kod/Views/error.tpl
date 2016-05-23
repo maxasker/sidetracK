@@ -17,10 +17,10 @@
                     </header>
                 </div>
             <!-- Navigationsbar om oss och feedback. Lite bootstrap använt i designen -->
-              <div class="top-bar">
+                   <div class="top-bar">
                 <nav>
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a class="nav-text" id="feedback" href="/feedback">Feedback</a>
+                        <li role="presentation"><a class="nav-text" href="/feedback">Feedback</a>
                         </li>
                         <li role="presentation"><a class="nav-text" href="/about">About us</a>
                         </li>

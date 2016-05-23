@@ -29,6 +29,13 @@ label.myLabel input[type="file"] {
         width: 100%;
         resize: none;
 }
+.nav > li > a {
+    display: block;
+    margin-left: 2px;
+    height: 42px;
+    font-size:15px;
+}
+
 
 #boxbutt{
         color: aqua; /* Fortsätt härifrån */
@@ -186,16 +193,18 @@ width:100%;
 }
 .main-logotype{
 /*Styling till överskriften på sidan*/
-        
+        font-size: 50px;
+
         float: left;
         text-align: right;
         width: 60%;
         height: 70px;
-        font-size: 50px;
         color: #154175;
         border-bottom-style: groove;
         border-bottom-color: #154175;
-        border-width: thin; 
+        border-width: thin;    
+        font-size:60px;
+
 }
 
 .main-logotype:hover{
@@ -240,6 +249,7 @@ width:100%;
         background-color: #154175;
         border: 1px solid black;
         padding: 10px 15px; 
+        
         
 }
 
@@ -304,7 +314,7 @@ width:100%;
         border: none;
         height:10px;
         margin-bottom: 20px;
-        font-size:35px;
+        font-size:35px ;
         text-align: left;
         padding-top: 8px;
         padding-left: 5px;
@@ -318,6 +328,7 @@ width:100%;
         text-decoration: none;
         background-color: darkgreen;
 }
+
 
 .reportthread{
 /*Stylar Report-knappen i trådarna*/
@@ -453,9 +464,6 @@ h2{
 /*Stylar fothuvudet*/
         color: white;
         text-align: center;
-        margin-top: 35px;
-        float: left;
-        clear: both;
         width: 100%;
         background-color: #154175;
         
@@ -468,12 +476,10 @@ h2{
         color: white;
         text-align: center;
         margin-top: 35px;
-        float: left;
-        clear: both;
-        width: 100%;
         background-color: #154175;
-        position: fixed;
-        bottom: 0;   
+        position:absolute;
+        width:100%;
+        bottom:0px;
 }
 
 #createfooter{
@@ -482,7 +488,8 @@ h2{
         margin: 0px;
         float: left;
         padding: 0px;
-        width: 100%;   
+        width: 100%;
+       
 }
 
 
@@ -611,23 +618,24 @@ h2{
 
 #latestpost{
 /*Styling för senast inlägg*/
+        position:relative ;
         background-color: #E7EAF0;
         border-style: groove;
         border-color: #154175;
         border-width: thin;
         float:right;
         width: 28%;
-        margin-top: 25px;
         border-radius: 5px;
         padding: 5px;
-        height: 400px;
+        height: 400px!;
         margin-left: 2%;
 }
 
-#thelatest{
-	list-style-type: none;
-	padding-left: 20px;
-	font-size: 20px;
+#thelatest>li{
+
+    float:none!;
+
+    
 }
 
 .pagination{
@@ -642,7 +650,7 @@ h2{
 
 #pages{
 /*Centrerar sidvisning-knapparna*/
-        margin-left: 33%;
+        margin-left: 3%;
         
 }
 
@@ -661,15 +669,7 @@ h2{
         margin-top: 0px;
 }
 
-#inputmail{
-/*Designar e-mail rutan i Feedback*/
-    width: 30%;
-}
-#inputtext{
-/*Designar textrutan rutan i Feedback*/
-    width: 600px;
-    height: 150px;
-}
+
 #inputsubmit{
 /*Designar submitknappen rutan i Feedback*/
     margin-left: 480px;
@@ -693,7 +693,7 @@ h2{
 }
 
 #picbull {
-  outline:none !important;
+  outline:none;
 }
 
 
@@ -711,19 +711,8 @@ element {
 
 
 /* ---------------------------------------------------*/
-@media screen and (max-width: 660px) 
+@media only screen and (max-width: 660px) 
 {
-    .nav.nav-pills
-{
-/* positionering till höger */
-   
-    
-    
-    
-    
-    
-}
-
     
     .catpic
 {
@@ -732,6 +721,21 @@ element {
         
 }
    
+    tsimgoverview, .commentimgoverview{
+/*Stylar så bilderna har fast storlek i trådöversikt*/
+        width: 100%;
+    }
+    
+    
+    #inputmail{
+/*Designar e-mail rutan i Feedback*/
+    width: 30%;
+}
+#inputtext{
+/*Designar textrutan rutan i Feedback*/
+    width: 600px;
+    height: 150px;
+}
     
     
 
@@ -759,12 +763,7 @@ element {
         
         
 }
-    .nav-text{  
-         
-            
-                
-}
-    
+
     .nav.nav-pills{
 /* positionering till höger */
     margin-left:-100px;
@@ -777,10 +776,75 @@ element {
 }
 
 
-@media screen and (max-width: 508px) {
-    
+@media only screen and (max-width: 508px) 
+{
 
     
+    
+    
+    
+    .likebox {
+    width: 100%;
+  
+}
+    
+    
+    #container {
+    width: 98%;
+    margin-left:0px;
+    margin-left:1%;
+}
+    
+.tsreplybuttoverview, .replythread {
+    float: right;
+    background-color: #154175;
+    color: white;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    height: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    box-shadow: 0px 2px 3px #000000;
+}    
+    
+    .tsdatetimeoverview {
+    font-size:10px;
+    
+    
+    
+    }
+    #tsboxen, .tsboxoverview{        
+        width:100%;
+        position: relative;
+
+        
+    }
+    
+
+.singleboximg {
+   width:100%;
+}
+    
+
+   
+    
+  #threadtext {
+    width:100%;
+}
+    
+    
+    #threadtitle {
+    padding: 3px;
+    width: 100%;
+}
+    
+#pages{
+width:100%;
+font-size: 8px;
+padding:0px;
+margin-left:3%;
+}
     .top-bar
     {
   
@@ -813,7 +877,7 @@ element {
     text-align: center;
     
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 10px;
     text-align: center;
     
    
@@ -828,9 +892,55 @@ element {
    
     
     
-    .main-logotype 
-{
+    .main-logotype {
+    font-size:30px;
     
+}
+ 
+    
+    #createthreada {
+    font-size:20px;
+    margin-left:3%;
+    
+    
+    }
+
+#createthreadtext{
+    margin-bottom:90px;
+    
+    
+    
+}
+
+
+    #latestpost{
+    height:auto;
+    width:88%;
+    position: absolute;
+    margin-top:-70px;
+
+        
+    }
+#tstextoverview {
+    float:left;
+    
+    
+}
+    
+    
+    
+    
+   #latestpost > h2{
+        
+    font-size:18px;
+        
+        
+    }
+    
+   #thelatest>li{
+    font-size: 15px;
+    margin-left:3px;
+    float:left;   
 }
     
     
@@ -851,7 +961,7 @@ element {
 }
 
 
-@media screen and (max-width: 405px) 
+@media only screen and (max-width: 405px) 
 {
     
     
@@ -870,13 +980,15 @@ element {
     
 }
 
-@media screen and (max-width: 350px) 
+@media only screen and (max-width: 350px) 
 {
     
         
+
+        
     .catpic
 {
-     width:60px;
+     width:100px;
     
 }
     
