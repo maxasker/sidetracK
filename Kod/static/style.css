@@ -1,11 +1,10 @@
 /*Innehållsförteckning:*/
 /* 1. Pers box (Rad 20-147)*/
 /* 2. */
-html, body {
-    height: 100%;
-    margin: 0pt;
+html, 
+body {
+    height:     100%;
 }
-
 #elem{
         position:fixed;
         z-index: 1;
@@ -190,7 +189,7 @@ width:100%;
 /*Behållare för helheten av sidan*/
         background-color:;
         width: 80%;
-        height: auto;
+        height: 100%!important;
         margin-left:10%;
         
        
@@ -479,11 +478,14 @@ h2{
 /*Stylar fothuvudet i Index*/
         color: white;
         text-align: center;
-        margin-top: 35px;
         background-color: #154175;
-        position:absolute;
         width:100%;
         bottom:0px;
+        padding: 1px;
+        float: left;
+        margin-top:-48px;
+       
+       
 }
 
 #createfooter{
@@ -493,6 +495,7 @@ h2{
         float: left;
         padding: 0px;
         width: 100%;
+       
        
 }
 
@@ -797,6 +800,7 @@ element {
     width: 98%;
     margin-left:0px;
     margin-left:1%;
+    
 }
     
 .tsreplybuttoverview, .replythread {

@@ -244,7 +244,7 @@
             </div>
 
         </div>
-        <footer id="footerindex">
+        <footer id="footerindex" style="margin-top:48px;">
                 <p id="footinc">sidetracK inc</p>
                 <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
         </footer>
