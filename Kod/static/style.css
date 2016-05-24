@@ -638,6 +638,7 @@ h2{
         padding: 5px;
         height: 400px!;
         margin-left: 2%;
+        margin-top:25px;
 }
 
 #thelatest>li{
@@ -652,6 +653,7 @@ h2{
         clear: both;
         float: left;
         padding: 8px;
+        margin-bottom:200px!important;
         
         
         
