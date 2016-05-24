@@ -49,7 +49,23 @@
                     <h1 id = "threadcategori">{{threadcategori}}</h1>
                 
             <div id="createthreadtext"><a id="createthreada" href="/{{threadcategori}}/createthread">Create new thread</a></div>
+<div id="latestpost">
+                <h2>Latest Post</h2>
+            	
+				<ul id="thelatest">
+					<script>
+					
+					var postArray = JSON.parse(localStorage.getItem("latest"));
+					var arrayLength = postArray.length;
 
+					for (var i = 0; i < arrayLength; i++) {
+						document.write("<li>" + "<a href=" + postArray[i] + ">" + "Post" + "</a>" + "</li>");
+						}
+
+				</script>
+				</ul>
+                
+            </div>
 
             <!--Skapar en div för alla trådar i kategorin-->
             <div class="likebox">
@@ -144,8 +160,10 @@
                     %f= open("static/threads/{0}/{1}/comments/{2}/comment1.txt".format(threadcategori,threadname,mapp), 'r')
                     %line_0 = f.readlines()[0]
                     <div class="threadcommentoverview">
+                        <div class = "threadhead">
                         <a class="reportthread" href="/report/{{threadcategori}}/{{threadname}}/{{mapp}}">Report</a>
                         <p class = "commentdatetimeoverview">{{line_0.decode('iso-8859-1').encode('utf8')}}</p>
+                        </div>
                         
                     <!--Om det finns en bild så skriv ut, är det en gif används ramverk annars vanlig <img>-->
                     %if os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.png".format(threadcategori,threadname,mapp)):
@@ -160,7 +178,7 @@
                     %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
                         <script class = "commentimgoverview" src="/static/gifffer.min.js"></script>
-                        <img data-gifffer="{{url('static',filename=commentimgpath)}}" alt="commentimg">
+                        <img class = "tsimgoverview" data-gifffer="{{url('static',filename=commentimgpath)}}" alt="commentimg">
                     %end
                     
                     <!--Stäng filen-->
@@ -181,7 +199,7 @@
                         %if counter2 > 0:
                         <p class = "commenttextoverview" id="commenttextlongwordid">{{line}}</p>
                         %else:
-                        <p class = "commenttextoverview" id="commenttextid">{{line}}</p>
+                        <p class = "commenttextoverview" id="tstextoverview">{{line}}</p>
                         %end
                         %end
                     </div>
@@ -199,23 +217,7 @@
 		        <hr>
 		        % end
                 </div>
-            <div id="latestpost">
-                <h2>Latest Post</h2>
-            	
-				<ul id="thelatest">
-					<script>
-					
-					var postArray = JSON.parse(localStorage.getItem("latest"));
-					var arrayLength = postArray.length;
-
-					for (var i = 0; i < arrayLength; i++) {
-						document.write("<li>" + "<a href=" + postArray[i] + ">" + "Post" + "</a>" + "</li>");
-						}
-
-				</script>
-				</ul>
-                
-            </div>
+            
             %tcat = threadcategori
             
         <ul id="pages" class="pagination" data-page="{{page}}">

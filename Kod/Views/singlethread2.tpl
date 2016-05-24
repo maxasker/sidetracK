@@ -158,7 +158,7 @@
                         <img class="singleboximg" src="{{url('static',filename=commentimgpath)}}" alt="tsimg">
                     %elif os.path.isfile("static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)):
                         %commentimgpath = "static/threads/{0}/{1}/comments/{2}/comment1.gif".format(threadcategori,threadname,mapp)
-                        <script src="/static/gifffer.min.js"></script>
+                        <script  src="/static/gifffer.min.js"></script>
                         <img class="singleboximg" data-gifffer="{{url('static',filename=commentimgpath)}}" alt="tsimg">
                     %end
                     <!--Öppna den och skriv ut alla andra linjer förutom första (som bara är datum och tid)-->
@@ -212,7 +212,7 @@
                     %elif os.path.isfile('static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))):
                         %commentcommentimgpath = 'static/threads/{0}/{1}/comments/{2}/{3}'.format(threadcategori,threadname,mapp,textfile.replace(".txt",".gif"))
                         <script class="singleboximg" src="/static/gifffer.min.js"></script>
-                        <img data-gifffer="{{url('static',filename=commentcommentimgpath)}}" alt="tsimg">
+                        <img class ='singleboximg' data-gifffer="{{url('static',filename=commentcommentimgpath)}}" alt="tsimg">
                     %end
                         
                 <!--Öppna den igen och skriv ut alla andra rader-->
