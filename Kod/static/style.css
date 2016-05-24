@@ -4,6 +4,7 @@
 html, 
 body {
     height:     100%;
+
 }
 #elem{
         position:fixed;
@@ -191,6 +192,7 @@ width:100%;
         width: 80%;
         height: 100%!important;
         margin-left:10%;
+    
         
        
 }
@@ -651,13 +653,14 @@ h2{
         float: left;
         padding: 8px;
         
+        
+        
 }
 
 /*Ändrat färgen på pagination i boostrap dokumentet. Fick inte till att ändra härifrån*/
 
 #pages{
 /*Centrerar sidvisning-knapparna*/
-        margin-left: 3%;
         
 }
 
