@@ -1,6 +1,10 @@
 /*Innehållsförteckning:*/
 /* 1. Pers box (Rad 20-147)*/
 /* 2. */
+html, body {
+    height: 100%;
+    margin: 0pt;
+}
 
 #elem{
         position:fixed;

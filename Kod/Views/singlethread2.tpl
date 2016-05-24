@@ -244,7 +244,7 @@
             </div>
 
         </div>
-        <footer class="footer">
+        <footer id="footerindex">
                 <p id="footinc">sidetracK inc</p>
                 <p id="createfooter">By Johannes, Simon, Max, Jacob and Per</p>
         </footer>
