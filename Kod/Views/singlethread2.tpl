@@ -76,14 +76,15 @@
                 <p class = "tsdatetimeoverview">{{threadinfo}}</p>
                 %tempholder = threadname
                 %threadname = threadname.replace("─", " ")
-                %threadname = threadname.replace("∽", "≺")
-                %threadname = threadname.replace("╶ ", "≻")
+                %threadname = threadname.replace("―", "≺")
+                %threadname = threadname.replace("╶", "≻")
                 %threadname = threadname.replace("╾", "?")
                 %threadname = threadname.replace("━", "/")
                 %threadname = threadname.replace("─", "\\")
                 %threadname = threadname.replace("╸", ":")
                 %threadname = threadname.replace("╾", "*")
                 %threadname = threadname.replace("┅", '"')
+                %threadname = threadname.replace("‐", '|')
                 <!--Trådnamnet(titeln) där vi tar bort _____, variabel ifrån python-->
                 <h1 id="singlethreadh1">{{threadname}}</h1>
                 %threadname = tempholder

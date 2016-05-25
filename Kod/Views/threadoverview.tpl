@@ -91,14 +91,15 @@
                     <p class = "tsdatetimeoverview">{{threadinfo}}</p>
                     %tempholder = threadname
                     %threadname = threadname.replace("─", " ")
-                    %threadname = threadname.replace("∽", "≺")
-                    %threadname = threadname.replace("╶ ", "≻")
+                    %threadname = threadname.replace("―", "≺")
+                    %threadname = threadname.replace("╶", "≻")
                     %threadname = threadname.replace("╾", "?")
                     %threadname = threadname.replace("━", "/")
                     %threadname = threadname.replace("─", "\\")
                     %threadname = threadname.replace("╸", ":")
                     %threadname = threadname.replace("╾", "*")
                     %threadname = threadname.replace("┅", '"')
+                    %threadname = threadname.replace("‐", '|')
                     <h2 class = "tsheadlineoverview">{{threadname}}</h2>
                     %threadname = tempholder
                     <!--Kolla vilken extention som bilden har och skriv ut, är det gif används ramverk annars bara <img>-->
