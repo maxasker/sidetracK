@@ -9,7 +9,7 @@
         <link href="{{url('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="container">
+        <div id="feedbackcontainer">
                 <!--Sidetrack logga--> 
                 <div class="main-logotype">
                     <header>
