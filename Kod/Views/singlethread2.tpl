@@ -251,44 +251,62 @@
         </footer>
 		<script>
 				
+	var storedArray = JSON.parse(localStorage.getItem("latest"));
+	
+		
+	if(storedArray === null){
+		var latestArr = [];
+		latestArr.push(window.location.href);
+		localStorage.setItem("latest", JSON.stringify(latestArr));
+		
+	
+	}else{
+		for(var j = 0; j < storedArray.length; j++){
+			var testArr = window.location.href;
+			if(storedArray[j] == testArr){
+				break;
+			
+			}else{
 				var storedArray = JSON.parse(localStorage.getItem("latest"));
-				
-				if (storedArray == null){
-					var latestArr = [];
-					latestArr.push(window.location.href);
-					localStorage.setItem("latest", JSON.stringify(latestArr));
-				}
-				
-				else {
-					var testArr = window.location.href;
-					var i = storedArray.length;
-					while (i--){
-						if(storedArray[i] == testArr){
-							break;
-							}
+				var i = storedArray.length; 
+				switch(i){
+						
+					case 1:
+						var storedArray = JSON.parse(localStorage.getItem("latest")); 
+						storedArray.unshift(window.location.href);
+			  			localStorage.setItem("latest", JSON.stringify(storedArray));
+						break;
 					
-						else{
-							var testArr2 = window.location.href;
-							var j = storedArray.length;
-							if(j === 5){
-								storedArray.pop();
-								storedArray.unshift(window.location.href);
-								localStorage.setItem("latest", JSON.stringify(storedArray));
-								break;
-								
-							}
-							
-							else{
-								storedArray.push(window.location.href);
-								localStorage.setItem("latest", JSON.stringify(storedArray));
-								break;
-							}
-						}
-						
-					}
-						
+					case 2:
+						var storedArray = JSON.parse(localStorage.getItem("latest"));
+						storedArray.unshift(window.location.href);
+			  			localStorage.setItem("latest", JSON.stringify(storedArray));
+						break;
+					
+					case 3:
+						var storedArray = JSON.parse(localStorage.getItem("latest"));
+						storedArray.unshift(window.location.href);
+			  			localStorage.setItem("latest", JSON.stringify(storedArray));
+						break;
+				
+					case 4:
+						var storedArray = JSON.parse(localStorage.getItem("latest"));
+						storedArray.unshift(window.location.href);
+			  			localStorage.setItem("latest", JSON.stringify(storedArray));
+						break;
+					
+					case 5:
+						var storedArray = JSON.parse(localStorage.getItem("latest"));
+						storedArray.pop();
+			  			storedArray.unshift(window.location.href);
+			  			localStorage.setItem("latest", JSON.stringify(storedArray));
+						break;
 					
 				}
+		}
+			break;
+	}
+}
 				
 				
 
