@@ -508,7 +508,7 @@ h2{
 }
 
 .footerindex{
-/*Stylar fothuvudet i Index*/
+/*Stylar fothuvudet*/
         
         color: white;
         text-align: center;
@@ -535,7 +535,7 @@ h2{
 }
 
 .footerindex1{
-    
+/*Stylar fothuvudet*/
       color: white;
         text-align: center;
         background-color: #154175;
@@ -543,11 +543,21 @@ h2{
         float: left;
         position:absolute;
     
-    
-    
+}
+
+#footerindexmain{
+/*Stylar fothuvudet i Index*/
+      color: white;
+        text-align: center;
+        background-color: #154175;
+        width:100%;
+        float: left;
+        bottom: 0;
+        position:absolute;
     
 }
 
+/*Stylar fothuvudet i Index*/
 
 .likebox{
 /*Likebox stylar allt inne i forumtråden i översikten*/
