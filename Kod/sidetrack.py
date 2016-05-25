@@ -20,6 +20,9 @@ threadlistdislike = []
 
 @route('/reportts/<threadcategori>/<threadname>')
 def reportts(threadcategori,threadname):
+    '''
+        reportar ts i singlethread
+    '''
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
     mail.starttls()
@@ -32,6 +35,9 @@ def reportts(threadcategori,threadname):
 
 @route('/report/<threadcategori>/<threadname>/<mapp>/<textfile>')
 def reportcommentsinglethread(threadcategori,threadname,mapp,textfile):
+    '''
+        reportar comment i singlthread
+    '''
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
     mail.starttls()
@@ -44,6 +50,9 @@ def reportcommentsinglethread(threadcategori,threadname,mapp,textfile):
 
 @route('/report/<threadname>/<mapp>/<textfile>')
 def reportcomment(threadname,mapp,textfile):
+    '''
+        reportar comment i threadoverview
+    '''
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
     mail.starttls()
@@ -56,6 +65,9 @@ def reportcomment(threadname,mapp,textfile):
 
 @route('/sendfeedback', method="POST")
 def sendfeedback():
+    '''
+        skickar feedback
+    '''
     feedbacktext = request.forms.get("feedbacktext")
     feedbacksender = request.forms.get("sender")
     if feedbacksender is None:
@@ -94,18 +106,6 @@ def threadshow(threadcategori):
     '''
     threadcategori = threadcategori
     return template("savenewthread", threadcategori=threadcategori)
-
-def convertthreadname(threadname):
-    threadname = threadname.replace("_____", "fuuuccckkk")
-    threadname = threadname.replace("<", "☽")
-    threadname = threadname.replace(">", "-!qda-")
-    threadname = threadname.replace("?", "-!aqw")
-    threadname = threadname.replace("/", "-!kka")
-    threadname = threadname.replace("\\", "-!feo")
-    threadname = threadname.replace(":", "-!ewh")
-    threadname = threadname.replace("*", "-!qbb")
-    threadname = threadname.replace('"', "-!alo")
-    return threadname
 
 @route('/<threadcategori>/thread/<threadname>')
 def lookatsinglethread(threadcategori,threadname):
@@ -165,7 +165,7 @@ def threadoverview(threadcategori,page):
         threadlist2 = threadlistdislike[mini:maxi]
         threadlisttest = threadlistdislike
     #returnerar threadoverview och skickar med threadlist2 och kategorin
-    return template("threadoverview", threads=threadlist2, threadcategori=threadcategori, page=page,threadlisttest=threadlisttest)
+    return template("threadoverview", threads=threadlist2, threadcategori=threadcategori, page=page)
 
 @route('/<threadcategori>/<threadname>/savenewcomment', method="POST")
 def savenewcomment(threadcategori,threadname):
@@ -320,15 +320,7 @@ def createcommentcommentfile(commenttext,threadname,newpath,counter,threadcatego
     newcommentfile.write("\n"+commenttext)
     newcommentfile.close()
     #kollar vilken kategori vi är på och flyttar upp tråden till först i listan
-    if threadcategori == "like":
-        threadlistlike.remove(threadname)
-        threadlistlike.insert(0, threadname)
-    elif threadcategori == "classified":
-        threadlistclassified.remove(threadname)
-        threadlistclassified.insert(0, threadname)
-    elif threadcategori == "dislike":
-        threadlistdislike.remove(threadname)
-        threadlistdislike.insert(0, threadname)
+    sortthreadlistfromcomment(threadname,threadcategori)
     #startar funktionen som sparar eventuell bild
     createcommentcommentimg(threadcategori,threadname,mapp,counter)
 
@@ -345,6 +337,11 @@ def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
     newcommentfile.write("\n"+commenttext)
     newcommentfile.close()
     #kollar vilken kategori den är inne på och lägger den först i listan
+    sortthreadlistfromcomment(threadname,threadcategori)
+    #kör funktionen för att skapa bilden som kanske laddats upp
+    createcommentimg(threadcategori,threadname,counter)
+
+def sortthreadlistfromcomment(threadname,threadcategori):
     if threadcategori == "like":
         threadlistlike.remove(threadname)
         threadlistlike.insert(0, threadname)
@@ -354,10 +351,11 @@ def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
     elif threadcategori == "dislike":
         threadlistdislike.remove(threadname)
         threadlistdislike.insert(0, threadname)
-    #kör funktionen för att skapa bilden som kanske laddats upp
-    createcommentimg(threadcategori,threadname,counter)
 
 def checklangcomment(commenttext):
+    '''
+        wordfilter
+    '''
     text2 = commenttext
     commenttext = ""
     for word in text2.split():
@@ -372,7 +370,7 @@ def checklangcomment(commenttext):
             word = word.replace("whore","lady")
         elif word.lower() == "faggot":
             word = word.lower()
-            word = word.replace("faggot","Cigarette")
+            word = word.replace("faggot","cigarette")
         elif word.lower() == "dyke":
             word = word.lower()
             word = word.replace("dyke","lady")
@@ -383,6 +381,9 @@ def checklangcomment(commenttext):
     return commenttext
 
 def checklangts(text):
+    '''
+        wordfilter
+    '''
     text2 = text
     text = ""
     for word in text2.split():
@@ -397,7 +398,7 @@ def checklangts(text):
             word = word.replace("whore","lady")
         elif word.lower() == "faggot":
             word = word.lower()
-            word = word.replace("faggot","Cigarette")
+            word = word.replace("faggot","cigarette")
         elif word.lower() == "dyke":
             word = word.lower()
             word = word.replace("dyke","lady")
@@ -408,6 +409,9 @@ def checklangts(text):
     return text
 
 def checklangtitle(threadname):
+    '''
+        wordfilter
+    '''
     text2 = threadname
     threadname = ""
     for word in text2.split():
@@ -422,7 +426,7 @@ def checklangtitle(threadname):
             word = word.replace("whore","lady")
         elif word.lower() == "faggot":
             word = word.lower()
-            word = word.replace("faggot","Cigarette")
+            word = word.replace("faggot","cigarette")
         elif word.lower() == "dyke":
             word = word.lower()
             word = word.replace("dyke","lady")
@@ -430,6 +434,19 @@ def checklangtitle(threadname):
             word = word.lower()
             word = word.replace("chink","PoC")
         threadname = threadname + word + " "
+    return threadname
+
+def changethreadname(threadname):
+    threadname = threadname.replace(" ", "─")
+    threadname = threadname.replace("<", "―")
+    threadname = threadname.replace(">", "╶")
+    threadname = threadname.replace("?", "╾")
+    threadname = threadname.replace("/", "━")
+    threadname = threadname.replace("\\", "─")
+    threadname = threadname.replace(":", "╸")
+    threadname = threadname.replace("*", "╾")
+    threadname = threadname.replace('"', "┅")
+    threadname = threadname.replace('|', "‐")
     return threadname
 
 @route('/savenewthread/<threadcategori>', method="POST")
@@ -447,19 +464,9 @@ def savethread(threadcategori):
     if ext not in ('.png','.jpg','.jpeg','.gif'):
         redirect('/errorext')
     #ip = gethostbyname(gethostname())
-    #tar titlen och sparar den
     threadname = request.forms.get(r"title")
     threadname = checklangtitle(threadname)
-    threadname = threadname.replace(" ", "─")
-    threadname = threadname.replace("<", "∽")
-    threadname = threadname.replace(">", "╶ ")
-    threadname = threadname.replace("?", "╾")
-    threadname = threadname.replace("/", "━")
-    threadname = threadname.replace("\\", "─")
-    threadname = threadname.replace(":", "╸")
-    threadname = threadname.replace("*", "╾")
-    threadname = threadname.replace('"', "┅")
-    #threadname = threadname + str(ip)
+    threadname = changethreadname(threadname)
     #tar texten och sparar den
     text = request.forms.get("text")
     text = checklangts(text)
@@ -475,34 +482,38 @@ def savethread(threadcategori):
     if not os.path.exists(newpath):
         os.makedirs(newpath)
     #om det finns en upload så sparar den, extt är bara för att veta vilken extension det är
-    if upload is not None:
-        name, ext = os.path.splitext(upload.filename)
-        #nekar om ext inte är giltig
-        if ext not in ('.png','.jpg','.jpeg','.gif'):
-            redirect('/errorext')
-        extt = str(ext)
-        file_path = "{path}/{file}".format(path=newpath2, file="tsimg" + extt)
-        with open(file_path, 'wb') as open_file:
-            open_file.write(upload.file.read())
+    name, ext = os.path.splitext(upload.filename)
+    #nekar om ext inte är giltig
+    if ext not in ('.png','.jpg','.jpeg','.gif'):
+        redirect('/errorext')
+    extt = str(ext)
+    file_path = "{path}/{file}".format(path=newpath2, file="tsimg" + extt)
+    with open(file_path, 'wb') as open_file:
+        open_file.write(upload.file.read())
     #startar funktionen som sparar tråden och skickar med vilken path, trådnamn, trådtext och datumochtid
     savethreadfile(newpath2,threadname,text,date_time)
     #kollar vilken kategori tråden är i och lägger in tråden längst framme i listan, tar bort sista tråden om det är mer än 100
-    if threadcategori == "like":
-        threadlistlike.insert(0,threadname)
-        if len(threadlistlike) > 100:
-            #KOLLA HÄR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            removed_item = threadlistlike.pop(-1)
-    elif threadcategori == "classified":
-        threadlistclassified.insert(0,threadname)
-        if len(threadlistclassified) > 100:
-            threadlistclassified.pop(-1)
-    elif threadcategori == "dislike":
-        threadlistdislike.insert(0,threadname)
-        if len(threadlistdislike) > 100:
-            threadlistdislike.pop(-1)
+    sortcatlists(threadname,threadcategori)
     #redirectar till den tråden man skapat
     redirect('/{0}/thread/{1}'.format(threadcategori,threadname))
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
+
+def sortcatlists(threadname,threadcategori):
+    if threadcategori == "like":
+        threadlistlike.insert(0,threadname)
+        if len(threadlistlike) > 100:
+            removed_item = threadlistlike.pop(-1)
+            shutil.rmtree('static/threads/{1}/{0}'.format(threadname, threadcategori))
+    elif threadcategori == "classified":
+        threadlistclassified.insert(0,threadname)
+        if len(threadlistclassified) > 100:
+            removed_item = threadlistclassified.pop(-1)
+            shutil.rmtree('static/threads/{1}/{0}'.format(threadname, threadcategori))
+    elif threadcategori == "dislike":
+        threadlistdislike.insert(0,threadname)
+        if len(threadlistdislike) > 100:
+            removed_item = threadlistdislike.pop(-1)
+            shutil.rmtree('static/threads/{1}/{0}'.format(threadname, threadcategori))
 
 @route('/errorext')
 def errorext():
@@ -566,4 +577,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9772, debug=True, reloader=True)
+run(host='localhost', port=9773, debug=True, reloader=True)
