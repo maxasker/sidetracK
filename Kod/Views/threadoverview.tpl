@@ -205,7 +205,7 @@
                         %end
                     </div>
                 
-                        <!--Om det inte är sista kommentaren så skriv ut en break-->
+                        <!--Om det inte är sista kommentaren så skriv ut en break, just nu har vi inte det-->
                         %if not (commentcounter == (commentlimit-1)):
                         
                         %end

@@ -8,6 +8,7 @@ import os
 import sys
 import datetime
 import re
+import shutil
 import smtplib
 from socket import gethostname, gethostbyname
 global threadlistlike
@@ -342,6 +343,9 @@ def createcommentfile(commenttext,threadname,newpath,counter,threadcategori):
     createcommentimg(threadcategori,threadname,counter)
 
 def sortthreadlistfromcomment(threadname,threadcategori):
+    '''
+        sorterar listorna
+    '''
     if threadcategori == "like":
         threadlistlike.remove(threadname)
         threadlistlike.insert(0, threadname)
@@ -463,7 +467,7 @@ def savethread(threadcategori):
     name, ext = os.path.splitext(upload.filename)
     if ext not in ('.png','.jpg','.jpeg','.gif'):
         redirect('/errorext')
-    #ip = gethostbyname(gethostname())
+    #kör trådnamnet igenom våra filter
     threadname = request.forms.get(r"title")
     threadname = checklangtitle(threadname)
     threadname = changethreadname(threadname)
@@ -482,14 +486,15 @@ def savethread(threadcategori):
     if not os.path.exists(newpath):
         os.makedirs(newpath)
     #om det finns en upload så sparar den, extt är bara för att veta vilken extension det är
-    name, ext = os.path.splitext(upload.filename)
-    #nekar om ext inte är giltig
-    if ext not in ('.png','.jpg','.jpeg','.gif'):
-        redirect('/errorext')
     extt = str(ext)
-    file_path = "{path}/{file}".format(path=newpath2, file="tsimg" + extt)
-    with open(file_path, 'wb') as open_file:
-        open_file.write(upload.file.read())
+    file_path = "{path}/{filen}".format(path=newpath2, filen="tsimg" + extt)
+    upload.save(file_path,overwrite=True)
+    #är den för stor så tar vi bort och avbryter
+    size = os.stat(file_path).st_size
+    size = int(size)
+    if size > 4000000:
+        shutil.rmtree('{0}'.format(newpath2))
+        redirect('/errorfilesize')
     #startar funktionen som sparar tråden och skickar med vilken path, trådnamn, trådtext och datumochtid
     savethreadfile(newpath2,threadname,text,date_time)
     #kollar vilken kategori tråden är i och lägger in tråden längst framme i listan, tar bort sista tråden om det är mer än 100
@@ -499,6 +504,9 @@ def savethread(threadcategori):
     return template('singlethread2', threadname=threadname, threadcategori=threadcategori)
 
 def sortcatlists(threadname,threadcategori):
+    '''
+        sorterar listorna
+    '''
     if threadcategori == "like":
         threadlistlike.insert(0,threadname)
         if len(threadlistlike) > 100:
@@ -577,4 +585,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9773, debug=True, reloader=True)
+run(host='localhost', port=9819, debug=True, reloader=True)
