@@ -199,6 +199,7 @@ width:100%;
         width: 80%;
         height: 95%;
         margin-left:10%;
+        min-height: 740px!important;
     
         
        
@@ -531,8 +532,6 @@ h2{
         text-align: center;
         background-color: #154175;
         width:100%;
-        bottom:0px;
-        padding: 1px;
         float: left;
         position:absolute;
     
@@ -1003,6 +1002,7 @@ margin-bottom:60px;
     margin-left:0px;
     margin-left:1%;
     height:90%;
+    
     
 }
     
