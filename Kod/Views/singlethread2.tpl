@@ -261,11 +261,10 @@
 		
 	
 	}else{
-		for(var j = 0; j < storedArray.length; j++){
-			var testArr = window.location.href;
-			if(storedArray[j] == testArr){
-				break;
-			
+		var a = storedArray.indexOf(window.location.href, 0);
+			if(a > -1){
+				
+		
 			}else{
 				var storedArray = JSON.parse(localStorage.getItem("latest"));
 				var i = storedArray.length; 
@@ -276,13 +275,13 @@
 						storedArray.unshift(window.location.href);
 			  			localStorage.setItem("latest", JSON.stringify(storedArray));
 						break;
-					
+			
 					case 2:
 						var storedArray = JSON.parse(localStorage.getItem("latest"));
 						storedArray.unshift(window.location.href);
 			  			localStorage.setItem("latest", JSON.stringify(storedArray));
 						break;
-					
+				
 					case 3:
 						var storedArray = JSON.parse(localStorage.getItem("latest"));
 						storedArray.unshift(window.location.href);
@@ -303,13 +302,13 @@
 						break;
 					
 				}
+			
 		}
-			break;
+			
 	}
-}
-				
-				
 
-			</script>
+
+				
+</script>
     </body>
 </html>
