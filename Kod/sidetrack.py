@@ -256,8 +256,14 @@ def createcommentimg(threadcategori,threadname,counter):
         extt = str(ext)
         #sparar bilden
         file_path = 'static/threads/{0}/{1}/comments/comment{2}/comment1{3}'.format(threadcategori,threadname,counter,extt)
-        with open(file_path, 'wb') as open_file:
-            open_file.write(upload.file.read())
+        upload.save(file_path,overwrite=True)
+        #är den för stor så tar vi bort och avbryter
+        size = os.stat(file_path).st_size
+        size = int(size)
+        if size > 4000000:
+            filepath2 = 'static/threads/{0}/{1}/comments/comment{2}'.format(threadcategori,threadname,counter)
+            shutil.rmtree('{0}'.format(filepath2))
+            redirect('/errorfilesize')
 
 def createcommentcommentimg(threadcategori,threadname,mapp,counter):
     '''
@@ -265,6 +271,7 @@ def createcommentcommentimg(threadcategori,threadname,mapp,counter):
     '''
     upload = request.files.get("commentcommentimg")
     #om upload finns så splitta namn och text och spara den som commentX.ext
+    
     if upload is not None:
         name, ext = os.path.splitext(upload.filename)
         #kollar så att ext är giltig
@@ -272,8 +279,15 @@ def createcommentcommentimg(threadcategori,threadname,mapp,counter):
             return "File extension not allowed."
         extt = str(ext)
         file_path = 'static/threads/{0}/{1}/comments/{2}/comment{3}{4}'.format(threadcategori,threadname,mapp,counter,extt)
-        with open(file_path, 'wb') as open_file:
-            open_file.write(upload.file.read())
+        upload.save(file_path,overwrite=True)
+        #är den för stor så tar vi bort och avbryter
+        size = os.stat(file_path).st_size
+        size = int(size)
+        if size > 4000000:
+            filepath2 = 'static/threads/{0}/{1}/comments/{2}/comment{3}.txt'.format(threadcategori,threadname,mapp,counter)
+            os.remove(file_path)
+            os.remove(filepath2)
+            redirect('/errorfilesize')
 
 def checkifcommentcommentexists(newpath,counter,commenttext,threadname,threadcategori,mapp):
     '''
@@ -585,4 +599,4 @@ def css(filename):
 def server_static(filepath):
     return static_file(filepath, root='static')
 
-run(host='localhost', port=9819, debug=True, reloader=True)
+run(host='localhost', port=9822, debug=True, reloader=True)
