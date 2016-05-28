@@ -134,24 +134,29 @@ label.myLabel input[type="file"] {
 
 
 h1{
+/*Alla h1 som inte har klass eller ID */
     padding:1%;
     width:100%;
 }
 
 .tsheadlineoverview{
+/*Word-break på trådarnas rubriker */
     word-break: break-all;
 }
 
 #singlethreadh1{
+/*Word-break på trådarnas rubriker (Inne i tråden) */
     word-break: break-all;   
 }
 
 p{
+/*Alla p som inte har klass eller ID*/
     padding: 1%;
     text-align: left;
 }
 
 .picbull {
+/*????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????? */
     display: inline-block;
     width:0xp;
 
@@ -174,6 +179,7 @@ width:100%;
     
 }
 #singletslongword{
+/*Styling för att hantera Word-break på långa ord i Singlethread */
     padding:1%;
     text-align: left;
     max-width: 100%;
@@ -229,6 +235,7 @@ width:100%;
 }
 
 .main-logotype:hover{
+/* Styling för on hover på Huvudrubriken "Sidetrack" */
         text-decoration: none;
 }
 
@@ -302,6 +309,7 @@ width:100%;
 
 
 .picposition{
+/*Bredd på bilderna*/
         width:auto;
 
 }
@@ -315,6 +323,7 @@ width:100%;
 }
 
 #threadtitle{
+/*Div box till kategoriknapparna*/
         resize: none;
         padding: 3px;
         width: 800px;
@@ -322,6 +331,7 @@ width:100%;
 }
 
 #threadtext{
+/* ??????????????????????????????????????????????????????????????????????????????????????????????????*/
         resize: none;
         padding: 3px;
         width: 800px;
@@ -330,6 +340,7 @@ width:100%;
 }
 
 #createthreada{
+/*Styling på den stora gröna knappen "Creat new thread*/
         background-color: #3bc718;
         color:white;
         border-radius: 10px;
@@ -404,11 +415,9 @@ width:100%;
         color: white;     
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
+button,input, optgroup,
+select, textarea {
+/*Ärvning av styling */
   margin: 0;
   font: inherit;
   color: inherit;
@@ -444,6 +453,7 @@ textarea {
 }
 
 #ruleslist{
+/* Styling för regelistan på framsida */
         margin-left: 10px;
         display: inline-block;
         text-align: left;
@@ -461,6 +471,7 @@ textarea {
 }
 
 .rules>h2{
+/* Styling för rubriken "Rules" reglerna. */
         margin-left: 10px;
         text-decoration: underline;
 }
@@ -573,7 +584,7 @@ h2{
 
 #tsboxen, .tsboxoverview{
 /*Ger trådarna ram runt om */
-        background-color: #B5BCCB;
+        background-color: #D5D4DB;
         border-style: groove;
         border-color: #154175;
         border-width: thin;
@@ -585,6 +596,7 @@ h2{
 }
 
 #tsboxen>img{
+/* Padding för bild inne i tsboxen-trådrutan */
         padding: 1%;
 }
 
@@ -616,15 +628,18 @@ h2{
 }
 
 .threadcommentoverview{
+/*Vänstermarginal till kommentarrutorna på threadoverview */
         margin-left: 30px;
         
 }
 
 #commenttextid{
-        padding: 0px;
+/* ?????????????????????????????????????????????????????????????????????????????????????????????? */
+    padding: 0px;
 }
 
 .threadcommentoverview>p{
+/* Styling för kommentartexten i threadoverview */
         margin-left:10px;
         max-width: 100%;
         
@@ -650,6 +665,8 @@ h2{
 }
 
 .singleboximg{
+/*Styling på bild inne i tråden */
+
         width: 420px;
         height: auto;
         max-height: 500px;
@@ -701,6 +718,7 @@ h2{
 }
 
 #thelatest>li{
+/* Latest post lista float */
 
     float:none!;
 
@@ -726,10 +744,12 @@ h2{
 }
 
 .likebox>a{
+/*Positin på länk i likebox */
         text-align: right;
 }
 
 .feedbackthanks{
+/* Styling på text i "feedbackthanks" */
 		margin: 0;
 		text-align: center;
         font-size:75px;
@@ -795,7 +815,7 @@ element {
 }
 
 
-/* ---------------------------------------------------*/
+/* --------------------Mobileview----------------------*/
 @media only screen and (max-width: 660px) 
 {
     
@@ -829,11 +849,7 @@ body {
 }
     
     
-    button,
-input,
-optgroup,
-select,
-textarea {
+    button,input,optgroup,select,textarea {
   margin: 0;
   font: inherit;
   color: inherit;
