@@ -1,19 +1,15 @@
-/*Innehållsförteckning:*/
-/* 1. Pers box (Rad 20-147)*/
-/* 2. */
-
 
 html, 
 body {
-    height:     100%;
+        height:     100%;
 
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #333;
-  background-color: #fff;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #333;
+        background-color: #fff;
 }
 
 #elem{
@@ -23,13 +19,13 @@ body {
         height:0px;
 }
 textarea {
-    resize: none;/* completely disable resize */
-    padding: 3px;
-    width: 100%;
+        resize: none;/* completely disable resize */
+        padding: 3px;
+        width: 100%;
 }
 
 #boxbutt{
-    color: aqua; /* Fortsätt härifrån */
+        color: aqua; /* Fortsätt härifrån */
 }
   
 label.myLabel input[type="file"] {
@@ -44,10 +40,10 @@ label.myLabel input[type="file"] {
         resize: none;
 }
 .nav > li > a {
-    display: block;
-    margin-left: 2px;
-    height: 42px;
-    font-size:15px;
+        display: block;
+        margin-left: 2px;
+        height: 42px;
+        font-size:15px;
 }
 
 
@@ -135,67 +131,63 @@ label.myLabel input[type="file"] {
 
 h1{
 /*Alla h1 som inte har klass eller ID */
-    padding:1%;
-    width:100%;
+        padding:1%;
+        width:100%;
 }
 
 .tsheadlineoverview{
 /*Word-break på trådarnas rubriker */
-    word-break: break-all;
+        word-break: break-all;
 }
 
 #singlethreadh1{
 /*Word-break på trådarnas rubriker (Inne i tråden) */
-    word-break: break-all;   
+        word-break: break-all;   
 }
 
 p{
 /*Alla p som inte har klass eller ID*/
-    padding: 1%;
-    text-align: left;
+        padding: 1%;
+        text-align: left;
 }
 
 .picbull {
-/*????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????? */
-    display: inline-block;
-    width:0xp;
+        display: inline-block;
+        width:0xp;
 
 }
 
 #threadcontent, #commenttext{
 /*Behåller trådtext inuti trådboxen i singlethread*/
-    padding:1%;
-    text-align: left;
-    max-width: 100%;
-    word-wrap: break-word;
+        padding:1%;
+        text-align: left;
+        max-width: 100%;
+        word-wrap: break-word;
 
 }
 .threadhead{
 /* fun with divs */
-width:100%;
+        width:100%;
     
-    
-    
-    
+   
 }
 #singletslongword{
 /*Styling för att hantera Word-break på långa ord i Singlethread */
-    padding:1%;
-    text-align: left;
-    max-width: 100%;
-    word-wrap: break-word;
-    word-break: break-all;
+        padding:1%;
+        text-align: left;
+        max-width: 100%;
+        word-wrap: break-word;
+        word-break: break-all;
 }
 
 #tstextoverview{
 /*Behåller trådtext inuti trådboxen i threadoverview*/
-    padding: 1%;
-    
-    word-wrap: break-word;
-    text-align: left;
-    max-width: 100%;
-    overflow:visible;
-    word-break: break-all;
+        padding: 1%;
+        word-wrap: break-word;
+        text-align: left;
+        max-width: 100%;
+        overflow:visible;
+        word-break: break-all;
 
 }
 
@@ -244,7 +236,7 @@ width:100%;
 .nav.nav-pills{
 /* positionering till höger */
     
-    float:right;
+        float:right;
       
 }
 
@@ -418,9 +410,9 @@ width:100%;
 button,input, optgroup,
 select, textarea {
 /*Ärvning av styling */
-  margin: 0;
-  font: inherit;
-  color: inherit;
+        margin: 0;
+        font: inherit;
+        color: inherit;
 }
 
 .replythread:hover{
@@ -540,14 +532,14 @@ h2{
         float: left;
         padding: 0px;
         width: 100%;
-               background-color: #154175;
+        background-color: #154175;
 
        
 }
 
 .footerindex1{
 /*Stylar fothuvudet*/
-      color: white;
+        color: white;
         text-align: center;
         background-color: #154175;
         width:100%;
@@ -558,7 +550,7 @@ h2{
 
 #footerindexmain{
 /*Stylar fothuvudet i Index*/
-      color: white;
+        color: white;
         text-align: center;
         background-color: #154175;
         width:100%;
@@ -624,7 +616,13 @@ h2{
         border-radius: 5px;
         height:auto;
         overflow-x: hidden;
+        word-break: break-all;
         
+}
+
+#tstextoverviewlongword, .commentcomment{
+/*Bryter rad för ord i diven*/
+        word-break: break-all;
 }
 
 .threadcommentoverview{
@@ -634,8 +632,7 @@ h2{
 }
 
 #commenttextid{
-/* ?????????????????????????????????????????????????????????????????????????????????????????????? */
-    padding: 0px;
+        padding: 0px;
 }
 
 .threadcommentoverview>p{
@@ -720,13 +717,14 @@ h2{
 #thelatest>li{
 /* Latest post lista float */
 
-    float:none!;
+        float:none!;
 
     
 }
 
 .pagination{
-/*Styling för knapparna till sidvisning(Föredetta pages)*/
+/*Styling för knapparna till sidvisning(Föredetta pages)/*
+/*Ändrat färgen på pagination i boostrap dokumentet.*/
         clear: both;
         float: left;
         padding: 8px;
@@ -736,12 +734,6 @@ h2{
         
 }
 
-/*Ändrat färgen på pagination i boostrap dokumentet. Fick inte till att ändra härifrån*/
-
-#pages{
-/*Centrerar sidvisning-knapparna*/
-        
-}
 
 .likebox>a{
 /*Positin på länk i likebox */
@@ -763,54 +755,54 @@ h2{
 
 #inputsubmit{
 /*Designar submitknappen rutan i Feedback*/
-    margin-left: 480px;
-    color: white;
-    margin-top: 5px;
-    background-color: #3bc718;
-    border-radius: 5px;
-    border: none;
-    font-size: 20px;
-    box-shadow:0px 2px 3px #000000;
+        margin-left: 480px;
+        color: white;
+        margin-top: 5px;
+        background-color: #3bc718;
+        border-radius: 5px;
+        border: none;
+        font-size: 20px;
+        box-shadow:0px 2px 3px #000000;
 }
 #inputreset{
 /*Designar resetknappen rutan i Feedback*/
-    color: white;
-    margin-top: 5px;
-    background-color: orangered;
-    border-radius: 5px;
-    border: none;
-    box-shadow:0px 2px 3px #000000;
+        color: white;
+        margin-top: 5px;
+        background-color: orangered;
+        border-radius: 5px;
+        border: none;
+        box-shadow:0px 2px 3px #000000;
     
 }
 
 #picbull {
-  outline:none;
+        outline:none;
 }
 
 
 element {
 
-    position: relative;
-    float: left;
-    cursor: pointer;
-    width: calc(auto +20px);
-    max-width: 500px;
-    height: auto;
-    max-height: 500px;
+        position: relative;
+        float: left;
+        cursor: pointer;
+        width: calc(auto +20px);
+        max-width: 500px;
+        height: auto;
+        max-height: 500px;
 
 }
 .commentdatetimeoverview{
     
         width: 30%;
-    display: inline;
-    margin: 0px;
-    padding: 0px;
-    padding-left: 5px;
+        display: inline;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 5px;
 }
         
-    #inputmail{
+#inputmail{
 /*Designar e-mail rutan i Feedback*/
-    width: 40%;
+        width: 40%;
 
 }
 
@@ -822,25 +814,24 @@ element {
     
 html, 
 body {
-    height:     100%;
+        height:     100%;
     
 }
     
-    #abouthead{
+#abouthead{
         
         font-size:25px;
         
-    }
+}
     
-    #about{
+#about{
         
         height:90%;
-        
         font-size:11px;
-    }
+}
     
     
-    #threadtitle{
+#threadtitle{
         resize: none;
         height: auto;
         margin-bottom:0px;
@@ -849,28 +840,28 @@ body {
 }
     
     
-    button,input,optgroup,select,textarea {
-  margin: 0;
-  font: inherit;
-  color: inherit;
-margin-bottom:60px;
+button,input,optgroup,select,textarea {
+        margin: 0;
+        font: inherit;
+        color: inherit;
+        margin-bottom:60px;
 }
     
-    .commentdatetimeoverview{
+.commentdatetimeoverview{
     
         width: 30%;
-    display: inline;
-    margin: 0px;
-    padding: 0px;
-    padding-left: 5px;
-    font-size:10px;
+        display: inline;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 5px;
+        font-size:10px;
 }
     
-    .threadcommentoverview {
-    margin-left:0px;
+.threadcommentoverview {
+        margin-left:0px;
 }
     
-    .footerindex{
+.footerindex{
 /*Stylar fothuvudet i Index*/
         text-align: center;
         background-color: #154175;
@@ -881,7 +872,7 @@ margin-bottom:60px;
         height:10%;
         
 }
-    .footerindex1{
+.footerindex1{
 /*Stylar fothuvudet i Index*/
         text-align: center;
         background-color: #154175;
@@ -895,45 +886,43 @@ margin-bottom:60px;
 }
     
     
-    .commentcomment>p {
-        
-        float:left;
-        
-        
-    }
+.commentcomment>p {
+        float:left; 
     
-    
-    #commenttext {
-        
-        float:left;
-        
-    }
-    
- element.style {
-    width: auto!important;
-    height: 100%;
 }
     
     
-    #form1 {
+#commenttext {
+        
+        float:left;
+        
+}
+    
+ element.style {
+        width: auto!important;
+        height: 100%;
+}
+    
+    
+#form1 {
         
         width:auto;
         height:auto;
         
         
-    }
+}
     
 
-    #inputreset{
+#inputreset{
         
-                margin-top:0px;
-                margin:5px;
-                margin-bottom:0px;
+        margin-top:0px;
+        margin:5px;
+        margin-bottom:0px;
         
         
-    }
+}
     
-    #inputsubmit{
+#inputsubmit{
         
         float:left;
         margin-left:0px;
@@ -941,37 +930,37 @@ margin-bottom:60px;
         
         
         
-    }
+}
     
-    .catpic
-{
-            width: 120px;
-            height: 160px;
+.catpic{
+        width: 120px;
+        height: 160px;
         
 }
    
-    tsimgoverview, .commentimgoverview{
+tsimgoverview, .commentimgoverview{
 /*Stylar så bilderna har fast storlek i trådöversikt*/
         width: 100%;
-    }
-    
-    
-    #inputmail{
-/*Designar e-mail rutan i Feedback*/
-    width: 50%;
-    margin-bottom:-20px;
 }
+    
+    
+#inputmail{
+/*Designar e-mail rutan i Feedback*/
+        width: 50%;
+        margin-bottom:-20px;
+}
+    
 #inputtext{
 /*Designar textrutan rutan i Feedback*/
-    width: 310px;
-    height: 100%;
-    max-height:100px;
+        width: 310px;
+        height: 100%;
+        max-height:100px;
 }
     
     
 
     
-    .top-bar{
+.top-bar{
 /*Styling till Feedback och Om oss knapp*/
        
         width: 40%;
@@ -995,9 +984,9 @@ margin-bottom:60px;
         
 }
 
-    .nav.nav-pills{
+.nav.nav-pills{
 /* positionering till höger */
-    margin-left:-100px;
+        margin-left:-100px;
     
 }
 
@@ -1010,199 +999,183 @@ margin-bottom:60px;
 @media only screen and (max-width: 508px) 
 {
 
-      .threadcommentoverview {
-    margin-left:0px;
+.threadcommentoverview {
+        margin-left:0px;
 }
     
      
-    .commentdatetimeoverview{
+.commentdatetimeoverview{
     
         width: 30%;
-    display: inline;
-    margin: 0px;
-    padding: 0px;
-    padding-left: 5px;
-    font-size:10px;
+        display: inline;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 5px;
+        font-size:10px;
 }
     
-    .likebox {
-    width: 100%;
+.likebox {
+        width: 100%;
   
 }
     
     
-    #container {
-    width: 98%;
-    margin-left:0px;
-    margin-left:1%;
-    height:90%;
+#container {
+        width: 98%;
+        margin-left:0px;
+        margin-left:1%;
+        height:90%;
     
     
 }
     
 .tsreplybuttoverview, .replythread {
-    float: right;
-    background-color: #154175;
-    color: white;
-    border-radius: 5px;
-    border-bottom-right-radius: 0px;
-    height: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    box-shadow: 0px 2px 3px #000000;
+        float: right;
+        background-color: #154175;
+        color: white;
+        border-radius: 5px;
+        border-bottom-right-radius: 0px;
+        height: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        box-shadow: 0px 2px 3px #000000;
 }    
     
-    .tsdatetimeoverview {
-    font-size:10px;
+.tsdatetimeoverview {
+        font-size:10px;
     
     
     
-    }
-    #tsboxen, .tsboxoverview{        
+}
+#tsboxen, .tsboxoverview{        
         width:100%;
         position: relative;
 
         
-    }
+}
     
 
 .singleboximg {
-   width:100%;
+        width:100%;
 }
     
 
    
     
-  #threadtext {
-    width:100%;
-    margin-bottom:0px;
-    height:auto;
+#threadtext {
+        width:100%;
+        margin-bottom:0px;
+        height:auto;
 }
     
     
-    #threadtitle {
-    padding: 3px;
-    width: 100%;
+#threadtitle {
+        padding: 3px;
+        width: 100%;
 }
     
 #pages{
-width:100%;
-font-size: 8px;
-padding:0px;
-margin-left:3%;
+        width:100%;
+        font-size: 8px;
+        padding:0px;
+        margin-left:3%;
 }
-    .top-bar
-    {
-  
-        
-        
-    }
 
-    h2
-    {
+
+h2{
        font-size-adjust: auto;
         
         
-    }
+}
     
     
     
 .nav > li > a {
-    display: block;
+        display: block;
     
     
-    margin-left:2px;
-    height:22px;
+        margin-left:2px;
+        height:22px;
     
-    }
+}
 
 
-    .nav-text
-{  
+.nav-text{  
   
-    text-align: center;
-    
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 10px;
-    text-align: center;
-    
-   
-    
+        text-align: center;
+
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 10px;
+        text-align: center;
+
+
 }
     
-    .nav.nav-pills
-{
     
-    
-}
-   
-    
-    
-    .main-logotype {
-    font-size:30px;
+.main-logotype {
+        font-size:30px;
     
 }
  
     
-    #createthreada {
-    font-size:20px;
-    margin-left:3%;
+#createthreada {
+        font-size:20px;
+        margin-left:3%;
     
     
-    }
+}
 
 #createthreadtext{
-    margin-bottom:90px;
+        margin-bottom:90px;
     
     
     
 }
 
 
-    #latestpost{
-    height:auto;
-    width:88%;
-    float:left;
+#latestpost{
+        height:auto;
+        width:88%;
+        float:left;
 
         
-    }
+}
+    
 #tstextoverview {
-    float:left;
-    padding:3%;
+        float:left;
+        padding:3%;
     
 }
     
     
     
     
-   #latestpost > h2{
+#latestpost > h2{
         
-    font-size:18px;
+        font-size:18px;
         
         
-    }
+}
     
-   #thelatest>li{
-    font-size: 15px;
-    margin-left:3px;
-    list-style-type: none;
-    float:left;
-    padding:5px;
+#thelatest>li{
+        font-size: 15px;
+        margin-left:3px;
+        list-style-type: none;
+        float:left;
+        padding:5px;
 
 }
     
     
     
     
-    .picposition
-{
+.picposition{
      width:auto;
 }
     
     
-.catpic
-{
+.catpic{
      width:auto;
     
 }
@@ -1214,24 +1187,23 @@ margin-left:3%;
 {
     
     
-      .threadcommentoverview {
-    margin-left:0px;
+.threadcommentoverview {
+        margin-left:0px;
 }
      
-    .commentdatetimeoverview{
+.commentdatetimeoverview{
     
         width: 30%;
-    display: inline;
-    margin: 0px;
-    padding: 0px;
-    padding-left: 5px;
-    font-size:10px;
+        display: inline;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 5px;
+        font-size:10px;
 }
     
     
-    .catpic
-{
-     width:90px;
+.catpic{
+        width:90px;
     
 }
     
@@ -1243,23 +1215,22 @@ margin-left:3%;
 @media only screen and (max-width: 350px) 
 {
     
-          .threadcommentoverview {
-    margin-left:0px;
+.threadcommentoverview {
+        margin-left:0px;
 }
  
-    .commentdatetimeoverview{
+.commentdatetimeoverview{
     
         width: 30%;
-    display: inline;
-    margin: 0px;
-    padding: 0px;
-    padding-left: 5px;
-    font-size:10px;
+        display: inline;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 5px;
+        font-size:10px;
 }
         
-    .catpic
-{
-     width:90px;
+.catpic{
+        width:90px;
     
 }
     
